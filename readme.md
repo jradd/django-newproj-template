@@ -183,6 +183,10 @@ This project utilizes seperate settings files for development and production tha
 
 * There are numerous things to update and customize here including the Google Analytics account number, default Facebook Graph API data, creating the favicon and Apple Touch icons and putting them in the locations referenced, TypeKit script files, the name of the site in the ``<title>`` tag and site meta data.
 
+### Stylesheets, JavaScript files, Bash aliases and Git Hooks
+
+If used as intended with Vagrant see the various files and shortcuts created by the [Django New Project Cookbook](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md)
+
 ## Installed Files
 
 This template includes a number of templates and template tags.
