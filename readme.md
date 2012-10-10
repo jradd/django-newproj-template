@@ -1,10 +1,24 @@
-# Vagrant
+# Django New Project Template
+
+Django project template for starting a new project.
+
+## This Template
+
+To start a new project with this template, execute:
+
+    django-admin.py startproject --template=https://github.com/jbergantine/django-newproj-template/zipball/master --extension=py,rst <project_name>
+
+However, this template is intended to be used in conjunction with Vagrant.
+
+## Vagrant
 
 Vagrant offers the ability to create unique virtual machines on a per-project basis. Using Vagrant you can install system-level libraries without conflicting with other projects and share virtual machines with others on your team so you're all using the same thing.
 
 These instructions go through the configuration of a new Ubuntu 64-bit operating system on a Vagrant Box hosted on an Apple Macintosh computer.
 
-Using the Vagrant box requires you to compile SASS, push and pull from Git, and interact with manage.py from within the virtual environment although you can use a text editor or IDE of your choice for editing on your host system via a shared folder and you can access the site through a web browser of your choice by taking advantage of port forwarding between the virtual environment and the host. Additional details on shared folders and port forwarding are provided in the setup instructions.
+Using the Vagrant box requires you to interact with _manage.py_ from within the virtual environment although you can use a text editor or IDE of your choice for editing on your host system via a shared folder and you can access the site through a web browser of your choice by taking advantage of port forwarding between the virtual environment and the host.
+
+This configuration uses a post-merge Git hook to sync/migrate the database and compile SASS, as such managing Git must be done within the virtual environment as well. For simplicity sake it is recommended that SASS stylesheets be compiled within the virtualenvironment and a shortcut is added to the bash profile to help facilitate this.
 
 The Vagrantfile configures a virtual environment to include:
 
@@ -20,7 +34,7 @@ The Vagrantfile configures a virtual environment to include:
 * freetype
 * Xapian
 
-It sets up a new project called myproject in a virtual environment named djangoproj and connects that to a PostgreSQL database called django_db.
+Additionally, the Vagrantfile sets up a new Django project called _myproject_ in a virtual environment named _djangoproj_ and connects that to a PostgreSQL database called _django_db_.
 
 ## Legend
 
@@ -41,7 +55,7 @@ Add a vagrant box (we'll be using Ubuntu Precise Pangolin (12.04 LTS) 64-bit):
 
     (host) $ vagrant box add precise64 http://files.vagrantup.com/precise64.box
     
-## Using Vagrant for projects
+## Usage
 
 Make a directory for the project and change to it, replacing <path_to> with the path to the project and <project_name> with the name of the project.
 
@@ -50,6 +64,8 @@ Make a directory for the project and change to it, replacing <path_to> with the 
 For example, to create a project called 'website' in your home directory:
 
     (host) $ mkdir ~/website && cd $_
+
+When you're all done, this directory will contain a directory named _djangoproj_ that matches up with `/vagrant/.virutalenvs/djangoproj` in the virtual envirionment. Virtualbox keeps the two directories in sync so changes to one will be made in the other.
 
 Init the Vagrant instance, install the [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest) plugin and start up the Vagrant instance.
 
@@ -95,6 +111,7 @@ Verify installation of Python 2.7.3:
 Verify that PostgreSQL was installed correctly by logging into the psql shell and then exiting (if it was installed and configured correctly the following should happen without errors):
 
     (vm) $ psql -h localhost -U postgres --password
+    (vm) $ thisisapassword
     (vm) postgres=# \q
     
 Verify the installation of Xapian with Python bindings by attempting an import (if it installed successfully it should return without errors):
@@ -142,9 +159,3 @@ Label your commits with your name.
 Git saves your email address into the commits you make. GitHub uses the email address to associate your commits with your GitHub account.
 
     (vm) $ git config --global user.email "your_email@youremail.com"
-
-## This Template
-
-To start a new project with this template, execute:
-
-    django-admin.py startproject --template=https://github.com/jbergantine/django-newproj-template/zipball/master --extension=py,rst <project_name>
