@@ -43,6 +43,8 @@ for commands to run inside the VM.
 
 ## Initial setup of Vagrant Base
 
+This step only ever needs to be done once. Once the precise64 box is installed on a system the remaining steps refer to that same box regardless of the project.
+
 Download virtualbox from http://www.virtualbox.org/wiki/Downloads, install dmg.
 
 Download vagrant from http://downloads.vagrantup.com/, install dmg.
