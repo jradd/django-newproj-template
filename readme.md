@@ -34,10 +34,6 @@ The settings file in this template reference django_mobile middleware and templa
 
 Django-NewProj-Cookbook installs django-floppyforms to take advantage of HTML5 form fields to greatly enhance the mobile user experience.
 
-### You will be using memcached.
-
-Django-NewProj-Cookbook installs the necessary packages to take advantage of but does not fully configure memcached for use in the production environment. 
-
 ### You will be using Fabric for deployment.
 
 This template includes a fabfile with a number of pre-configured methods for deployment and server management.
