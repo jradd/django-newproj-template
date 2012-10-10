@@ -160,25 +160,26 @@ Git saves your email address into the commits you make. GitHub uses the email ad
 
     (vm) $ git config --global user.email "your_email@youremail.com"
 
-### Update the newly created settings.py
+### Update the newly created settings files
 
-* Add any additional local sockets to the ``LOCAL_SOCKETS`` constant. This is the switch we use to pick Local vs Remote settings. Run the following code in a Terminal window to copy local sockets to the clipboard: ``python -c "import socket; print socket.gethostname()" | pbcopy``.
+This project utilizes seperate settings files for development and production that both inherit from a common base file.
+
 * Set ``ADMINS`` and ``MANAGERS`` for both local and production.
 * Set ``EMAIL_HOST``, ``EMAIL_HOST_USER``, ``EMAIL_HOST_PASSWORD``, ``DEFAULT_FROM_EMAIL`` values for both local and production.
-* Set ``PASSWORD`` for the local database and all ``DATABASES`` settings for production. Once that's done you will want to run ``syncdb`` and ``migrate``.
+* Set all ``DATABASES`` settings for production.
 * Set ``MEDIA_ROOT``, ``MEDIA_URL``, and ``STATIC_ROOT`` for production.
 * Set production ``CACHES``. (Unless edited out, the default-requirments file installs the necessary Python modules to utilize Memcached on the server but the exact location etc. of that needs to be set here.)
-* Change your ``TIME_ZONE``.
+* Change your ``TIME_ZONE`` if desired.
     
 ### Update the newly created fabfile.py
 
 * Configure the environments and default call to Python as described in the Configuration notes within the file. Read the full configuration and usage notes to understand how the fabfile works with the production environment.
 
-### Update the [500 Error template](#500.html)
+### Update the [500 Error template](#500html)
 
 * Replace ``[email address]`` (2 occurrences) with an email address for the system administrator.
 
-### Update the [base template](#base.html)
+### Update the [base template](#basehtml)
 
 * There are numerous things to update and customize here including the Google Analytics account number, default Facebook Graph API data, creating the favicon and Apple Touch icons and putting them in the locations referenced, TypeKit script files, the name of the site in the ``<title>`` tag and site meta data.
 
