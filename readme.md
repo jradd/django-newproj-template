@@ -10,6 +10,38 @@ To start a new project with this template, execute:
 
 However, this template is intended to be used in conjunction with Vagrant.
 
+## Assumptions
+
+This template sets up a Django project further along the path than just running django-admin.py startproject by making a number of assumptions about your preferences, encouraging a particular dev environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
+
+### You will be using PostgreSQL as your database.
+
+This settings files in this template are explicitly configured to connect to a PostgreSQL server.
+
+Django-NewProj-Cookbook configures your Django project for use with a PostgreSQL database and installs South for database migrations.
+
+### You will be using SASS with the Compass and Susy frameworks.
+
+Django-NewProj-Cookbook installes the Compass and Susy frameworks and [provides a starting point for styling](https://github.com/jbergantine/compass-gesso).
+
+### Your site will be optimized for search engines.
+
+Django-NewProj-Cookbook creates ``sitemaps.xml`` file with initial configuration for static pages that can be further customized to the particular project. Additionally the default requirements of this template install [Django-Robots](https://github.com/jbergantine/django-robots), a small app for creating a robots.txt file.
+
+### You will be developing for use on multiple devices.
+
+The settings file in this template reference django_mobile middleware and templatetags to do device detection for making server or template-level modifications on a platform or device level.
+
+Django-NewProj-Cookbook installs django-floppyforms to take advantage of HTML5 form fields to greatly enhance the mobile user experience.
+
+### You will be using memcached.
+
+Django-NewProj-Cookbook installs the necessary packages to take advantage of but does not fully configure memcached for use in the production environment. 
+
+### You will be using Fabric for deployment.
+
+This template includes a fabfile with a number of pre-configured methods for deployment and server management.
+
 ## Vagrant
 
 Vagrant offers the ability to create unique virtual machines on a per-project basis. Using Vagrant you can install system-level libraries without conflicting with other projects and share virtual machines with others on your team so you're all using the same thing.
