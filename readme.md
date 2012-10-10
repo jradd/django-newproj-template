@@ -298,3 +298,39 @@ _From: http://djangosnippets.org/snippets/17/_
 "Widows" are single words that end up on their own line, thanks to automatic line-breaks. This is an no-no in graphic design, and is especially unsightly in headers and other short bursts of text. This filter automatically replaces the space before the last word of the passed value with a non-breaking space, ensuring there is always at least two words on any given line. Usage is like so:
 
     {{ blog.entry.headline|widont }}
+
+## Vagrant command tips
+
+_Legend:_ `(host)` is for commands to run on the host machine, and `(vm)` is
+for commands to run inside the VM.
+
+* To exit the VM and return to your host machine:
+
+    `(vm) $ exit`
+
+* To shutdown the VM, type:
+
+    `(host) $ vagrant halt`
+
+* To suspend the VM (i.e. freeze the VM's state):
+
+    `(host) $ vagrant suspend`
+
+* Once shutdown or suspended, a VM can be restarted:
+
+    `(host) $ vagrant up`
+
+* To destroy the VM:
+
+    `(host) $ vagrant destroy`
+
+* To check if the VM is currently running:
+
+    `(host) $ vagrant status`
+
+* To re-run the provisioning after the VM has been started (if you have built
+  the VM from scratch):
+
+    `(host) $ vagrant provision`
+
+* More information is available in the [Vagrant documentation](http://vagrantup.com/v1/docs/index.html).
