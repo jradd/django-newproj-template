@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}404 Page Not Found{% endblock %}
+
+{% block bodyid %}error-404{% endblock %}
+
+{% block content %}
+    <h1>Our apologies, the page you requested could not be found.</h1>
+    <p>You probably reached this page because of 
+    {% if request.META.HTTP_REFERER %}
+        {% if "http://www.ask.com" in request.META.HTTP_REFERER or "http://www.google" in request.META.HTTP_REFERER or "search.yahoo.com" in request.META.HTTP_REFERER or "http://www.bing.com" in request.META.HTTP_REFERER %}
+            an outdated search engine listing.
+        {% else %}
+            an outdated or broken link. You may wish to contact the person responsible for the link to let them know that it does not work.
+        {% endif %}
+    {% else %}
+        a mistyped URL. If you typed the URL directly into the address bar double check that it looks right. If you clicked on a bookmark you may wish to double check the bookmark or re-bookmark the page.
+    {% endif %}
+    </p>
+{% endblock %}

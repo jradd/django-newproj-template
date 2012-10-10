@@ -1,0 +1,9 @@
+.DS_Store
+src/*
+*.pyc
+*/media
+*/static
+*/static_media/CACHE/*
+*/static_media/stylesheets/.sass-cache/*
+*/static_media/stylesheets/stylesheets/*
+*/xapian

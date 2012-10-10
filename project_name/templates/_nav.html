@@ -1,0 +1,9 @@
+{% comment %} Load Nav from Template Tags {% endcomment %}{% load nav %}
+<nav>
+    <ol>
+        {% if flavour == "mobile" %}
+            <li class="back-to-top"><a href="#site_header">Back to Top</a></li>
+        {% endif %}
+        <li{% if nav.home %} class="selected"{% endif %}><a href="{% url home %}" rel="home" accesskey="1">Home</a></li>
+    </ol>
+</nav>
