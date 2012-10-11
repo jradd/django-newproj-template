@@ -26,13 +26,15 @@ Django-NewProj-Cookbook installes the Compass and Susy frameworks and [provides 
 
 ### Your site will be optimized for search engines.
 
-Django-NewProj-Cookbook creates ``sitemaps.xml`` file with initial configuration for static pages that can be further customized to the particular project. Additionally the default requirements of this template install [Django-Robots](https://github.com/jbergantine/django-robots), a small app for creating a robots.txt file.
+This template includes a sitemaps module (``sitemaps.py``) which is initially configured to create a sitemaps XML file referencing "static" pages of a site but which can be expanded to most any application. The sitemap module is imported into ``urls.py`` which sets up routing. 
+
+This template also installs [Django-Robots](https://github.com/jbergantine/django-robots), a small app for creating a robots.txt file.
 
 ### You will be developing for use on multiple devices.
 
-The settings file in this template reference django_mobile middleware and templatetags to do device detection for making server or template-level modifications on a platform or device level.
+The settings file in this template reference [django_mobile](https://github.com/gregmuellegger/django-mobile) middleware and templatetags to do device detection for making server or template-level modifications on a platform or device level.
 
-Django-NewProj-Cookbook installs django-floppyforms to take advantage of HTML5 form fields to greatly enhance the mobile user experience.
+Django-NewProj-Cookbook installs [django-floppyforms](https://github.com/brutasse/django-floppyforms) to take advantage of HTML5 form fields to greatly enhance the mobile user experience.
 
 ### You will be using Fabric for deployment.
 
