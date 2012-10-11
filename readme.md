@@ -46,6 +46,10 @@ The settings file in this template reference [django_mobile](https://github.com/
 
 This template includes a fabfile with a number of pre-configured methods for deployment and server management.
 
+### Other applications
+
+Review ``stable-req.txt`` for other default applicaiton choices.
+
 ## Vagrant
 
 Vagrant offers the ability to create unique virtual machines on a per-project basis. Using Vagrant you can install system-level libraries without conflicting with other projects and share virtual machines with others on your team so you're all using the same thing.
