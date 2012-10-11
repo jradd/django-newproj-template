@@ -12,11 +12,11 @@ However, this template is intended to be used in conjunction with Vagrant.
 
 ## Assumptions
 
-This template sets up a number of sane defaults for ``django-admin.py startproject`` by making a number of assumptions about your preferences, encouraging a particular dev environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
+This template sets up a number of defaults for ``django-admin.py startproject`` by making a number of assumptions about your preferences, application choices, encouraging a particular dev environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
 
 ### You will be using seperate settings files for development and production.
 
-This template sets up seperate development and production settings file that inherit from a common base settings file.
+This template sets up seperate development and production settings files that inherit from a common base settings file.
 
 [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) configures postactivate and postdeactivate virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development. Something similar will need to be done in production.
 
