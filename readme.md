@@ -347,33 +347,33 @@ _From: http://djangosnippets.org/snippets/17/_
 
 ## Vagrant command tips
 
-* To exit the VM and return to your host machine:
+### To exit the VM and return to your host machine:
 
-    `(vm) $ exit`
+    (vm) $ exit
 
-* To shutdown the VM, type:
+### To shutdown the VM, type:
 
-    `(host) $ vagrant halt`
+    (host) $ vagrant halt
 
-* To suspend the VM (i.e. freeze the VM's state):
+### To suspend the VM (i.e. freeze the VM's state):
 
-    `(host) $ vagrant suspend`
+    (host) $ vagrant suspend
 
-* Once shutdown or suspended, a VM can be restarted:
+### Once shutdown or suspended, a VM can be restarted:
 
-    `(host) $ vagrant up`
+    (host) $ vagrant up
 
-* To destroy the VM:
+### To destroy the VM:
 
-    `(host) $ vagrant destroy`
+    (host) $ vagrant destroy
 
-* To check if the VM is currently running:
+### To check if the VM is currently running:
 
-    `(host) $ vagrant status`
+    (host) $ vagrant status
 
-* To re-run the provisioning after the VM has been started (if you have built
+### To re-run the provisioning after the VM has been started (if you have built
   the VM from scratch):
 
-    `(host) $ vagrant provision`
+    (host) $ vagrant provision
 
-* More information is available in the [Vagrant documentation](http://vagrantup.com/v1/docs/index.html).
+More information is available in the [Vagrant documentation](http://vagrantup.com/v1/docs/index.html).
