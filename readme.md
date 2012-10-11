@@ -28,7 +28,7 @@ This settings files in this template are explicitly configured to connect to a P
 
 ### You will be using SASS with the Compass and Susy frameworks.
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installes the Compass and Susy frameworks and [provides a starting point for styling](https://github.com/jbergantine/compass-gesso).
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs the Compass and Susy frameworks and [provides a starting point for styling](https://github.com/jbergantine/compass-gesso).
 
 ### Your site will be optimized for search engines.
 
