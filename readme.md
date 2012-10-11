@@ -14,15 +14,21 @@ However, this template is intended to be used in conjunction with Vagrant.
 
 This template sets up a Django project further along the path than just running django-admin.py startproject by making a number of assumptions about your preferences, encouraging a particular dev environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
 
+### You will be using seperate settings files for development and production.
+
+This template sets up seperate development and production settings file that inherit from a common base settings file.
+
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) configures postactivate and postdeactivate virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development. Something similar will need to be done in production.
+
 ### You will be using PostgreSQL as your database.
 
 This settings files in this template are explicitly configured to connect to a PostgreSQL server.
 
-Django-NewProj-Cookbook configures your Django project for use with a PostgreSQL database and installs South for database migrations.
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) configures your Django project for use with a PostgreSQL database and installs South for database migrations.
 
 ### You will be using SASS with the Compass and Susy frameworks.
 
-Django-NewProj-Cookbook installes the Compass and Susy frameworks and [provides a starting point for styling](https://github.com/jbergantine/compass-gesso).
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installes the Compass and Susy frameworks and [provides a starting point for styling](https://github.com/jbergantine/compass-gesso).
 
 ### Your site will be optimized for search engines.
 
@@ -34,7 +40,7 @@ This template also installs [Django-Robots](https://github.com/jbergantine/djang
 
 The settings file in this template reference [django_mobile](https://github.com/gregmuellegger/django-mobile) middleware and templatetags to do device detection for making server or template-level modifications on a platform or device level.
 
-Django-NewProj-Cookbook installs [django-floppyforms](https://github.com/brutasse/django-floppyforms) to take advantage of HTML5 form fields to greatly enhance the mobile user experience.
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs [django-floppyforms](https://github.com/brutasse/django-floppyforms) to take advantage of HTML5 form fields to greatly enhance the mobile user experience.
 
 ### You will be using Fabric for deployment.
 
