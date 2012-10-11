@@ -34,6 +34,7 @@ Vagrant::Config.run do |config|
       # git 
       chef.add_recipe "git"
       # python plus pip and virtualenv
+      chef.add_recipe "python::python-dev"
       chef.add_recipe "python::pip"
       chef.add_recipe "python::virtualenv"
       # zlib, libjpeg, and libfreetype are necessary for PIL

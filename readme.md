@@ -159,6 +159,10 @@ Verify the installation of Compass and Susy by verifying their existance in the 
 
     (vm) $ gem list | grep compass
     (vm) $ gem list | grep susy
+    
+Verify the installed Python Ubuntu packages:
+
+    (vm) $ dpkg --get-selections | grep python
 
 ### Setup SSH Keys
 
