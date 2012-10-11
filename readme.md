@@ -347,9 +347,6 @@ _From: http://djangosnippets.org/snippets/17/_
 
 ## Vagrant command tips
 
-_Legend:_ `(host)` is for commands to run on the host machine, and `(vm)` is
-for commands to run inside the VM.
-
 * To exit the VM and return to your host machine:
 
     `(vm) $ exit`
