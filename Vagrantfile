@@ -42,8 +42,6 @@ Vagrant::Config.run do |config|
       chef.add_recipe "chef-cookbook-libfreetype"
       # xapian plain text search engine
       chef.add_recipe "chef-cookbook-xapian"
-      # tie it all together
-      chef.add_recipe "chef-cookbook-djangonewproj"
   
       # Assign the password 'thisisapassword' to psql user 'postgres'
       # Set the default python version to 2.7.3
@@ -64,6 +62,9 @@ Vagrant::Config.run do |config|
           :distribute_install_py_version => '2.7'
         }
       }
+
+      # tie it all together
+      chef.add_recipe "chef-cookbook-djangonewproj"
     end
   end
 end
