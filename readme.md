@@ -227,7 +227,7 @@ This project utilizes seperate settings files for development and production tha
 
 ### Stylesheets, JavaScript files, Bash aliases and Git Hooks
 
-If used as intended with Vagrant see the various files and shortcuts created by the [Django New Project Cookbook](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md)
+If used as intended with Vagrant see the various files and shortcuts created by the [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md)
 
 ## Port Forwarding
 
@@ -235,7 +235,7 @@ The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on th
 
     python manage.py runserver [::]:8000
 
-Chef-Cookbook-DjangoNewProj sets up a [bash alias](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md#django) to avoid keyboard fatigue when running this command.
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj/) sets up a [bash alias](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md#django) to avoid keyboard fatigue when running this command.
 
 ## Installed Files
 
