@@ -101,7 +101,7 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'django_extensions',
     'django_robots',
-    '{{ project_name }.templatetags',
+    '{{ project_name }}.templatetags',
     'django_mobile',
     'braces',
     'floppyforms',
