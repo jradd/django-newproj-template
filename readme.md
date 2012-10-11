@@ -130,7 +130,7 @@ Clone the Chef cookbooks repositories as needed (we will use the following cookb
 
 Back out of the ``cookbooks`` directory and copy in the Template's Vagrantfile.
     
-    (host) $ cd ../; curl -O https://raw.github.com/jbergantine/django-newproj-template/master/Vagrantfile
+    (host) $ cd ../; curl https://raw.github.com/gist/3875868/84200ba8ea48a96b2fe87cc39dc15aaa8b6f53e9/gistfile1.rb > Vagrantfile
 
 Startup Vagrant and install cookbooks (first time through), use ``$ vagrant provision`` instead if you mess something up and have to go through it again:
 
