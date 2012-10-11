@@ -235,7 +235,7 @@ The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on th
 
     python manage.py runserver [::]:8000
 
-[There's a bash alias setup to avoid keyboard fatigue when running this command.](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md#django)
+Chef-Cookbook-DjangoNewProj sets up a [bash alias](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md#django) to avoid keyboard fatigue when running this command.
 
 ## Installed Files
 
