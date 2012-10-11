@@ -119,7 +119,6 @@ Clone the Chef cookbooks repositories as needed (we will use the following cookb
     (host) $ git clone git://github.com/opscode-cookbooks/build-essential.git
     (host) $ git clone git://github.com/opscode-cookbooks/git.git
     (host) $ git clone git://github.com/opscode-cookbooks/openssl.git
-    (host) $ git clone git://github.com/opscode-cookbooks/vim.git
     (host) $ git clone git://github.com/opscode-cookbooks/postgresql.git
     (host) $ git clone git://github.com/opscode-cookbooks/python.git
     (host) $ git clone git://github.com/opscode-cookbooks/zlib.git

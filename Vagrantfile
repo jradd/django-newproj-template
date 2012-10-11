@@ -31,9 +31,8 @@ Vagrant::Config.run do |config|
       # postgresql database server
       chef.add_recipe "postgresql::client"
       chef.add_recipe "postgresql::server"
-      # git and vim for virtual environment editing
+      # git 
       chef.add_recipe "git"
-      chef.add_recipe "vim"
       # python plus pip and virtualenv
       chef.add_recipe "python::pip"
       chef.add_recipe "python::virtualenv"
