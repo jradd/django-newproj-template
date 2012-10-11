@@ -18,7 +18,7 @@ This template sets up a number of defaults for ``django-admin.py startproject`` 
 
 This template sets up seperate development and production settings files that inherit from a common base settings file.
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) configures postactivate and postdeactivate virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development. Something similar will need to be done in production.
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) configures postactivate and postdeactivate virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development so the ``--settings=`` flag doesn't need to be explicitly used. Something similar will need to be done in production.
 
 ### You will be using PostgreSQL as your database.
 
