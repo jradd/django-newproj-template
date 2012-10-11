@@ -109,11 +109,6 @@ For example, to create a project called 'website' in your home directory:
 
 When you're all done, this directory will contain a directory named _djangoproj_ that matches up with `/vagrant/.virutalenvs/djangoproj` in the virtual envirionment. Virtualbox keeps the two directories in sync so changes to one will be made in the other.
 
-Init the Vagrant instance, install the [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest) plugin and start up the Vagrant instance.
-
-    (host) $ vagrant init precise64
-    (host) $ vagrant gem install vagrant-vbguest
-    
 Create a place for the Chef cookbooks. From within the base directory run:
     
     (host) $ mkdir cookbooks && cd $_
@@ -133,14 +128,14 @@ Clone the Chef cookbooks repositories as needed (we will use the following cookb
     (host) $ git clone git://github.com/jbergantine/chef-cookbook-xapian.git
     (host) $ git clone git://github.com/jbergantine/chef-cookbook-djangonewproj.git
 
-Startup Vagrant:
+Back out of the ``cookbooks`` directory and copy in the Template's Vagrantfile.
+    
+    (host) $ cd ../; curl -O https://raw.github.com/jbergantine/django-newproj-template/master/Vagrantfile
+
+Startup Vagrant and install cookbooks (first time through), use ``$ vagrant provision`` instead if you mess something up and have to go through it again:
 
     (host) $ vagrant up
 
-Provision Vagrant (install all those cookbooks):
-
-    (host) $ vagrant provision
-    
 SSH in to the virtualbox:
 
     (host) $ vagrant ssh 
