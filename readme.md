@@ -371,8 +371,7 @@ _From: http://djangosnippets.org/snippets/17/_
 
     (host) $ vagrant status
 
-### To re-run the provisioning after the VM has been started (if you have built
-  the VM from scratch):
+### To re-run the provisioning after the VM has been started (if you have built the VM from scratch):
 
     (host) $ vagrant provision
 
