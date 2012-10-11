@@ -228,6 +228,18 @@ This project utilizes seperate settings files for development and production tha
 
 If used as intended with Vagrant see the various files and shortcuts created by the [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md)
 
+### From Here
+
+#### Do an initial Git commit 
+
+    (vm) $ git add -A
+    (vm) $ git commit -am "initial commit"
+
+#### Syndb and migrate
+
+    (vm) $ dj syncdb
+    (vm) $ dj migrate
+
 ## Port Forwarding
 
 The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on the host. In order to access the site in a browser on the host from ``runserver`` on the virtual environment you need to add a port configuration to the command:
