@@ -239,7 +239,7 @@ The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on th
 
 ## Installed Files
 
-This template includes a number of templates and template tags.
+This template includes a number of HTML templates and template tags.
 
 ### Templates Created
 
