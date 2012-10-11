@@ -12,7 +12,7 @@ However, this template is intended to be used in conjunction with Vagrant.
 
 ## Assumptions
 
-This template sets up a Django project further along the path than just running django-admin.py startproject by making a number of assumptions about your preferences, encouraging a particular dev environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
+This template sets up a number of sane defaults for ``django-admin.py startproject`` by making a number of assumptions about your preferences, encouraging a particular dev environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
 
 ### You will be using seperate settings files for development and production.
 
