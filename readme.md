@@ -122,6 +122,7 @@ Clone the Chef cookbooks repositories as needed (we will use the following cookb
     (host) $ git clone git://github.com/opscode-cookbooks/postgresql.git
     (host) $ git clone git://github.com/opscode-cookbooks/python.git
     (host) $ git clone git://github.com/opscode-cookbooks/zlib.git
+    (host) $ git clone git://github.com/jbergantine/chef-cookbook-python-psycopg2.git
     (host) $ git clone git://github.com/jbergantine/chef-cookbook-libjpeg.git
     (host) $ git clone git://github.com/jbergantine/chef-cookbook-libfreetype.git
     (host) $ git clone git://github.com/jbergantine/chef-cookbook-xapian.git
