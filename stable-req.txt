@@ -24,8 +24,7 @@ South
 # PostgreSQL
 # Psycopg2.4.2 has issues with tests in Django 1.3.X
 # https://code.djangoproject.com/ticket/16250
-#! This should already be installed.
-#psycopg2
+psycopg2
 
 # MySQL
 #msyqldb
