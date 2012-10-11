@@ -229,6 +229,14 @@ This project utilizes seperate settings files for development and production tha
 
 If used as intended with Vagrant see the various files and shortcuts created by the [Django New Project Cookbook](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md)
 
+## Port Forwarding
+
+The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on the host. In order to access the site in a browser on the host from ``runserver`` on the virtual environment you need to add a port configuration to the command:
+
+    python manage.py runserver [::]:8000
+
+[There's a bash alias setup to avoid keyboard fatigue when running this command.](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md#django)
+
 ## Installed Files
 
 This template includes a number of templates and template tags.
