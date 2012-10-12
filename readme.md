@@ -443,18 +443,26 @@ As in:
 
     (vm) $ pip freeze > requirements.txt
     
-### Install a new package
+### Install a new package:
  
     (vm) $ pip install <package_name>
     
-### Upgrade a package that is alrady installed
+### Upgrade a package that is alrady installed:
 
     (vm) $ pip install <package_name> --upgrade
     
-### Install all the packages listed in a file
+### Install a specific version of a package (where x.x.x is the version number):
+
+    (vm) $ pip install <package_name>==x.x.x
+    
+### Install all the packages listed in a file:
 
     (vm) pip install -r <path_to_file>
     
 As in:
 
     (vm) $ pip install -r requirements.txt
+    
+### Uninstall a package:
+
+    (vm) $ pip uninstall <package_name>
