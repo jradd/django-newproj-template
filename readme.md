@@ -441,7 +441,7 @@ More information is available in the [Vagrant documentation](http://vagrantup.co
 
 ## VirtualenvWrapper Command Tips
 
-Replacing <virtualenv_name> with the name of the virtual environement (IE: djangoproj).
+Replacing `<virtualenv_name>` with the name of the virtual environement (IE: djangoproj).
 
 ### To make a virtual environment:
 
