@@ -85,7 +85,7 @@ Chef-Cookbook-DjangoNewProj installs Xapian with Python bindings. You will have 
 
 ### Optionally, you will be using PIL and possibly SORL-Thumbnail.
 
-Chef-Cookbook-DjangoNewProj installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL (you will have to still install the _pil_ Python package, however. To use SORL-Thumbnail you will have to install the _pil_ and _sorl-thumbanil_ Python packages.
+Chef-Cookbook-DjangoNewProj installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL (you will have to still install the _pil_ Python package, however). To use SORL-Thumbnail you will have to install the _pil_ and _sorl-thumbanil_ Python packages and configure the project as appropriate.
 
 ### Other applications
 
