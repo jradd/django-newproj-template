@@ -33,7 +33,7 @@ The [Vagrantfile](https://gist.github.com/3875868) configures a virtual environm
 * zlib
 * Xapian
 
-Additionally, the [Vagrantfile](https://gist.github.com/3875868) calls on a Cookbook[(Chef-Cookbook-DjangoNewProj)](https://github.com/jbergantine/chef-cookbook-djangonewproj) intended to be used with this project which sets up a new Django project called _myproject_ in a virtual environment named _djangoproj_ and connects that to a PostgreSQL database called _django_db_.
+Additionally, the [Vagrantfile](https://gist.github.com/3875868) installs the recipes from a Chef Cookbook [(Chef-Cookbook-DjangoNewProj)](https://github.com/jbergantine/chef-cookbook-djangonewproj) intended to be used with this project which sets up a new Django project called _myproject_ in a virtual environment named _djangoproj_ and connects that to a PostgreSQL database called _django_db_.
 
 ## Assumptions
 
@@ -51,17 +51,17 @@ These are defacto standards for Python development. Virtualenv allows you to hav
 
 This template sets up seperate development and production settings files that inherit from a common base settings file.
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) configures postactivate and postdeactivate virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development so the ``--settings=`` flag doesn't need to be explicitly used. Something similar will need to be done in production.
+Chef-Cookbook-DjangoNewProj configures postactivate and postdeactivate virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development so the ``--settings=`` flag doesn't need to be explicitly used. Something similar will need to be done in production.
 
 ### You will be using PostgreSQL as your database and South for database migrations.
 
 This settings files in this template are explicitly configured to connect to a PostgreSQL server.
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) configures your Django project for use with a PostgreSQL database (_django\_db_) which it installs along with a user (_django\_login_) for said database and installs South for database migrations.
+Chef-Cookbook-DjangoNewProj configures your Django project for use with a PostgreSQL database (_django\_db_) which it installs along with a user (_django\_login_) for said database and installs South for database migrations.
 
 ### You will be using SASS with the Compass and Susy frameworks.
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs and configures the [Compass](http://compass-style.org) and [Susy](http://susy.oddbird.net) frameworks to work together and use the SASS syntax and, as well, [lays down a primer coat to build off of](https://github.com/jbergantine/compass-gesso).
+Chef-Cookbook-DjangoNewProj installs and configures the [Compass](http://compass-style.org) and [Susy](http://susy.oddbird.net) frameworks to work together and use the SASS syntax and, as well, [lays down a primer coat to build off of](https://github.com/jbergantine/compass-gesso).
 
 ### Your site will be optimized for search engines.
 
@@ -73,7 +73,7 @@ This template also installs [Django-Robots](https://github.com/jbergantine/djang
 
 The settings file in this template reference [django_mobile](https://github.com/gregmuellegger/django-mobile) middleware and templatetags to do device detection for making server or template-level modifications on a platform or device level.
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs [django-floppyforms](https://github.com/brutasse/django-floppyforms) to take advantage of HTML5 form fields to greatly enhance the mobile user experience.
+Chef-Cookbook-DjangoNewProj installs [django-floppyforms](https://github.com/brutasse/django-floppyforms) to take advantage of HTML5 form fields to greatly enhance the mobile user experience.
 
 ### You will be using Fabric for deployment.
 
@@ -81,19 +81,19 @@ This template includes a fabfile with a number of pre-configured methods for dep
 
 ### You will be using jQuery
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs the latest version of jQuery which the HTML templates reference.
+Chef-Cookbook-DjangoNewProj installs the latest version of jQuery which the HTML templates reference.
 
 ### You will be using an HTML5 Doctype
 
-By default the [base.html](#basehtml) template has an HTML5 doctype. For backwards compatibility [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs modernizr.js with IEPP which is an HTML5 shiv for older versions of Internet Explorer to keep them from puking. Finally [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs [compass-gesso](https://github.com/jbergantine/compass-gesso) which instantiates the compass [``+global-reset`` mixin](http://compass-style.org/reference/compass/reset/utilities/#mixin-global-reset) which resets HTML5 element's display-roles for older browsers.
+By default the [base.html](#basehtml) template has an HTML5 doctype. For backwards compatibility Chef-Cookbook-DjangoNewProj installs modernizr.js with IEPP which is an HTML5 shiv for older versions of Internet Explorer to keep them from puking. Finally [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs [compass-gesso](https://github.com/jbergantine/compass-gesso) which instantiates the compass [``+global-reset`` mixin](http://compass-style.org/reference/compass/reset/utilities/#mixin-global-reset) which resets HTML5 element's display-roles for older browsers.
 
 ### Optionally, you will be using Xapian for plain text search.
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs Xapian with Python bindings. You will have to additionally install the ``django-haystack`` and ``xapian-haystack`` packages and configure the project to use this.
+Chef-Cookbook-DjangoNewProj installs Xapian with Python bindings. You will have to additionally install the ``django-haystack`` and ``xapian-haystack`` packages and configure the project to use this.
 
 ### Optionally, you will be using PIL and possibly SORL-Thumbnail.
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL. To use SORL-Thumbnail you will have to install the ``pil`` and ``sorl-thumbanil`` Python packages.
+Chef-Cookbook-DjangoNewProj installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL. To use SORL-Thumbnail you will have to install the ``pil`` and ``sorl-thumbanil`` Python packages.
 
 ### Other applications
 
