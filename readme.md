@@ -126,7 +126,7 @@ For example, to create a project called 'website' in your home directory:
 
     (host) $ mkdir ~/website && cd $_
 
-When you're all done, this directory will contain a directory named _myproject_ that matches up with _/vagrant/myproject_ in the virtual envirionment. Virtualbox keeps the two directories in sync so changes to one will be made in the other. This directory contains Django's _manage.py_ file as well as the project's fabfile and PIP requirements doc. Within it is a second _myproject_ directory which contains the Django project.
+When you're all done, this directory will contain a directory named _myproject_ that matches up with _/vagrant/myproject_ in the virtual envirionment. Virtualbox keeps the two directories in sync so changes to one will be made in the other. This directory contains Django's _manage.py_ file as well as the project's fabfile and PIP requirements doc. Within it is a second _myproject_ directory which contains the Django project. On your host launch the text editor of your choice (Panic Coda, TextMate, Sublime, whatever), make edits to any of these files and those edits will be reflected in the virtual environment immediately.
 
 Create a place for the Chef cookbooks. From within the Vagrant project directory on the host run the following command.
 
