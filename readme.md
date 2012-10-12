@@ -37,7 +37,7 @@ Additionally, the Vagrantfile installs the recipes from a Chef Cookbook [(Chef-C
 
 ## Assumptions
 
-This template sets up a number of defaults for ``django-admin.py startproject`` by making a number of assumptions about your preferences, application choices, encouraging a particular dev environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
+This template sets up a number of defaults for `django-admin.py startproject` by making a number of assumptions about your preferences, application choices, encouraging a particular dev environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
 
 ### You will be using Git for Version Control.
 
@@ -47,11 +47,11 @@ This should be obvious by now.
 
 These are defacto standards for Python development. Virtualenv allows you to have multiple versions of packages installed on one machine which it collects into sets called "virtual environments". PIP is a package manager for installing, updating and removing packages.
 
-### You will be using seperate settings files for development and production.
+### You will be using separate settings files for development and production.
 
-This template sets up seperate development and production settings files that inherit from a common base settings file.
+This template sets up separate development and production settings files that inherit from a common base settings file.
 
-Chef-Cookbook-DjangoNewProj configures postactivate and postdeactivate virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development so the ``--settings=`` flag doesn't need to be explicitly used. Something similar will need to be done in production.
+Chef-Cookbook-DjangoNewProj configures postactivate and postdeactivate virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development so the `--settings=` flag doesn't need to be explicitly used. Something similar will need to be done in production.
 
 ### You will be using PostgreSQL as your database and South for database migrations.
 
@@ -59,13 +59,9 @@ This settings files in this template are explicitly configured to connect to a P
 
 Chef-Cookbook-DjangoNewProj configures your Django project for use with a PostgreSQL database (_django\_db_) which it installs along with a user (_django\_login_) for said database and installs South for database migrations.
 
-### You will be using SASS with the Compass and Susy frameworks.
-
-Chef-Cookbook-DjangoNewProj installs and configures the [Compass](http://compass-style.org) and [Susy](http://susy.oddbird.net) frameworks to work together and use the SASS syntax and, as well, [lays down a primer coat to build off of](https://github.com/jbergantine/compass-gesso).
-
 ### Your site will be optimized for search engines.
 
-This template includes a sitemaps module (``sitemaps.py``) which is initially configured to create a sitemaps XML file referencing "static" pages of a site but which can be expanded to most any application. The sitemap module is imported into ``urls.py`` which sets up routing. 
+This template includes a sitemaps module (`sitemaps.py`) which is initially configured to create a sitemaps XML file referencing "static" pages of a site but which can be expanded to most any application. The sitemap module is imported into `urls.py` which sets up routing. 
 
 This template also installs [Django-Robots](https://github.com/jbergantine/django-robots), a small app for creating a robots.txt file.
 
@@ -79,25 +75,21 @@ Chef-Cookbook-DjangoNewProj installs [django-floppyforms](https://github.com/bru
 
 This template includes a fabfile with a number of pre-configured methods for deployment and server management.
 
-### You will be using jQuery
-
-Chef-Cookbook-DjangoNewProj installs the latest version of jQuery which the HTML templates reference.
-
 ### You will be using an HTML5 Doctype
 
-By default the [base.html](#basehtml) template has an HTML5 doctype. For backwards compatibility Chef-Cookbook-DjangoNewProj installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. Finally [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs [compass-gesso](https://github.com/jbergantine/compass-gesso) which instantiates the compass [``+global-reset`` mixin](http://compass-style.org/reference/compass/reset/utilities/#mixin-global-reset) which resets HTML5 element's display-roles for older browsers.
+By default the [base.html](#basehtml) template has an HTML5 doctype. For backwards compatibility Chef-Cookbook-DjangoNewProj installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. Finally [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs [compass-gesso](https://github.com/jbergantine/compass-gesso) which instantiates the compass [`+global-reset` mixin](http://compass-style.org/reference/compass/reset/utilities/#mixin-global-reset) which resets HTML5 element's display-roles for older browsers.
 
 ### Optionally, you will be using Xapian for plain text search.
 
-Chef-Cookbook-DjangoNewProj installs Xapian with Python bindings. You will have to additionally install the ``django-haystack`` and ``xapian-haystack`` packages and configure the project to use this.
+Chef-Cookbook-DjangoNewProj installs Xapian with Python bindings. You will have to additionally install the `django-haystack` and `xapian-haystack` packages and configure the project to use this.
 
 ### Optionally, you will be using PIL and possibly SORL-Thumbnail.
 
-Chef-Cookbook-DjangoNewProj installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL. To use SORL-Thumbnail you will have to install the ``pil`` and ``sorl-thumbanil`` Python packages.
+Chef-Cookbook-DjangoNewProj installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL. To use SORL-Thumbnail you will have to install the `pil` and `sorl-thumbanil` Python packages.
 
 ### Other applications
 
-Review ``stable-req.txt`` for other default applicaiton choices.
+Review `stable-req.txt` for other default application choices.
 
 ## Legend
 
@@ -153,11 +145,11 @@ Clone the Chef cookbooks repositories as needed (we will use the following cookb
     (host) $ git clone git://github.com/jbergantine/chef-cookbook-xapian.git
     (host) $ git clone git://github.com/jbergantine/chef-cookbook-djangonewproj.git
 
-Back out of the ``cookbooks`` directory and copy in the Template's Vagrantfile.
+Back out of the `cookbooks` directory and copy in the Template's Vagrantfile.
     
     (host) $ cd ../; curl https://raw.github.com/gist/3875868/84200ba8ea48a96b2fe87cc39dc15aaa8b6f53e9/gistfile1.rb > Vagrantfile
 
-Startup Vagrant and install cookbooks (first time through), use ``$ vagrant provision`` instead if you mess something up and have to go through it again:
+Startup Vagrant and install cookbooks (first time through), use `$ vagrant provision` instead if you mess something up and have to go through it again:
 
     (host) $ vagrant up
 
@@ -174,7 +166,7 @@ SSH into the box if you aren't already, from the project directory (the one you 
     (host) $ vagrant up
     (host) $ vagrant ssh
     
-Move into the ``~/.ssh`` directory:
+Move into the `~/.ssh` directory:
 
     (vm) $ cd ~/.ssh
 
@@ -204,14 +196,14 @@ Git saves your email address into the commits you make. GitHub uses the email ad
 
 ### Update the newly created settings files
 
-This project utilizes seperate settings files for development and production that both inherit from a common base file.
+This project utilizes separate settings files for development and production that both inherit from a common base file.
 
-* Set ``ADMINS`` and ``MANAGERS`` for both local and production.
-* Set ``EMAIL_HOST``, ``EMAIL_HOST_USER``, ``EMAIL_HOST_PASSWORD``, ``DEFAULT_FROM_EMAIL`` values for both local and production.
-* Set all ``DATABASES`` settings for production.
-* Set ``MEDIA_ROOT``, ``MEDIA_URL``, and ``STATIC_ROOT`` for production.
-* Set production ``CACHES``.
-* Change your ``TIME_ZONE`` if desired.
+* Set `ADMINS` and `MANAGERS` for both local and production.
+* Set `EMAIL_HOST`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `DEFAULT_FROM_EMAIL` values for both local and production.
+* Set all `DATABASES` settings for production.
+* Set `MEDIA_ROOT`, `MEDIA_URL`, and `STATIC_ROOT` for production.
+* Set production `CACHES`.
+* Change your `TIME_ZONE` if desired.
     
 ### Update the newly created fabfile.py
 
@@ -219,23 +211,23 @@ This project utilizes seperate settings files for development and production tha
 
 ### Update the [500 Error template](#500html)
 
-* Replace ``[email address]`` (2 occurrences) with an email address for the system administrator.
+* Replace `[email address]` (2 occurrences) with an email address for the system administrator.
 
 ### Update the [base template](#basehtml)
 
-* There are numerous things to update and customize here including the Google Analytics account number, default Facebook Graph API data, creating the favicon and Apple Touch icons and putting them in the locations referenced, TypeKit script files, the name of the site in the ``<title>`` tag and site meta data.
+* There are numerous things to update and customize here including the Google Analytics account number, default Facebook Graph API data, creating the favicon and Apple Touch icons and putting them in the locations referenced, TypeKit script files, the name of the site in the `<title>` tag and site meta data.
 
 ### From Here
 
-If you've been configuring SSH, you'll need to move back to ``/vagrant/myproject/`` before continuing.
+If you've been configuring SSH, you'll need to move back to `/vagrant/myproject/` before continuing.
 
     (vm) $ cd /vagrant/myproject/
 
-Additionally, make sure you're working on the ``djangoproj`` virtual environment. You should be able to see this in the terminal prompt. It should look like:
+Additionally, make sure you're working on the `djangoproj` virtual environment. You should be able to see this in the terminal prompt. It should look like:
 
     (djangoproj)vagrant@precise64:/vagrant/myproject$
 
-The bit in parens at the beginning is the name of the virtual environment. It is followed by the current user (vagrant), the name of the host (precise64) and the current directory (/vagrant/myrpoject). If you're not working on the ``djangoproj`` project, run the following virtualenvwrapper command to instantiate it:
+The bit in parens at the beginning is the name of the virtual environment. It is followed by the current user (vagrant), the name of the host (precise64) and the current directory (/vagrant/myrpoject). If you're not working on the `djangoproj` project, run the following virtualenvwrapper command to instantiate it:
 
     (vm) $ workon djangoproj
 
@@ -251,7 +243,7 @@ The bit in parens at the beginning is the name of the virtual environment. It is
 
 ## Port Forwarding
 
-The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on the host. In order to access the site in a browser on the host from ``runserver`` on the virtual environment you need to add a port configuration to the command:
+The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on the host. In order to access the site in a browser on the host from `runserver` on the virtual environment you need to add a port configuration to the command:
 
     python manage.py runserver [::]:8000
 
@@ -267,7 +259,7 @@ This template includes a number of HTML templates and template tags as well as o
 
 [View source.](https://gist.github.com/3870080)
 
-A hook that runs every time a merge is made. A merge will happen every time `$ git pull` is executed (and there are changes to be brought in; it won't happen if there are no changes) in addition to the explicit `$ git merge` command. This hook will compile stylesheets, sync and migrate the database and install new requirements if ``stable-req.txt`` is updated. This hook lives in `.git/hooks/post-merge` and can be disabled by either removing the file (`post-merge`) or making it non-executable. If you want to use Scout to compile SASS or use Tower or a similar application to manage Git you will want to disable or remove this hook as it relies on the presence of SASS, Compass, Susy, Django and a database among other things.
+A hook that runs every time a merge is made. A merge will happen every time `$ git pull` is executed (and there are changes to be brought in; it won't happen if there are no changes) in addition to the explicit `$ git merge` command. This hook will compile stylesheets, sync and migrate the database and install new requirements if `stable-req.txt` is updated. This hook lives in `.git/hooks/post-merge` and can be disabled by either removing the file (`post-merge`) or making it non-executable. If you want to use Scout to compile SASS or use Tower or a similar application to manage Git you will want to disable or remove this hook as it relies on the presence of SASS, Compass, Susy, Django and a database among other things.
 
 ### HTML Templates Created
 
@@ -281,7 +273,7 @@ A default 500-type error page. Required for production deployment.
 
 #### __default.html
 
-A default template to base other templates off of. Loads ``base.html`` and includes all the customizable blocks from that template. Copy this when creating new pages. eg:
+A default template to base other templates off of. Loads `base.html` and includes all the customizable blocks from that template. Copy this when creating new pages. eg:
 
     $ cp __default.html home.html
 
@@ -311,21 +303,21 @@ When you run the script to create the project, the script downloads the latest v
 
 ### Stylesheets Created
 
-This project utilizes the [Compass](http://compass-style.org) [SASS](http://sass-lang.com) framework and creates a stylesheet directory following the requirements of that application. CSS files will be created in the appropriate spots the first time you run either ``compass watch static_media/stylesheets`` or ``compass compile static_media/stylesheets``. The [bash shortcut ``cw``](#compass) is set up to reduce keyboard fatigue.
+This project utilizes the [Compass](http://compass-style.org) [SASS](http://sass-lang.com) framework and creates a stylesheet directory following the requirements of that application. CSS files will be created in the appropriate spots the first time you run either `compass watch static_media/stylesheets` or `compass compile static_media/stylesheets`. The [bash shortcut `cw`](#compass) is set up to reduce keyboard fatigue. 
 
 #### _base.sass
 
-This is where mixins and variables are defined. This also imports compass to the project.
+This is where mixins and variables are defined. This also imports compass to the project as well as the [Susy](http://susy.oddbird.net) responsive grid.
 
 #### screen.sass
 
-The main stylesheet. This imports ``_base.sass``, calls a reset and begins defining the styles for elements, classes and ids.
+The main stylesheet. This imports `_base.sass`, calls a reset and begins defining the styles for elements, classes and ids.
 
 #### print.sass
 
-A stylesheet specifically for print styling. Meant to be used in a way that styles defined here override ``screen.sass``.
+A stylesheet specifically for print styling. Meant to be used in a way that styles defined here override `screen.sass`.
 
-* In ``myproject/static_media/stylesheets/sass/print.sass``, replace ``siteURL.com`` with the site's domain name.
+* In `myproject/static_media/stylesheets/sass/print.sass`, replace `siteURL.com` with the site's domain name.
 
 #### ie.sass
 
@@ -367,14 +359,14 @@ Example usage:
     {# Set the context so {{ nav.home }} (or {{ mynav.home }}) is True #}
     {% nav "home" %} or {% nav "home" for mynav %}
 
-The most basic (and common) use of the tag is to call ``{% nav [item] %}``,
-where ``[item]`` is the item you want to check is selected.
+The most basic (and common) use of the tag is to call `{% nav [item] %}`,
+where `[item]` is the item you want to check is selected.
 
-By default, this tag creates a ``nav`` context variable. To use an
-alternate context variable name, call ``{% nav [item] for [var_name] %}``.
+By default, this tag creates a `nav` context variable. To use an
+alternate context variable name, call `{% nav [item] for [var_name] %}`.
 
-To use this tag across ``{% block %}`` tags (or other context-stacking
-template tags such as ``{% for %}``), call the tag without specifying an
+To use this tag across `{% block %}` tags (or other context-stacking
+template tags such as `{% for %}`), call the tag without specifying an
 item.
 
 Your HTML navigation template should look something like:
@@ -397,15 +389,15 @@ To override this in a child template, you'd do:
     {% endblock %}
 
 This works for multiple levels of template inheritance, due to the fact
-that the tag only does anything if the ``nav`` context variable does not
-exist. So only the first ``{% nav %}`` call found will ever be processed.
+that the tag only does anything if the `nav` context variable does not
+exist. So only the first `{% nav %}` call found will ever be processed.
 
 To create a sub-menu you can check against, dot-separate the item:
 
     {% nav "about_menu.info" %}
 
-This will be pass for both ``{% if nav.about_menu %}`` and
-``{% if nav.about_menu.info %}``.
+This will be pass for both `{% if nav.about_menu %}` and
+`{% if nav.about_menu.info %}`.
 
 #### widont Filter
 
