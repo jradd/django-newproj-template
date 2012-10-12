@@ -114,7 +114,7 @@ For example, to create a project called 'website' in your home directory:
 
     (host) $ mkdir ~/website && cd $_
 
-When you're all done, this directory will contain a directory named _djangoproj_ that matches up with `/vagrant/.virutalenvs/djangoproj` in the virtual envirionment. Virtualbox keeps the two directories in sync so changes to one will be made in the other.
+When you're all done, this directory will contain a directory named `myproject` that matches up with `/vagrant/myproject` in the virtual envirionment. Virtualbox keeps the two directories in sync so changes to one will be made in the other. This directory contains Django's `manage.py` file as well as the project's fabfile and PIP requirements doc. Within it is a second `myproject` directory which contains the Django project.
 
 Create a place for the Chef cookbooks. From within the base directory run:
     
@@ -151,7 +151,7 @@ SSH in to the virtualbox:
 
 Creating keys makes pushing and pulling changes from Bitbucket or GitHub or the server a lot easier since you will only have one password to remember. 
 
-SSH into the box, from the project directory (the one you made in [using the new Vagrant Base Box](#using-the-new-vagrant-base-box)) on your host system run:
+SSH into the box if you aren't already, from the project directory (the one you made in [using the new Vagrant Base Box](#using-the-new-vagrant-base-box)) on your host system run:
 
     (host) $ vagrant up
     (host) $ vagrant ssh
