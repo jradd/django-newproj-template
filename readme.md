@@ -14,6 +14,10 @@ However, this template is intended to be used in conjunction with Vagrant.
 
 This template sets up a number of defaults for ``django-admin.py startproject`` by making a number of assumptions about your preferences, application choices, encouraging a particular dev environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
 
+### You will be using VirtualEnv and PIP.
+
+These are defacto standards for Python development. Virtualenv allows you to have multiple versions of packages installed on one machine which it collects into sets called "virtual environments". PIP is a package manager for installing, updating and removing packages.
+
 ### You will be using seperate settings files for development and production.
 
 This template sets up seperate development and production settings files that inherit from a common base settings file.
@@ -222,6 +226,18 @@ This project utilizes seperate settings files for development and production tha
 If used as intended with Vagrant see the various files and shortcuts created by the [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md)
 
 ### From Here
+
+If you've been configuring SSH, you'll need to move back to ``/vagrant/myproject/`` before continuing.
+
+    (vm) $ cd /vagrant/myproject/
+
+Additionally, make sure you're working on the ``djangoproj`` virtual environment. You should be able to see this in the terminal prompt. It should look like:
+
+    (djangoproj)vagrant@precise64:/vagrant/myproject$
+
+The bit in parens at the beginning is the name of the virtual environment. It is followed by the current user (vagrant), the name of the host (precise64) and the current directory (/vagrant/myrpoject). If you're not working on the ``djangoproj`` project, run the following virtualenvwrapper command to instantiate it:
+
+    (vm) $ workon djangoproj
 
 #### Do an initial Git commit 
 
