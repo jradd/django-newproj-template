@@ -68,10 +68,9 @@ The Vagrantfile configures a virtual environment to include:
 * VirtualenvWrapper
 * Postgres 9.1
 * Git
-* Vim
+* libfreetype
 * libjpeg
 * zlib
-* freetype
 * Xapian
 
 Additionally, the Vagrantfile calls on a [Cookbook](https://github.com/jbergantine/chef-cookbook-djangonewproj) intended to be used with this project which sets up a new Django project called _myproject_ in a virtual environment named _djangoproj_ and connects that to a PostgreSQL database called _django_db_.
