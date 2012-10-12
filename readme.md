@@ -32,7 +32,7 @@ This template sets up seperate development and production settings files that in
 
 This settings files in this template are explicitly configured to connect to a PostgreSQL server.
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) configures your Django project for use with a PostgreSQL database which it installs (django_db) along with a user (django_login) for said database and installs South for database migrations.
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) configures your Django project for use with a PostgreSQL database (_django\_db_) which it installs along with a user (_django\_login_) for said database and installs South for database migrations.
 
 ### You will be using SASS with the Compass and Susy frameworks.
 
@@ -82,9 +82,9 @@ These instructions go through the configuration of a new Ubuntu 64-bit operating
 
 Using the Vagrant box requires you to interact with _manage.py_ from within the virtual environment although you can use a text editor or IDE of your choice for editing on your host system via a shared folder and you can access the site through a web browser of your choice by taking advantage of port forwarding between the virtual environment and the host.
 
-This configuration uses a [post-merge Git hook](https://github.com/jbergantine/chef-cookbook-djangonewproj#post-merge) to sync/migrate the database and compile SASS, as such managing Git must be done within the virtual environment as well. For simplicity sake it is recommended that SASS stylesheets be compiled within the virtual environment and a [shortcut is added to the bash profile to help facilitate this](https://github.com/jbergantine/chef-cookbook-djangonewproj#compass).
+This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS, as such managing Git must be done within the virtual environment as well. For simplicity sake it is recommended that SASS stylesheets be compiled within the virtual environment and a [shortcut is added to the bash profile to help facilitate this](https://github.com/jbergantine/chef-cookbook-djangonewproj#compass).
 
-The Vagrantfile configures a virtual environment to include:
+The [Vagrantfile](https://gist.github.com/3875868) configures a virtual environment to include:
 
 * Python 2.7.3
 * PIP
@@ -97,7 +97,7 @@ The Vagrantfile configures a virtual environment to include:
 * zlib
 * Xapian
 
-Additionally, the Vagrantfile calls on a [Cookbook](https://github.com/jbergantine/chef-cookbook-djangonewproj) intended to be used with this project which sets up a new Django project called _myproject_ in a virtual environment named _djangoproj_ and connects that to a PostgreSQL database called _django_db_.
+Additionally, the [Vagrantfile](https://gist.github.com/3875868) calls on a [Cookbook](https://github.com/jbergantine/chef-cookbook-djangonewproj) intended to be used with this project which sets up a new Django project called _myproject_ in a virtual environment named _djangoproj_ and connects that to a PostgreSQL database called _django_db_.
 
 ## Legend
 
