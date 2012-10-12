@@ -241,13 +241,23 @@ The bit in parens at the beginning is the name of the virtual environment (_djan
     (vm) $ dj syncdb
     (vm) $ dj migrate
 
-## Port Forwarding
+#### Run server
+
+##### Port Forwarding
 
 The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on the host. In order to access the site in a browser on the host from `$ runserver` on the virtual environment you need to add a port configuration to the command:
 
     python manage.py runserver [::]:8000
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj/) sets up a [bash alias](#django) to avoid keyboard fatigue when running this command.
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj/) sets up a [bash alias](#django) to avoid keyboard fatigue when running this command:
+
+    (vm) $ rs
+
+#### Watch for changes to SASS Stylesheets
+
+    (vm) $ cw
+
+    Note that you will likely want to have both runserver and compass watch running at the same time so you can review your changes in a web browser. To do this SSH into Vagrant from two different terminal windows on your host, on one window execute `$ rs` and in the other execute `$ cw`.
 
 ## Installed Files
 
