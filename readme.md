@@ -62,7 +62,7 @@ Review ``stable-req.txt`` for other default applicaiton choices.
 
 Vagrant offers the ability to create unique virtual machines on a per-project basis. Using Vagrant you can install system-level libraries without conflicting with other projects and share virtual machines with others on your team so you're all using the same thing.
 
-These instructions go through the configuration of a new Ubuntu 64-bit operating system on a Vagrant Box hosted on an Apple Macintosh computer.
+These instructions go through the configuration of a new Ubuntu 64-bit operating system on a Vagrant Box hosted on an Apple Macintosh computer with Git and Curl as a minimum. These same set of instructions should work on a Linux box with a similar configuration.
 
 Using the Vagrant box requires you to interact with _manage.py_ from within the virtual environment although you can use a text editor or IDE of your choice for editing on your host system via a shared folder and you can access the site through a web browser of your choice by taking advantage of port forwarding between the virtual environment and the host.
 
@@ -116,11 +116,13 @@ For example, to create a project called 'website' in your home directory:
 
 When you're all done, this directory will contain a directory named `myproject` that matches up with `/vagrant/myproject` in the virtual envirionment. Virtualbox keeps the two directories in sync so changes to one will be made in the other. This directory contains Django's `manage.py` file as well as the project's fabfile and PIP requirements doc. Within it is a second `myproject` directory which contains the Django project.
 
-Create a place for the Chef cookbooks. From within the base directory run:
-    
+Create a place for the Chef cookbooks. From within the Vagrant project directory on the host run the following command.
+
+So, extending our example, this would be run from within `~/website/`.
+
     (host) $ mkdir cookbooks && cd $_
 
-Clone the Chef cookbooks repositories as needed (we will use the following cookbooks in this guide)
+Clone the Chef cookbooks repositories as needed (we will use the following cookbooks in this guide). 
 
     (host) $ git clone git://github.com/opscode-cookbooks/apt.git
     (host) $ git clone git://github.com/opscode-cookbooks/build-essential.git
