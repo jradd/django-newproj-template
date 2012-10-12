@@ -257,7 +257,7 @@ The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on th
 
     (vm) $ cw
 
-    Note that you will likely want to have both runserver and compass watch running at the same time so you can review your changes in a web browser. To do this SSH into Vagrant from two different terminal windows on your host, on one window execute `$ rs` and in the other execute `$ cw`.
+Note that you will likely want to have both runserver and compass watch running at the same time so you can review your changes in a web browser. To do this SSH into Vagrant from two different terminal windows on your host, on one window execute `$ rs` and in the other execute `$ cw`.
 
 ## Installed Files
 
