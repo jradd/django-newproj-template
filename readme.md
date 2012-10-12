@@ -138,30 +138,6 @@ Startup Vagrant and install cookbooks (first time through), use ``$ vagrant prov
 SSH in to the virtualbox:
 
     (host) $ vagrant ssh 
-    
-Verify installation of Python 2.7.3:
-
-    (vm) $ python -V
-    Python 2.7.3
-
-Verify that PostgreSQL was installed correctly by logging into the psql shell and then exiting (if it was installed and configured correctly the following should happen without errors):
-
-    (vm) $ psql -h localhost -U postgres --password
-    (vm) $ thisisapassword
-    (vm) postgres=# \q
-    
-Verify the installation of Xapian with Python bindings by attempting an import (if it installed successfully it should return without errors):
-
-    (vm) $ python -c "import xapian"
-    
-Verify the installation of Compass and Susy by verifying their existance in the gem list (if they installed correctly their name and a version number should be returned):
-
-    (vm) $ gem list | grep compass
-    (vm) $ gem list | grep susy
-    
-Verify the installed Python Ubuntu packages:
-
-    (vm) $ dpkg --get-selections | grep python
 
 ### Setup SSH Keys
 
@@ -208,7 +184,7 @@ This project utilizes seperate settings files for development and production tha
 * Set ``EMAIL_HOST``, ``EMAIL_HOST_USER``, ``EMAIL_HOST_PASSWORD``, ``DEFAULT_FROM_EMAIL`` values for both local and production.
 * Set all ``DATABASES`` settings for production.
 * Set ``MEDIA_ROOT``, ``MEDIA_URL``, and ``STATIC_ROOT`` for production.
-* Set production ``CACHES``. (Unless edited out, the default-requirments file installs the necessary Python modules to utilize Memcached on the server but the exact location etc. of that needs to be set here.)
+* Set production ``CACHES``.
 * Change your ``TIME_ZONE`` if desired.
     
 ### Update the newly created fabfile.py
