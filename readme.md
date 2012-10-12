@@ -303,7 +303,7 @@ When you run the script to create the project, the script downloads the latest v
 
 ### Stylesheets Created
 
-This project utilizes the [Compass](http://compass-style.org) [SASS](http://sass-lang.com) framework and creates a stylesheet directory following the requirements of that application. CSS files will be created in the appropriate spots the first time you run either `compass watch static_media/stylesheets` or `compass compile static_media/stylesheets`. The [bash shortcut `cw`](#compass) is set up to reduce keyboard fatigue. 
+This project utilizes the [Compass](http://compass-style.org) [SASS](http://sass-lang.com) framework and creates a stylesheet directory following the requirements of that application. CSS files will be created in the appropriate spots the first time you run either `$ compass watch static_media/stylesheets` or `$ compass compile static_media/stylesheets`. The [bash shortcut `cw`](#compass) is set up to reduce keyboard fatigue. 
 
 #### _base.sass
 
