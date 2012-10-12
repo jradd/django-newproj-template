@@ -46,6 +46,14 @@ The settings file in this template reference [django_mobile](https://github.com/
 
 This template includes a fabfile with a number of pre-configured methods for deployment and server management.
 
+### You will be using jQuery
+
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs the latest version of jQuery which the HTML templates reference.
+
+### You will be using an HTML5 Doctype
+
+By default the [base.html](#basehtml) template has an HTML5 doctype. For backwards compatibility [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs modernizr.js with IEPP which is an HTML5 shiv for older versions of Internet Explorer to keep them from puking. Finally [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs [compass-gesso](https://github.com/jbergantine/compass-gesso) which instantiates the compass [``+global-reset`` mixin](http://compass-style.org/reference/compass/reset/utilities/#mixin-global-reset) which resets HTML5 element's display-roles for older browsers.
+
 ### Other applications
 
 Review ``stable-req.txt`` for other default applicaiton choices.
