@@ -114,7 +114,7 @@ Add a vagrant box (we'll be using Ubuntu Precise Pangolin (12.04 LTS) 64-bit):
     
 ## Usage
 
-Make a directory for the project and change to it, replacing <path_to> with the path to the project and <project_name> with the name of the project.
+Make a directory for the project and change to it, replacing `<path_to>	 with the path to the project and `<project_name>` with the name of the project.
 
     (host) $ mkdir <path_to>/<project_name> && cd $_
     
