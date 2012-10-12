@@ -20,7 +20,7 @@ This template sets up seperate development and production settings files that in
 
 [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) configures postactivate and postdeactivate virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development so the ``--settings=`` flag doesn't need to be explicitly used. Something similar will need to be done in production.
 
-### You will be using PostgreSQL as your database.
+### You will be using PostgreSQL as your database and South for database migrations.
 
 This settings files in this template are explicitly configured to connect to a PostgreSQL server.
 
