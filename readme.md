@@ -122,11 +122,11 @@ For example, to create a project called 'website' in your home directory:
 
     (host) $ mkdir ~/website && cd $_
 
-When you're all done, this directory will contain a directory named `myproject` that matches up with `/vagrant/myproject` in the virtual envirionment. Virtualbox keeps the two directories in sync so changes to one will be made in the other. This directory contains Django's `manage.py` file as well as the project's fabfile and PIP requirements doc. Within it is a second `myproject` directory which contains the Django project.
+When you're all done, this directory will contain a directory named _myproject_ that matches up with _/vagrant/myproject_ in the virtual envirionment. Virtualbox keeps the two directories in sync so changes to one will be made in the other. This directory contains Django's _manage.py_ file as well as the project's fabfile and PIP requirements doc. Within it is a second _myproject_ directory which contains the Django project.
 
 Create a place for the Chef cookbooks. From within the Vagrant project directory on the host run the following command.
 
-So, extending our example, this would be run from within `~/website/`.
+So, extending our example, this would be run from within _~/website/_.
 
     (host) $ mkdir cookbooks && cd $_
 
@@ -145,7 +145,7 @@ Clone the Chef cookbooks repositories as needed (we will use the following cookb
     (host) $ git clone git://github.com/jbergantine/chef-cookbook-xapian.git
     (host) $ git clone git://github.com/jbergantine/chef-cookbook-djangonewproj.git
 
-Back out of the `cookbooks` directory and copy in the Vagrantfile.
+Back out of the _cookbooks_ directory and copy in the Vagrantfile.
     
     (host) $ cd ../; curl https://raw.github.com/gist/3875868/84200ba8ea48a96b2fe87cc39dc15aaa8b6f53e9/gistfile1.rb > Vagrantfile
 
@@ -166,7 +166,7 @@ SSH into the box if you aren't already, from the project directory (the one you 
     (host) $ vagrant up
     (host) $ vagrant ssh
     
-Move into the `~/.ssh` directory:
+Move into the _~/.ssh_ directory:
 
     (vm) $ cd ~/.ssh
 
