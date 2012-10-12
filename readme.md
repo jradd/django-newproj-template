@@ -33,7 +33,7 @@ The [Vagrantfile](https://gist.github.com/3875868) configures a virtual environm
 * zlib
 * Xapian
 
-Additionally, the [Vagrantfile](https://gist.github.com/3875868) installs the recipes from a Chef Cookbook [(Chef-Cookbook-DjangoNewProj)](https://github.com/jbergantine/chef-cookbook-djangonewproj) intended to be used with this project which sets up a new Django project called _myproject_ in a virtual environment named _djangoproj_ and connects that to a PostgreSQL database called _django_db_.
+Additionally, the Vagrantfile installs the recipes from a Chef Cookbook [(Chef-Cookbook-DjangoNewProj)](https://github.com/jbergantine/chef-cookbook-djangonewproj) intended to be used with this project which sets up a new Django project called _myproject_ in a virtual environment named _djangoproj_ and connects that to a PostgreSQL database called _django_db_.
 
 ## Assumptions
 
