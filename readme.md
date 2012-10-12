@@ -61,9 +61,9 @@ Chef-Cookbook-DjangoNewProj configures your Django project for use with a Postgr
 
 ### Your site will be optimized for search engines.
 
-This template includes a sitemaps module (`sitemaps.py`) which is initially configured to create a sitemaps XML file referencing "static" pages of a site but which can be expanded to most any application. The sitemap module is imported into `urls.py` which sets up routing. 
+This template includes a sitemaps module (_sitemaps.py_) which is initially configured to create a sitemaps XML file referencing "static" pages of a site but which can be expanded to most any application. The sitemap module is imported into `urls.py` which sets up routing. 
 
-This template also installs [Django-Robots](https://github.com/jbergantine/django-robots), a small app for creating a robots.txt file.
+This template also installs [Django-Robots](https://github.com/jbergantine/django-robots), a small app for creating a _robots.txt_ file.
 
 ### You will be developing for use on multiple devices.
 
