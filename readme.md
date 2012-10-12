@@ -8,7 +8,7 @@ To start a new project with this template, execute:
 
     django-admin.py startproject --template=https://github.com/jbergantine/django-newproj-template/zipball/master --extension=py,rst <project_name>
 
-However, this template is intended to be used in conjunction with Vagrant.
+However, this template is intended to be used in conjunction with Vagrant as part of a broader project.
 
 ## Assumptions
 
