@@ -53,9 +53,6 @@ django-slimmer
 # Django Robots (https://github.com/jbergantine/django-robots)
 -e git+git://github.com/jbergantine/django-robots.git#egg=django_robots
 
-# Python Memcached
-python-memcached
-
 # Test Auto-Creation of Models via Django-Whatever (https://github.com/coagulant/django-whatever)
 # Docs @ http://django-whatever.readthedocs.org/en/latest/index.html
 django-whatever
@@ -80,6 +77,9 @@ fabric
 #####################
 
 # Manual configuration of project needs to happen in order to use these bundles
+
+# Caching via Python Memcached
+#python-memcached
 
 # Utilities and a 'linter' to help you make your Django site more secure.
 # Inspired by Mozilla’s Secure Coding Guidelines (https://wiki.mozilla.org/WebAppSec/Secure_Coding_Guidelines), and intended for sites that are entirely or mostly served over SSL (which should include anything with user logins).
