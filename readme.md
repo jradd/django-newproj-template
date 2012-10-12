@@ -10,6 +10,31 @@ To start a new project with this template, execute:
 
 However, this template is intended to be used in conjunction with Vagrant as part of a broader project.
 
+## Vagrant
+
+Vagrant offers the ability to create unique virtual machines on a per-project basis. Using Vagrant you can install system-level libraries without conflicting with other projects and share virtual machines with others on your team so you're all using the same thing.
+
+These instructions go through the configuration of a new Ubuntu 64-bit operating system on a Vagrant Box hosted on an Apple Macintosh computer with Git and Curl as a minimum. These same set of instructions should work on a Linux box with a similar configuration.
+
+Using the Vagrant box requires you to interact with _manage.py_ from within the virtual environment although you can use a text editor or IDE of your choice for editing on your host system via a shared folder and you can access the site through a web browser of your choice by taking advantage of port forwarding between the virtual environment and the host.
+
+This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS, as such managing Git must be done within the virtual environment as well. For simplicity sake it is recommended that SASS stylesheets be compiled within the virtual environment and a [shortcut is added to the bash profile to help facilitate this](https://github.com/jbergantine/chef-cookbook-djangonewproj#compass).
+
+The [Vagrantfile](https://gist.github.com/3875868) configures a virtual environment to include:
+
+* Python 2.7.3
+* PIP
+* Virtualenv
+* VirtualenvWrapper
+* Postgres 9.1
+* Git
+* libfreetype
+* libjpeg
+* zlib
+* Xapian
+
+Additionally, the [Vagrantfile](https://gist.github.com/3875868) calls on a Cookbook[(Chef-Cookbook-DjangoNewProj)](https://github.com/jbergantine/chef-cookbook-djangonewproj) intended to be used with this project which sets up a new Django project called _myproject_ in a virtual environment named _djangoproj_ and connects that to a PostgreSQL database called _django_db_.
+
 ## Assumptions
 
 This template sets up a number of defaults for ``django-admin.py startproject`` by making a number of assumptions about your preferences, application choices, encouraging a particular dev environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
@@ -73,31 +98,6 @@ By default the [base.html](#basehtml) template has an HTML5 doctype. For backwar
 ### Other applications
 
 Review ``stable-req.txt`` for other default applicaiton choices.
-
-## Vagrant
-
-Vagrant offers the ability to create unique virtual machines on a per-project basis. Using Vagrant you can install system-level libraries without conflicting with other projects and share virtual machines with others on your team so you're all using the same thing.
-
-These instructions go through the configuration of a new Ubuntu 64-bit operating system on a Vagrant Box hosted on an Apple Macintosh computer with Git and Curl as a minimum. These same set of instructions should work on a Linux box with a similar configuration.
-
-Using the Vagrant box requires you to interact with _manage.py_ from within the virtual environment although you can use a text editor or IDE of your choice for editing on your host system via a shared folder and you can access the site through a web browser of your choice by taking advantage of port forwarding between the virtual environment and the host.
-
-This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS, as such managing Git must be done within the virtual environment as well. For simplicity sake it is recommended that SASS stylesheets be compiled within the virtual environment and a [shortcut is added to the bash profile to help facilitate this](https://github.com/jbergantine/chef-cookbook-djangonewproj#compass).
-
-The [Vagrantfile](https://gist.github.com/3875868) configures a virtual environment to include:
-
-* Python 2.7.3
-* PIP
-* Virtualenv
-* VirtualenvWrapper
-* Postgres 9.1
-* Git
-* libfreetype
-* libjpeg
-* zlib
-* Xapian
-
-Additionally, the [Vagrantfile](https://gist.github.com/3875868) calls on a [Cookbook](https://github.com/jbergantine/chef-cookbook-djangonewproj) intended to be used with this project which sets up a new Django project called _myproject_ in a virtual environment named _djangoproj_ and connects that to a PostgreSQL database called _django_db_.
 
 ## Legend
 
