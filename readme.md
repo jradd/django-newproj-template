@@ -305,19 +305,9 @@ When you run the script to create the project, the script downloads the latest v
 
 This project utilizes the [Compass](http://compass-style.org) [SASS](http://sass-lang.com) framework and creates a stylesheet directory following the requirements of that application. CSS files will be created in the appropriate spots the first time you run either `$ compass watch static_media/stylesheets` or `$ compass compile static_media/stylesheets`. The [bash shortcut `cw`](#compass) is set up to reduce keyboard fatigue. 
 
-#### _base.sass
+#### _base.sass, screen.sass, print.sass
 
-This is where mixins and variables are defined. This also imports compass to the project as well as the [Susy](http://susy.oddbird.net) responsive grid.
-
-#### screen.sass
-
-The main stylesheet. This imports _\_base.sass_, calls a reset and begins defining the styles for elements, classes and ids.
-
-#### print.sass
-
-A stylesheet specifically for print styling. Meant to be used in a way that styles defined here override _screen.sass_.
-
-* In _print.sass_, replace `siteURL.com` with the site's domain name.
+[Documentation for these files is contained in a seperate repo](https://github.com/jbergantine/compass-gesso).
 
 #### ie.sass
 
