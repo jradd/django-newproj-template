@@ -77,7 +77,7 @@ This template includes a fabfile with a number of pre-configured methods for dep
 
 ### You will be using an HTML5 Doctype and writing your stylesheets with SASS
 
-By default the [base.html](#basehtml) template has an HTML5 doctype. For backwards compatibility Chef-Cookbook-DjangoNewProj installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. Finally [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs [and configures](#stylesheets-created) Compass to instantiate the Compass [`+global-reset` mixin](http://compass-style.org/reference/compass/reset/utilities/#mixin-global-reset) which resets HTML5 element's display-roles for older browsers.
+By default the [base.html](#basehtml) template has an HTML5 doctype. For backwards compatibility Chef-Cookbook-DjangoNewProj installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. Finally, Chef-Cookbook-DjangoNewProj installs [and configures](#stylesheets-created) Compass to instantiate the Compass [`+global-reset` mixin](http://compass-style.org/reference/compass/reset/utilities/#mixin-global-reset) which resets HTML5 element's display-roles for older browsers.
 
 ### Optionally, you will be using Xapian for plain text search.
 
