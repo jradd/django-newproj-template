@@ -307,7 +307,7 @@ This project utilizes the [Compass](http://compass-style.org) [SASS](http://sass
 
 #### _base.sass, screen.sass, print.sass
 
-[Documentation for these files is contained in a seperate repo](https://github.com/jbergantine/compass-gesso).
+[Documentation for these files is contained in a seperate repo](https://github.com/jbergantine/compass-gesso#included-files).
 
 #### ie.sass
 
