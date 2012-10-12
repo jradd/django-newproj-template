@@ -2,6 +2,10 @@
 
 Django project template for starting a new project.
 
+## Stop
+
+This project assumes at least a passing familiarity with Django and the Terminal window. If you haven't done so, it is highly recommended that those unfamiliar with the Terminal window begin with [The Designer's Guide to the OSX Command Prompt](http://wiseheartdesign.com/articles/2010/11/12/the-designers-guide-to-the-osx-command-prompt/) and those unfamiliar with Django [read through the tutorial](https://docs.djangoproject.com/en/1.4/intro/tutorial01/) to understand some of the concepts discussed below.
+
 ## This Template
 
 To start a new project with this template, execute:
