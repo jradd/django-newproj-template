@@ -81,11 +81,11 @@ By default the [base.html](#basehtml) template has an HTML5 doctype. For backwar
 
 ### Optionally, you will be using Xapian for plain text search.
 
-Chef-Cookbook-DjangoNewProj installs Xapian with Python bindings. You will have to additionally install the `django-haystack` and `xapian-haystack` packages and configure the project to use this.
+Chef-Cookbook-DjangoNewProj installs Xapian with Python bindings. You will have to additionally install the _django-haystack_ and _xapian-haystack_ Python packages and configure the project to use this.
 
 ### Optionally, you will be using PIL and possibly SORL-Thumbnail.
 
-Chef-Cookbook-DjangoNewProj installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL. To use SORL-Thumbnail you will have to install the `pil` and `sorl-thumbanil` Python packages.
+Chef-Cookbook-DjangoNewProj installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL (you will have to still install the _pil_ Python package, however. To use SORL-Thumbnail you will have to install the _pil_ and _sorl-thumbanil_ Python packages.
 
 ### Other applications
 
@@ -145,7 +145,7 @@ Clone the Chef cookbooks repositories as needed (we will use the following cookb
     (host) $ git clone git://github.com/jbergantine/chef-cookbook-xapian.git
     (host) $ git clone git://github.com/jbergantine/chef-cookbook-djangonewproj.git
 
-Back out of the `cookbooks` directory and copy in the Template's Vagrantfile.
+Back out of the `cookbooks` directory and copy in the Vagrantfile.
     
     (host) $ cd ../; curl https://raw.github.com/gist/3875868/84200ba8ea48a96b2fe87cc39dc15aaa8b6f53e9/gistfile1.rb > Vagrantfile
 
