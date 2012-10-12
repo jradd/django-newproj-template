@@ -32,7 +32,7 @@ This template sets up seperate development and production settings files that in
 
 This settings files in this template are explicitly configured to connect to a PostgreSQL server.
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) configures your Django project for use with a PostgreSQL database which it installs along with a user for said database and installs South for database migrations.
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) configures your Django project for use with a PostgreSQL database which it installs (django_db) along with a user (django_login) for said database and installs South for database migrations.
 
 ### You will be using SASS with the Compass and Susy frameworks.
 
