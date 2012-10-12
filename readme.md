@@ -54,6 +54,14 @@ This template includes a fabfile with a number of pre-configured methods for dep
 
 By default the [base.html](#basehtml) template has an HTML5 doctype. For backwards compatibility [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs modernizr.js with IEPP which is an HTML5 shiv for older versions of Internet Explorer to keep them from puking. Finally [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs [compass-gesso](https://github.com/jbergantine/compass-gesso) which instantiates the compass [``+global-reset`` mixin](http://compass-style.org/reference/compass/reset/utilities/#mixin-global-reset) which resets HTML5 element's display-roles for older browsers.
 
+#### Optionally, you will be using Xapian for plain text search.
+
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs Xapian with Python bindings. You will have to additionally install the ``django-haystack`` and ``xapian-haystack`` packages and configure the project to use this.
+
+#### Optionally, you will be using PIL and possibly SORL-Thumbnail.
+
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj) installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL. To use SORL-Thumbnail you will have to install the ``pil`` and ``sorl-thumbanil`` Python packages.
+
 ### Other applications
 
 Review ``stable-req.txt`` for other default applicaiton choices.
