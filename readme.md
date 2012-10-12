@@ -14,6 +14,10 @@ However, this template is intended to be used in conjunction with Vagrant.
 
 This template sets up a number of defaults for ``django-admin.py startproject`` by making a number of assumptions about your preferences, application choices, encouraging a particular dev environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
 
+### You will be using Git for Version Control.
+
+This should be obvious by now. 
+
 ### You will be using VirtualEnv and PIP.
 
 These are defacto standards for Python development. Virtualenv allows you to have multiple versions of packages installed on one machine which it collects into sets called "virtual environments". PIP is a package manager for installing, updating and removing packages.
