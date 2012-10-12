@@ -408,3 +408,53 @@ _From: http://djangosnippets.org/snippets/17/_
     (host) $ vagrant provision
 
 More information is available in the [Vagrant documentation](http://vagrantup.com/v1/docs/index.html).
+
+## VirtualenvWrapper Command Tips
+
+Replacing <virtualenv_name> with the name of the virtual environement (IE: djangoproj).
+
+### To make a virtual environment:
+
+    (vm) $ mkvirtualenv <virtualenv_name>
+
+### To activate a virtual environment:
+
+    (vm) $ workon <virtualenv_name>
+   
+### To deactivate a virtual environment:
+
+    (vm) $ deactivate
+    
+### To remove a virtual environment (warning this will delete the environment and any files therein):
+
+    (vm) rmvirtualenv <virtualenv_name>
+    
+## PIP Command Tips
+
+### List intalled packages
+
+    (vm) $ pip freeze
+    
+The output of this command can be routed to a file as in:
+
+    (vm) $ pip freeze > <path_to_file>
+    
+As in:
+
+    (vm) $ pip freeze > requirements.txt
+    
+### Install a new package
+ 
+    (vm) $ pip install <package_name>
+    
+### Upgrade a package that is alrady installed
+
+    (vm) $ pip install <package_name> --upgrade
+    
+### Install all the packages listed in a file
+
+    (vm) pip install -r <path_to_file>
+    
+As in:
+
+    (vm) $ pip install -r requirements.txt
