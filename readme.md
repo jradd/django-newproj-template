@@ -287,7 +287,15 @@ A default template to base other templates off of. Loads ``base.html`` and inclu
 
 #### _form_snippet.html
 
-An include for forms that creates properly-semantically-structured forms.
+An include for forms that creates properly-semantically-structured forms. To use it, include it within the body of a form like so:
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {% include "_form_snippet.html" %}
+        <div>
+            <input type="submit" value="Submit" id="submit" />
+        </div>
+    </form>
 
 #### _nav.html
 
