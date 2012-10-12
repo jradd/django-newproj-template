@@ -273,7 +273,7 @@ A default 500-type error page. Required for production deployment.
 
 #### __default.html
 
-A default template to base other templates off of. Loads `base.html` and includes all the customizable blocks from that template. Copy this when creating new pages. eg:
+A default template to base other templates off of. Loads _base.html_ and includes all the customizable blocks from that template. Copy this when creating new pages. eg:
 
     $ cp __default.html home.html
 
