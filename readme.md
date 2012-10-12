@@ -311,17 +311,17 @@ This is where mixins and variables are defined. This also imports compass to the
 
 #### screen.sass
 
-The main stylesheet. This imports `_base.sass`, calls a reset and begins defining the styles for elements, classes and ids.
+The main stylesheet. This imports _\_base.sass_, calls a reset and begins defining the styles for elements, classes and ids.
 
 #### print.sass
 
-A stylesheet specifically for print styling. Meant to be used in a way that styles defined here override `screen.sass`.
+A stylesheet specifically for print styling. Meant to be used in a way that styles defined here override _screen.sass_.
 
-* In `myproject/static_media/stylesheets/sass/print.sass`, replace `siteURL.com` with the site's domain name.
+* In _print.sass_, replace `siteURL.com` with the site's domain name.
 
 #### ie.sass
 
-A stylesheet specifically for dealing with modifications necessary for Internet Explorer. Meant to be used in a way that styles defined here override screen.sass.
+A stylesheet specifically for dealing with modifications necessary for Internet Explorer. Meant to be used in a way that styles defined here override _screen.sass_.
 
 ### TemplateTags Installed
 
