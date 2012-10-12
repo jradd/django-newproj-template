@@ -225,10 +225,6 @@ This project utilizes seperate settings files for development and production tha
 
 * There are numerous things to update and customize here including the Google Analytics account number, default Facebook Graph API data, creating the favicon and Apple Touch icons and putting them in the locations referenced, TypeKit script files, the name of the site in the ``<title>`` tag and site meta data.
 
-### Stylesheets, JavaScript files, Bash aliases and Git Hooks
-
-If used as intended with Vagrant see the various files and shortcuts created by the [Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md)
-
 ### From Here
 
 If you've been configuring SSH, you'll need to move back to ``/vagrant/myproject/`` before continuing.
@@ -259,13 +255,19 @@ The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on th
 
     python manage.py runserver [::]:8000
 
-[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj/) sets up a [bash alias](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/README.md#django) to avoid keyboard fatigue when running this command.
+[Chef-Cookbook-DjangoNewProj](https://github.com/jbergantine/chef-cookbook-djangonewproj/) sets up a [bash alias](#django) to avoid keyboard fatigue when running this command.
 
 ## Installed Files
 
-This template includes a number of HTML templates and template tags.
+This template includes a number of HTML templates and template tags as well as other things.
 
-### Templates Created
+### Git Hooks Created
+
+#### [post-merge](https://gist.github.com/3870080)
+
+A hook that runs every time a merge is made. A merge will happen every time `$ git pull` is executed (and there are changes to be brought in; it won't happen if there are no changes) in addition to the explicit `$ git merge` command. This hook will compile stylesheets, sync and migrate the database and install new requirements if ``stable-req.txt`` is updated. This hook lives in `.git/hooks/post-merge` and can be disabled by either removing the file (`post-merge`) or making it non-executable. If you want to use Scout to compile SASS or use Tower or a similar application to manage Git you will want to disable or remove this hook as it relies on the presence of SASS, Compass, Susy, Django and a database among other things.
+
+### HTML Templates Created
 
 #### 404.html
 
@@ -292,6 +294,32 @@ Global site nav. Built as an include to be placed on the header or footer of the
 #### base.html
 
 The basis to inherit all other templates off of. A responsive-design (mobile) friendly HTML5 template. Sitewide stylesheets and script files are referenced in the appropriate places and wrapped in django-compressor to minimize page load times. This template also includes Google Analytics, default meta data and Facebook Graph API data for page sharing purposes as well as a link to a favicon and Apple Touch icons for Web application development purposes.
+
+### JavaScript Files Created
+
+When you run the script to create the project, the script downloads the latest version of jQuery (which is then referenced both locally and via Google's AJAX load in base.html) as well as a [customized basic version of modernizr.js](https://gist.github.com/3868451) which includes only the shims for the HTML5 doctype.
+
+### Stylesheets Created
+
+This project utilizes the [Compass](http://compass-style.org) [SASS](http://sass-lang.com) framework and creates a stylesheet directory following the requirements of that application. CSS files will be created in the appropriate spots the first time you run either ``compass watch static_media/stylesheets`` or ``compass compile static_media/stylesheets``. The [bash shortcut ``cw``](#compass) is set up to reduce keyboard fatigue.
+
+#### _base.sass
+
+This is where mixins and variables are defined. This also imports compass to the project.
+
+#### screen.sass
+
+The main stylesheet. This imports ``_base.sass``, calls a reset and begins defining the styles for elements, classes and ids.
+
+#### print.sass
+
+A stylesheet specifically for print styling. Meant to be used in a way that styles defined here override ``screen.sass``.
+
+* In ``myproject/static_media/stylesheets/sass/print.sass``, replace ``siteURL.com`` with the site's domain name.
+
+#### ie.sass
+
+A stylesheet specifically for dealing with modifications necessary for Internet Explorer. Meant to be used in a way that styles defined here override screen.sass.
 
 ### TemplateTags Installed
 
@@ -466,3 +494,112 @@ As in:
 ### Uninstall a package:
 
     (vm) $ pip uninstall <package_name>
+    
+## Bash Aliases
+
+The following bash aliases are added to the shell. 
+
+### Compass
+
+<table>
+    <tr>
+        <th>cw</th>
+        <td><pre>compass watch myproject/static_media/stylesheets</pre></td>
+    </tr>
+</table>
+
+### Django
+
+<table>
+    <tr>
+        <th>dj</th>
+        <td>
+            <pre>python manage.py</pre>
+            <p>Example usage, interact with the Django shell:</p>
+            <pre>dj shell</pre>
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>rs</th>
+        <td>
+            <pre>python manage.py runserver [::]:8000</pre>
+            <p>This is necessary to enable port forwarding from the virtual machine to the host. In a host the site will now be available at http://127.0.0.1:8001.</p>
+        </td>
+    </tr>
+    <tr>
+        <th>sh</th>
+        <td><pre>python manage.py shell</pre></td>
+    </tr>
+</table>
+
+### Git
+
+<table>
+    <tr>
+        <th>br</th>
+        <td><pre>branch</pre></td>
+    </tr>
+    <tr>
+        <th>ci</th>
+        <td><pre>commit</pre></td>
+    </tr>
+    <tr>
+        <th>co</th>
+        <td><pre>checkout</pre></td>
+    </tr>
+    <tr>
+        <th>st</th>
+        <td><pre>status</pre></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>ga</th>
+        <td><pre>git add</pre></td>
+    </tr>
+    <tr>
+        <th>gb</th>
+        <td><pre>git branch</pre></td>
+    </tr>
+    <tr>
+        <th>gco</th>
+        <td><pre>git checkout</pre></td>
+    </tr>
+    <tr>
+        <th>gl</th>
+        <td><pre>git pull</pre></td>
+    </tr>
+    <tr>
+        <th>gp</th>
+        <td><pre>git push</pre></td>
+    </tr>
+    <tr>
+        <th>gst</th>
+        <td><pre>git status</pre></td>
+    </tr>
+    <tr>
+        <th>gss</th>
+        <td><pre>git status -s</pre></td>
+    </tr>
+</table>
+
+### Python
+
+<table>
+    <tr>
+        <th>py</th>
+        <td>
+            <pre>python</pre>
+            <p>Launches a Python interactive shell.</p>
+        </td>
+    </tr>
+    <tr>
+        <th>pyclean</th>
+        <td>
+            <pre>find . -name "*.pyc" -delete</pre>
+            <p>Removes all files ending in ".pyc".</p>
+        </td>
+    </tr>
+</table>
