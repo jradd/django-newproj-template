@@ -18,7 +18,7 @@ These instructions go through the configuration of a new Ubuntu 64-bit operating
 
 Using the Vagrant box requires you to interact with _manage.py_ from within the virtual environment although you can use a text editor or IDE of your choice for editing on your host system via a shared folder and you can access the site through a web browser of your choice by taking advantage of port forwarding between the virtual environment and the host.
 
-This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS, as such managing Git must be done within the virtual environment as well rather than through the Tower or GitHub apps for example on the host. For simplicity sake it is recommended that SASS stylesheets be compiled within the virtual environment and a [shortcut is added to the bash profile to help facilitate this](https://github.com/jbergantine/chef-cookbook-djangonewproj#compass) as well rather than using an app like Scout on the host.
+This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS, as such managing Git must be done within the virtual environment as well rather than through the Tower or GitHub apps for example on the host. For simplicity sake it is recommended that SASS stylesheets be compiled within the virtual environment and a [shortcut is added to the bash profile to help facilitate this](#compass) as well rather than using an app like Scout on the host.
 
 The [Vagrantfile](https://gist.github.com/3875868) configures a virtual environment to include:
 
