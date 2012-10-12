@@ -249,7 +249,7 @@ The bit in parens at the beginning is the name of the virtual environment (_djan
 
 ##### Port Forwarding
 
-The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on the host. In order to access the site in a browser on the host from `$ runserver` on the virtual environment you need to add a port configuration to the command:
+The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on the host. In order to access the site in a browser on the host when you execute `$ runserver` on the virtual environment, you need to add a port configuration to the runserver command:
 
     python manage.py runserver [::]:8000
 
