@@ -219,15 +219,15 @@ This project utilizes separate settings files for development and production tha
 
 ### From Here
 
-If you've been configuring SSH, you'll need to move back to `/vagrant/myproject/` before continuing.
+If you've been configuring SSH, you'll need to move back to _/vagrant/myproject/_ before continuing.
 
     (vm) $ cd /vagrant/myproject/
 
-Additionally, make sure you're working on the `djangoproj` virtual environment. You should be able to see this in the terminal prompt. It should look like:
+Additionally, make sure you're working on the _djangoproj_ virtual environment. You should be able to see this in the terminal prompt. It should look like:
 
     (djangoproj)vagrant@precise64:/vagrant/myproject$
 
-The bit in parens at the beginning is the name of the virtual environment. It is followed by the current user (vagrant), the name of the host (precise64) and the current directory (/vagrant/myrpoject). If you're not working on the `djangoproj` project, run the following virtualenvwrapper command to instantiate it:
+The bit in parens at the beginning is the name of the virtual environment (_djangoproj_). It is followed by the current user (_vagrant_), the name of the host (_precise64_) and the current directory (_/vagrant/myrpoject_). If you're not working on the _djangoproj_ project, run the following virtualenvwrapper command to instantiate it:
 
     (vm) $ workon djangoproj
 
@@ -243,7 +243,7 @@ The bit in parens at the beginning is the name of the virtual environment. It is
 
 ## Port Forwarding
 
-The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on the host. In order to access the site in a browser on the host from `runserver` on the virtual environment you need to add a port configuration to the command:
+The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on the host. In order to access the site in a browser on the host from `$ runserver` on the virtual environment you need to add a port configuration to the command:
 
     python manage.py runserver [::]:8000
 
