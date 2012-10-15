@@ -72,6 +72,9 @@ django-floppyforms
 # Fabric deployment
 fabric
 
+# Generic Templatetags
+-e git+git://github.com/jbergantine/django-templatetags.git#egg=django_templatetags
+
 #####################
 # Optional Installs #
 #####################
