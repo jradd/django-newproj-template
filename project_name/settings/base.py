@@ -101,10 +101,10 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'django_extensions',
     'django_robots',
+    'django_templatetags',
     'django_mobile',
     'braces',
     'floppyforms',
-    '{{ project_name }}.templatetags',
 )
 
 # A sample logging configuration. The only tangible logging
