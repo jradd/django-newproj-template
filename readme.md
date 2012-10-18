@@ -223,9 +223,9 @@ This project utilizes separate settings files for development and production tha
 
 ### From Here
 
-If you've been configuring your SSH Keys, you'll need to move back to _/vagrant/myproject/_ before continuing.
+If you've been configuring your SSH Keys, you'll need to move back to _/vagrant/_ before continuing.
 
-    (vm) $ cd /vagrant/myproject/
+    (vm) $ cd /vagrant/
 
 Additionally, make sure you're working on the _djangoproj_ virtual environment. You should be able to see this in the terminal prompt. It should look like:
 
@@ -240,8 +240,9 @@ The bit in parens at the beginning is the name of the virtual environment (_djan
     (vm) $ git add -A
     (vm) $ git commit -am "initial commit"
 
-#### Syndb and migrate
+#### Syndb and migrate, first you'll have to move into _/vagrant/myproject/_.
 
+    (vm) $ cd /vagrant/myproject/
     (vm) $ dj syncdb
     (vm) $ dj migrate
 
