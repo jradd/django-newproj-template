@@ -162,17 +162,7 @@ def load_data():
 
 def load_packages():
     "Load packages from requirements file. Runs locally on the server so "\
-    "deploy or upload latest first."
-    prompt('Is this a new WebFaction installation? (Y/N)', 'webfaction',
-        default='N')
-    ignorecase = re.compile('y|yes', re.IGNORECASE)
-    if ignorecase.match(env.webfaction):
-        try:
-            run('mkdir -p ~/lib/python2.7')
-        except:
-            """Fails if directory already exists."""
-            pass
-        run('easy_install-2.7 pip')
+    "deploy or upload latest first. Requires PIP to be installed on the server."
     _load_packages()
 
 
