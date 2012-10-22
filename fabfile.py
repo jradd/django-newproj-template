@@ -122,8 +122,10 @@ def grab_data():
 
 
 def remote_setup():
-    "Create directories on the server for the project. Assumes Static and Media have already been created otherwise it will err."
-    run('cd %(path)s; mkdir %(project)s; mkdir packages; mkdir releases' % {'path': env.path, 'project': env.project_name})
+    "Create directories on the server for the project. Assumes Static and "\
+    "Media have already been created otherwise it will err."
+    run('cd %(path)s; mkdir %(project)s; mkdir packages; mkdir releases' % {
+        'path': env.path, 'project': env.project_name})
     run('chmod 766 %(media)s' % {'media': env.remote_media_root})
 
 
@@ -139,13 +141,16 @@ def deploy_static():
 
 
 def load_data():
-    "Load specified fixtures. Runs locally on the server so deploy or upload latest first."
+    "Load specified fixtures. Runs locally on the server so deploy or upload "\
+    "latest first."
     _load_fixtures()
 
 
 def load_packages():
-    "Load packages from requirements file. Runs locally on the server so deploy or upload latest first."
-    prompt('Is this a new WebFaction installation? (Y/N)', 'webfaction', default='N')
+    "Load packages from requirements file. Runs locally on the server so "\
+    "deploy or upload latest first."
+    prompt('Is this a new WebFaction installation? (Y/N)', 'webfaction',
+        default='N')
     ignorecase = re.compile('y|yes', re.IGNORECASE)
     if ignorecase.match(env.webfaction):
         try:
@@ -158,7 +163,9 @@ def load_packages():
 
 
 def upload_latest():
-    "Use sparingly during setup because files will be changed but database will not be migrated nor will the server be restarted. For example before running load_data or load_packages."
+    "Use sparingly during setup because files will be changed but database "\
+    "will not be migrated nor will the server be restarted. For example "\
+    "before running load_data or load_packages."
     env.release = time.strftime('%Y%m%d%H%M%S')
     prompt('Git branch:', 'git_branch', default='master')
     _upload_archive_from_git()
@@ -183,19 +190,24 @@ def _cleanup(keep=5):
     # symlink (for old use cases where there was a previous symlink)
     dirs = ['releases', 'packages']
     for d in dirs:
-        run("cd %(path)s/%(dir)s/ && ls ./  | grep -v ^p | sort | head --lines=-%(keep)i | xargs rm -rf" % {'path': env.path, 'dir': d, 'keep': keep})
+        run("cd %(path)s/%(dir)s/ && ls ./  | grep -v ^p | sort | "\
+            "head --lines=-%(keep)i | xargs rm -rf" % {'path': env.path,
+            'dir': d, 'keep': keep})
 
 
 def _compile_sass():
     "Compile SASS stylesheets and update repo"
     _output_message("Compiling SASS stylesheets and updating repo.")
-    local('compass compile -e production --force %(project)s/static_media/stylesheets' % {'project': env.project_name})
+    local('compass compile -e production --force '\
+        '%(project)s/static_media/stylesheets' % {'project': env.project_name})
     try:
-        local('git commit -am "compiling sass for production"', capture=False) # capture=False provided by http://stackoverflow.com/questions/1875306/fabric-error-fatal-error-local-encountered-an-error-return-code-2-while-exe
+        local('git commit -am "compiling sass for production"',
+            capture=False)
     except:
         # This will be thrown if the stylesheets haven't changed during the
         # compile. A 'Nothing to commit.' message will still be shown.
-        _output_message("Commit failed for reason above. Continuing on with deployment.")
+        _output_message("Commit failed for reason above. "\
+            "Continuing on with deployment.")
 
 
 def _deploy():
@@ -221,16 +233,25 @@ def _deploy_static():
 def _load_fixtures():
     "Load fixtures"
     prompt('Which fixtures to load? (Space separate names):', 'fixtures')
-    run('cd %(path)s/%(project)s; workon %(virtualenv)s; python2.7 manage.py loaddata %(fixtures)s' % {'path': env.path, 'project': env.project_name, 'virtualenv': env.virtualenv_name, 'fixtures': env.fixtures})
+    run('cd %(path)s/%(project)s; workon %(virtualenv)s; '\
+        'python2.7 manage.py loaddata %(fixtures)s' % {'path': env.path,
+        'project': env.project_name, 'virtualenv': env.virtualenv_name,
+        'fixtures': env.fixtures})
 
 
 def _load_packages():
-    run('workon %(virtualenv)s; pip install -r %(path)s/%(project)s/stable-req.txt' % {'virtualenv': env.virtualenv_name, 'path': env.path, 'project': env.project_name})
+    run('workon %(virtualenv)s; pip install -r '\
+        '%(path)s/%(project)s/stable-req.txt' % {
+        'virtualenv': env.virtualenv_name, 'path': env.path,
+        'project': env.project_name})
 
 
 def _migrate_databases():
     "Migrate databases"
-    run('cd %(path)s/%(project)s; workon %(virtualenv)s; python2.7 manage.py migrate; python2.7 manage.py syncdb' % {'path': env.path, 'project': env.project_name, 'virtualenv': env.virtualenv_name})
+    run('cd %(path)s/%(project)s; workon %(virtualenv)s; '\
+        'python2.7 manage.py migrate; python2.7 manage.py syncdb' % {
+        'path': env.path, 'project': env.project_name,
+        'virtualenv': env.virtualenv_name})
 
 
 def _reload_apache():
@@ -241,15 +262,22 @@ def _reload_apache():
 def _symlink_current_release():
     "Symlink our current release"
     require('release', provided_by=[deploy])
-    run('cd %(path)s; rm -rf %(project)s; ln -s releases/%(release)s %(project)s' % {'path': env.path, 'release': env.release, 'project': env.project_name})
+    run('cd %(path)s; rm -rf %(project)s;'\
+        'ln -s releases/%(release)s %(project)s' % {'path': env.path,
+        'release': env.release, 'project': env.project_name})
 
 
 def _upload_archive_from_git():
     "Create an archive from the current Git master branch and upload it"
     require('release', provided_by=[deploy])
 
-    local('git archive --format=zip %(branch)s > %(release)s.zip' % {'branch': env.git_branch, 'release': env.release})
-    run('mkdir %(path)s/releases/%(release)s' % {'path': env.path, 'release': env.release})
-    put('%(release)s.zip' % {'release': env.release}, '%(path)s/packages/' % {'path': env.path})
-    run('cd %(path)s/releases/%(release)s && unzip ../../packages/%(release)s.zip' % {'path': env.path, 'release': env.release})
+    local('git archive --format=zip %(branch)s > %(release)s.zip' % {
+        'branch': env.git_branch, 'release': env.release})
+    run('mkdir %(path)s/releases/%(release)s' % {'path': env.path,
+        'release': env.release})
+    put('%(release)s.zip' % {'release': env.release}, '%(path)s/packages/' % {
+        'path': env.path})
+    run('cd %(path)s/releases/%(release)s && '\
+        'unzip ../../packages/%(release)s.zip' % {'path': env.path,
+        'release': env.release})
     local('rm %(release)s.zip' % {'release': env.release})
