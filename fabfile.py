@@ -11,21 +11,32 @@ THIS FILE MUST BE CONFIGURED BEFORE USE
 
 Configuration
 
-# Setup the necessary environments. The framework for the first, production() is sketched out below. At a minimum the production environment must be filled out.
-# This uses python2.7 as the default call to Python. If the server uses python or python2.6 or python3 or py, find and replace all the instances of python2.7 with whatever your server uses.
-# This assumes that the Python environment on the server is defined using VirtualEnv and VirtualEnvWrapper and that a virtual environment has already been created for the project there.
+# Setup the necessary environments. The framework for the first, production()
+# is sketched out below. At a minimum define teh production environment.
+
+# This uses python2.7 as the default call to Python. If the server uses 
+# `python` or `python2.6` or `python3` or `py`, find and replace all the 
+# instances of python2.7 with whatever your server uses.
+
+# This assumes that the Python environment on the server is defined using
+# VirtualEnv and VirtualEnvWrapper and that a virtual environment has already
+# been created for the project there.
 
 
 Usage Notes
 
 # Setup the necessary directories on the server (1-time only)
-# This file assumes that the directories referenced in the path, media_root and static_root are already created at this point.
+
+# This file assumes that the directories referenced in the path, media_root 
+# and static_root are already created at this point.
+
 $ fab <environment> remote_setup
 
 # Upload the first set of files but don't do anything with it
 $ fab <environment> upload_latest
 
-# With that in place use the stable-req.txt file from within to install site packages
+# With that in place use the stable-req.txt file from within to install
+# site packages
 $ fab <environment> load_packages
 
 # And then deploy the project:
@@ -39,7 +50,7 @@ $ fab <environment> deploy - deploys your application
 # Uploads the latest version of the project from local Git repository
 # Migrates and syncs the database(s)
 # Restarts apache
-# Cleans up legacy versions of the code on the server to keep only the latest (5) versions
+# Removes legacy production deployments to keep only the latest (5) versions
 """
 
 # !Global Settings
@@ -53,25 +64,28 @@ env.local_static_root = os.path.join(os.path.dirname(__file__),
 # !Environments
 def production():
     # Command to use to restart Apache, this will vary between hosts
-    # On WebFaction it is: /home/<username>/webapps/<application name, usually 'django'>/apache2/bin/restart
+    # On WebFaction it is: /home/<username>/webapps/<application name,
+    # usually 'django'>/apache2/bin/restart
     # In a Ubuntu server it is: apache2ctl graceful
     env.apache_restart_command = ''
     # One or multiple username@server/IP address combos
     env.hosts = ['']
-    # Connection and sudo password (this can be left as an empty string and Fabric will prompt as necessary)
+    # Connection and sudo password (this can be left as an empty string
+    # and Fabric will prompt as necessary)
     env.password = ''
     # Name of the virtual environment
     env.virtualenv_name = ''
-    # Absolute path to where the application will be deployed (directory immediately above project)
+    # Absolute path to where the application will be deployed 
+    # (directory immediately above project)
     # Don't end with a trailing slash
     env.path = ''
     # Absolute path to where media files will be served from
     # This is the same as settings.MEDIA_ROOT
     # Don't end with a trailing slash
     env.remote_media_root = ''
-    # Absolute path to the directory above where static files will be served from
-    # This is the same as settings.STATIC_ROOT
-    # Don't end with a trailing slash
+    # Absolute path to the directory above where static files 
+    # will be served from. This is the same as settings.STATIC_ROOT.
+    # Don't end with a trailing slash.
     env.remote_static_root = ''
 
     # The following settings are for the grab_data method.
