@@ -61,11 +61,11 @@ Chef-Cookbook-DjangoNewProj configures postactivate and postdeactivate virtualen
 
 This settings files in this template are explicitly configured to connect to a PostgreSQL server.
 
-Chef-Cookbook-DjangoNewProj configures your Django project for use with a PostgreSQL database (_django\_db_) which it installs along with a user (_django\_login_) for said database and installs South for database migrations.
+Chef-Cookbook-DjangoNewProj configures your Django project for use with a PostgreSQL database (__django\_db__) which it installs along with a user (__django\_login__) for said database and installs South for database migrations.
 
 ### Your site will be optimized for search engines.
 
-This template includes a sitemaps module (_sitemaps.py_) which is initially configured to create a sitemaps XML file referencing "static" pages of a site but which can be expanded to most any application. The sitemap module is imported into _urls.py_ which sets up routing. 
+This template includes a sitemaps module (__sitemaps.py__) which is initially configured to create a sitemaps XML file referencing "static" pages of a site but which can be expanded to most any application. The sitemap module is imported into _urls.py_ which sets up routing. 
 
 This template also installs [Django-Robots](https://github.com/jbergantine/django-robots), a small app for creating a _robots.txt_ file.
 
