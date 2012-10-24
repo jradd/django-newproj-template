@@ -98,7 +98,7 @@ Review _stable-req.txt_ for other default application choices.
 ## Legend
 
 `(host)` is for commands to run on the host machine, and `(vm)` is
-for commands to run inside the VM.
+for commands to run inside the Vagrant virtual machine.
 
 ## Initial setup of Vagrant Base
 
