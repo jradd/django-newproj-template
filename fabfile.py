@@ -63,7 +63,7 @@ env.local_static_root = os.path.join(os.path.dirname(__file__),
 # !Environments
 def production():
     # Command to use to restart Apache, this will vary between hosts
-    # On WebFaction it is: /home/<username>/webapps/<application name,
+    # On WebFaction it is: /home/<username>/webapps/<application name>,
     # usually 'django'>/apache2/bin/restart
     # In a Ubuntu server it is: apache2ctl graceful
     env.apache_restart_command = ''
