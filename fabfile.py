@@ -75,8 +75,10 @@ def production():
     # Name of the virtual environment
     env.virtualenv_name = ''
     # Absolute path to where the application will be deployed
-    # (directory immediately above project)
-    # Don't end with a trailing slash
+    # (directory immediately above project in virtual environemt).
+    # Don't end with a trailing slash.
+    # On Webfaction this will be:
+    # '/home/<accountname>/.virtualenvs/<virtualenv_name>'
     env.path = ''
     # Absolute path to where media files will be served from
     # This is the same as settings.MEDIA_ROOT
