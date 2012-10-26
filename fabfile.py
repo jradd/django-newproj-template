@@ -1,5 +1,4 @@
 import os
-import re
 import time
 
 from fabric.api import env, local, prompt, put, require, run
@@ -14,8 +13,8 @@ Configuration
 # Setup the necessary environments. The framework for the first, production()
 # is sketched out below. At a minimum define teh production environment.
 
-# This uses python2.7 as the default call to Python. If the server uses 
-# `python` or `python2.6` or `python3` or `py`, find and replace all the 
+# This uses python2.7 as the default call to Python. If the server uses
+# `python` or `python2.6` or `python3` or `py`, find and replace all the
 # instances of python2.7 with whatever your server uses.
 
 # This assumes that the Python environment on the server is defined using
@@ -27,7 +26,7 @@ Usage Notes
 
 # Setup the necessary directories on the server (1-time only)
 
-# This file assumes that the directories referenced in the path, media_root 
+# This file assumes that the directories referenced in the path, media_root
 # and static_root are already created at this point.
 
 $ fab <environment> remote_setup
@@ -75,7 +74,7 @@ def production():
     env.password = ''
     # Name of the virtual environment
     env.virtualenv_name = ''
-    # Absolute path to where the application will be deployed 
+    # Absolute path to where the application will be deployed
     # (directory immediately above project)
     # Don't end with a trailing slash
     env.path = ''
@@ -83,7 +82,7 @@ def production():
     # This is the same as settings.MEDIA_ROOT
     # Don't end with a trailing slash
     env.remote_media_root = ''
-    # Absolute path to the directory above where static files 
+    # Absolute path to the directory above where static files
     # will be served from. This is the same as settings.STATIC_ROOT.
     # Don't end with a trailing slash.
     env.remote_static_root = ''
@@ -162,7 +161,8 @@ def load_data():
 
 def load_packages():
     "Load packages from requirements file. Runs locally on the server so "\
-    "deploy or upload latest first. Requires PIP to be installed on the server."
+    "deploy or upload latest before running. Requires PIP to be installed on "\
+    "the server."
     _load_packages()
 
 
