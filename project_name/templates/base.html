@@ -90,17 +90,13 @@
             {% block nav %}
 
                 <header id="site_header">
-                    {% if flavour == "full" %}
-                       {% include "_nav.html" %}
-                    {% endif %}
+                    {% include "_nav.html" %}
                 </header>
         
                 {% block content %}{% endblock %}
         
                 <footer id="site_footer">
-                    {% if flavour == "mobile" %}
-                        {% include "_nav.html" %}
-                    {% endif %}
+                    {% include "_nav.html" %}
                 </footer>
 
             {% endblock nav %}
