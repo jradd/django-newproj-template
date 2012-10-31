@@ -330,7 +330,9 @@ A stylesheet specifically for dealing with modifications necessary for Internet 
 
 ### TemplateTags Installed
 
-See [documentation](https://github.com/jbergantine/django-templatetags/blob/master/README.rst#usage).
+#### fetch_content, nav, widont
+
+[Documentation for these files is contained in a seperate repo](https://github.com/jbergantine/django-templatetags/blob/master/README.rst#usage).
 
 ## Vagrant command tips
 
