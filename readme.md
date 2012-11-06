@@ -264,6 +264,67 @@ The Vagrantfile forwards port 8000 on the virtual environment to port 8001 on th
 
 Note that you will likely want to have both runserver and compass watch running at the same time so you can review your changes in a web browser. To do this SSH into Vagrant from two different terminal windows on your host, on one window execute `$ rs` and in the other execute `$ cw`.
 
+#### Share
+
+Add a Git remote per the instructions at BitBucket or GitHub or whatever remote hosting service for adding an existing repo. Add and push.
+
+    (vm) $ git remote add origin <path to repo>
+    (vm) $ git add -A
+    (vm) $ git commit -am "initial commit"
+    (vm) $ git push origin master
+    
+Your teammates will now be able to pull down the repo and setup their own Vagrant virtual environment.
+
+## Using a Vagrant Virtual Environment That Has Been Shared With You
+
+### Setup a Directory on Your Host Computer
+
+Make a directory for the project and change to it, replacing <path_to> with the path to the project and <project_name> with the name of the project.
+
+    (host) $ mkdir <path_to>/<project_name> && cd $_
+
+For example, to create a project called 'website' in your home directory:
+
+    (host) $ mkdir ~/website && cd $_
+
+### Clone the project from GitHub or Bitbucket or wherever it is hosted.
+
+    (host) $ git clone <path_to_repo> .
+
+### Install the cookbooks.
+
+    (host) $ git submodule init
+    (host) $ git submodule update
+
+### Boot up the Vagrant vitual environment
+
+    (host) $ vagrant up
+
+### SSH into the Vagrant virtual environment
+
+    (host) $ vagrant ssh
+
+### Install the project-specific packages
+
+    (vm) sudo pip install -r stable-req.txt
+
+### Sync the database and migrate any migrations.
+
+    (vm) $ dj syncdb
+    (vm) $ dj migrate
+
+### Setup or copy over SSH keys.
+
+Follow the directions [here](https://github.com/jbergantine/django-newproj-template#setup-ssh-keys).
+
+### Personalize Git.
+
+Follow the directions [here](https://github.com/jbergantine/django-newproj-template#personalize-git).
+
+### Begin editing, pushing, pulling, etc.
+
+Read through the rest of the documentation for instructions on using the new system.
+
 ## Installed Files
 
 This template includes a number of HTML templates and template tags as well as other things.
