@@ -248,11 +248,6 @@ The bit in parens at the beginning is the name of the virtual environment (_djan
 
     (vm) $ workon djangoproj
 
-#### Do an initial Git commit 
-
-    (vm) $ git add -A
-    (vm) $ git commit -am "initial commit"
-
 #### Syndb and migrate, first you'll have to move into _/vagrant/myproject/_.
 
     (vm) $ cd /vagrant/myproject/
