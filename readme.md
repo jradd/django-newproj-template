@@ -273,9 +273,13 @@ Add a Git remote per the instructions at BitBucket or GitHub or whatever remote 
     (vm) $ git commit -am "initial commit"
     (vm) $ git push origin master
     
-Your teammates will now be able to pull down the repo and setup their own Vagrant virtual environment.
+Your teammates will now be able to pull down the repo and setup their own Vagrant virtual environment. [Point them to the instructions for using it](#using-a-vagrant-virtual-environment-that-has-been-shared-with-you).
 
 ## Using a Vagrant Virtual Environment That Has Been Shared With You
+
+* [Read about Vagrant](#vagrant).
+* [Read the assumptions of use](#assumptions).
+* [Understand the Legend](#legend)
 
 ### Setup a Directory on Your Host Computer
 
@@ -286,8 +290,6 @@ Make a directory for the project and change to it, replacing <path_to> with the 
 For example, to create a project called 'website' in your home directory:
 
     (host) $ mkdir ~/website && cd $_
-
-When you're all done, this directory will contain a directory named myproject that matches up with /vagrant/myproject in the virtual envirionment. Virtualbox keeps the two directories in sync so changes to one will be made in the other. This directory contains Django's manage.py file as well as the project's fabfile and PIP requirements doc. Within it is a second myproject directory which contains the Django project. On your host launch the text editor of your choice (Panic Coda, TextMate, Sublime, whatever), make edits to any of these files and those edits will be reflected in the virtual environment immediately.
 
 ### Clone the project from GitHub or Bitbucket or wherever it is hosted.
 
@@ -317,16 +319,16 @@ When you're all done, this directory will contain a directory named myproject th
 
 ### Setup or copy over SSH keys.
 
-Follow the directions [here](https://github.com/jbergantine/django-newproj-template#setup-ssh-keys).
+Follow the directions [here](#setup-ssh-keys).
 
 ### Personalize Git.
 
-Follow the directions [here](https://github.com/jbergantine/django-newproj-template#personalize-git).
+Follow the directions [here](#personalize-git).
 
 ### Begin editing, pushing, pulling, etc.
 
-* [Run Server](https://github.com/jbergantine/django-newproj-template/blob/master/readme.md#run-server)
-* [Run Compass Watch](https://github.com/jbergantine/django-newproj-template#watch-for-changes-to-sass-stylesheets)
+* [Run Server](#run-server)
+* [Run Compass Watch](#watch-for-changes-to-sass-stylesheets)
 
 ## Installed Files
 
