@@ -277,9 +277,10 @@ Your teammates will now be able to pull down the repo and setup their own Vagran
 
 ## Using a Vagrant Virtual Environment That Has Been Shared With You
 
+* [Before you do anything else, STOP](#stop).
 * [Read about Vagrant](#vagrant).
 * [Read the assumptions of use](#assumptions).
-* [Understand the Legend](#legend)
+* [See the Legend for the following directions](#legend).
 
 ### Setup a Directory on Your Host Computer
 
