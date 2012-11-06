@@ -287,6 +287,8 @@ For example, to create a project called 'website' in your home directory:
 
     (host) $ mkdir ~/website && cd $_
 
+When you're all done, this directory will contain a directory named myproject that matches up with /vagrant/myproject in the virtual envirionment. Virtualbox keeps the two directories in sync so changes to one will be made in the other. This directory contains Django's manage.py file as well as the project's fabfile and PIP requirements doc. Within it is a second myproject directory which contains the Django project. On your host launch the text editor of your choice (Panic Coda, TextMate, Sublime, whatever), make edits to any of these files and those edits will be reflected in the virtual environment immediately.
+
 ### Clone the project from GitHub or Bitbucket or wherever it is hosted.
 
     (host) $ git clone <path_to_repo> .
@@ -323,7 +325,8 @@ Follow the directions [here](https://github.com/jbergantine/django-newproj-templ
 
 ### Begin editing, pushing, pulling, etc.
 
-Read through the rest of the documentation for instructions on using the new system.
+* [Run Server](https://github.com/jbergantine/django-newproj-template/blob/master/readme.md#run-server)
+* [Run Compass Watch](https://github.com/jbergantine/django-newproj-template#watch-for-changes-to-sass-stylesheets)
 
 ## Installed Files
 
