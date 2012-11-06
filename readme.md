@@ -2,6 +2,21 @@
 
 Django project template for starting a new project.
 
+## Table of Contents
+
+* [Stop](#stop)
+* [This Template](#this-template)
+* [Vagrant](#vagrant)
+* [Assumptions](#assumptions)
+* [Legend](#legend)
+* [Initial setup of Vagrant Base](#initial-setup-of-vagrant-base)
+* [Using a Vagrant Virtual Environment That Has Been Shared With You](#using-a-vagrant-virtual-environment-that-has-been-shared-with-you)
+* [Installed Files](#installed-files)
+* [Vagrant Command Tips](#vagrant-command-tips)
+* [VirtualenvWrapper Command Tips](#virtualenvwrapper-command-tips)
+* [PIP Command Tips](#pip-command-tips)
+* [Bash Aliases](#bash-aliases)
+
 ## Stop
 
 This project assumes at least a passing familiarity with Django and the Terminal window. If you haven't done so, it is highly recommended that those unfamiliar with the Terminal window begin with [The Designer's Guide to the OSX Command Prompt](http://wiseheartdesign.com/articles/2010/11/12/the-designers-guide-to-the-osx-command-prompt/) and those unfamiliar with Django [read through the tutorial](https://docs.djangoproject.com/en/1.4/intro/tutorial01/) to understand some of the concepts discussed below.
@@ -116,8 +131,6 @@ Add a vagrant box (we'll be using Ubuntu Precise Pangolin (12.04 LTS) 64-bit):
 
     (host) $ vagrant box add precise64 http://files.vagrantup.com/precise64.box
     
-## Usage
-
 Make a directory for the project and change to it, replacing `<path_to>` with the path to the project and `<project_name>` with the name of the project.
 
     (host) $ mkdir <path_to>/<project_name> && cd $_
