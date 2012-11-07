@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load nav %}
+
+{# meta data #}
+{% block metadescription %}{% endblock %}
+{% block metakeywords %}{% endblock %}
+{% block pagetitle %}{% endblock %}
+
+{% block fb_title %}{% endblock %}
+{% block fb_type %}{% endblock %}
+{% block fb_image %}{% endblock %}
+{% block fb_url %}{% endblock %}
+{% block fb_description %}{% endblock %}
+
+{# page specific includes (stylesheets, javascripts) #}
+{% block additional_head_items %}{% endblock additional_head_items %}
+
+{# body id #}
+{% block bodyid %}{{ block.super }}{% endblock %}{# for 'base' body id use {{ block.super }} #}
+
+{# body class #}
+{% block bodyclass %}{{ block.super }}{% endblock %}{# for 'base' body class use {{ block.super }} #}
+
+{# nav - see template tag for usage instructions #}
+{% block nav %}
+    {% nav "home" %}
+    {{ block.super }}
+{% endblock %}
+
+{# content #}
+{% block content %}
+    Congratulations! Your Django project is up and running.
+{% endblock content %}
+
+{# javascript #}
+{% block javascript %}
+    {{ block.super }}
+{% endblock %}

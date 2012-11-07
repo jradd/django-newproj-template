@@ -18,17 +18,20 @@ sitemaps = {
 
 urlpatterns = patterns('',
     # XML Sitemap
-    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', { 
-        'sitemaps': sitemaps }),
+    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
+        {'sitemaps': sitemaps}),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    
+
     # Robots.txt file
     url(r'^robots.txt$', include('django_robots.urls')),
+
+    # Home
+    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
 )
 
 
