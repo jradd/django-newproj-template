@@ -331,7 +331,7 @@ Add a Git remote per the instructions at BitBucket or GitHub or whatever remote 
 
     (vm) $ git remote add origin <path to repo>
     (vm) $ git add -A
-    (vm) $ git commit -am "initial commit"
+    (vm) $ git commit -am "<commit message>"
     (vm) $ git push origin master
     
 Your teammates will now be able to pull down the repo and setup their own Vagrant virtual environment. [Point them to the instructions for using it](#using-a-vagrant-virtual-environment-that-has-been-shared-with-you).
