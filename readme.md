@@ -145,26 +145,32 @@ Create a place for the Chef cookbooks. From within the Vagrant project directory
 
 So, extending our example, this would be run from within _~/website/_.
 
-    (host) $ mkdir cookbooks && cd $_
+    (host) $ git init
+    (host) $ mkdir cookbooks
 
 Clone the Chef cookbooks repositories as needed (we will use the following cookbooks in this guide). 
 
-    (host) $ git clone git://github.com/opscode-cookbooks/apt.git
-    (host) $ git clone git://github.com/opscode-cookbooks/build-essential.git
-    (host) $ git clone git://github.com/opscode-cookbooks/git.git
-    (host) $ git clone git://github.com/opscode-cookbooks/openssl.git
-    (host) $ git clone git://github.com/opscode-cookbooks/postgresql.git
-    (host) $ git clone git://github.com/opscode-cookbooks/python.git
-    (host) $ git clone git://github.com/opscode-cookbooks/zlib.git
-    (host) $ git clone git://github.com/jbergantine/chef-cookbook-python-psycopg2.git
-    (host) $ git clone git://github.com/jbergantine/chef-cookbook-libjpeg.git
-    (host) $ git clone git://github.com/jbergantine/chef-cookbook-libfreetype.git
-    (host) $ git clone git://github.com/jbergantine/chef-cookbook-xapian.git
-    (host) $ git clone git://github.com/jbergantine/chef-cookbook-djangonewproj.git
+    (host) $ git submodule add git://github.com/opscode-cookbooks/apt.git cookbooks/apt
+    (host) $ git submodule add git://github.com/opscode-cookbooks/build-essential.git cookbooks/build-essential
+    (host) $ git submodule add git://github.com/opscode-cookbooks/git.git cookbooks/git
+    (host) $ git submodule add git://github.com/opscode-cookbooks/openssl.git cookbooks/openssl
+    (host) $ git submodule add git://github.com/opscode-cookbooks/postgresql.git cookbooks/postgresql
+    (host) $ git submodule add git://github.com/opscode-cookbooks/python.git cookbooks/python
+    (host) $ git submodule add git://github.com/opscode-cookbooks/zlib.git cookbooks/zlib
+    (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-python-psycopg2.git cookbooks/chef-cookbook-python-psycopg2
+    (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-libjpeg.git cookbooks/chef-cookbook-libjpeg
+    (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-libfreetype.git cookbooks/chef-cookbook-libfreetype
+    (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-xapian.git cookbooks/chef-cookbook-xapian
+    (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-djangonewproj.git cookbooks/chef-cookbook-djangonewproj
 
-Back out of the _cookbooks_ directory and copy in the Vagrantfile.
+Init and update the submodules.
+
+    (host) $ git submodule init
+    (host) $ git submodule update
+
+Copy in the Vagrantfile.
     
-    (host) $ cd ../; curl https://raw.github.com/gist/3875868/gistfile1.rb > Vagrantfile
+    (host) $ curl https://raw.github.com/gist/3875868/gistfile1.rb > Vagrantfile
 
 Startup Vagrant and install cookbooks (first time through), use `$ vagrant provision` instead if you mess something up and have to go through it again:
 
