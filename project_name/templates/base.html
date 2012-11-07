@@ -44,23 +44,6 @@
         <!-- Modernizr -->
         <script src="{{ STATIC_URL }}javascripts/libs/modernizr.js"></script>
         
-        <!-- Typekit -->
-        {% ifequal request.get_host '127.0.0.1:8000' %}
-            {% comment %}
-                
-                Include the script for "localhost" here.
-                
-            {% endcomment %}
-            <script src=""></script>
-        {% else %}
-            {% comment %}
-                
-                Include the script for the production site here.
-                
-            {% endcomment %}
-            <script src=""></script>
-        {% endifequal %}
-
         <!-- Stylesheets -->
         <link href="{{ STATIC_URL }}stylesheets/stylesheets/screen.css" media="all" rel="stylesheet" type="text/css" />
         <link href="{{ STATIC_URL }}stylesheets/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
