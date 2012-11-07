@@ -182,7 +182,54 @@ SSH in to the virtualbox:
 
 ### Setup SSH Keys
 
-Creating keys makes pushing and pulling changes from Bitbucket or GitHub or the server a lot easier since you will only have one password to remember. 
+Using SSH keys makes pushing and pulling changes from Bitbucket or GitHub or the server a lot easier since you will only have one password to remember. 
+
+#### Copy in Existing Keys
+
+If you are already using SSH keys on your host machine you can copy those keys into the Vagrant virtual box. 
+
+Copy the public key:
+
+    (host) $ cat id_rsa.pub|pbcopy
+
+SSH into the virtual box in a new Terminal window. From the project directory (the one you made in [using the new Vagrant Base Box](#using-the-new-vagrant-base-box)) on your host system run:
+
+    (host) $ vagrant up
+    (host) $ vagrant ssh
+
+Open the _id_rsa.pub_ file on the virtual box for editing.
+
+    (vm) $ vi ~/.ssh/id_rsa.pub
+
+Paste, save and quit vi. If you're unfamiliar with vi/vim commands type or press the following keys/combos one line at a time:
+
+    i
+    cmd + v
+    esc
+    :wq
+
+Copy the private key. In your original Terminal window run:
+
+    (host) $ cat ~/.ssh/id_rsa|pbcopy
+
+Open the _id_rsa_ file on the virtual box for editing. In the Terminal window that is SSH'd into the virtual box run:
+
+    (vm) $ vi ~/.ssh/id_rsa
+
+Paste, save and quit vi. If you're unfamiliar with vi/vim commands type or press the following keys/combos one line at a time:
+
+    i
+    cmd + v
+    esc
+    :wq
+
+Change permissions of the _id_rsa_ file.
+
+    (vm) $ chmod 600 ~/.ssh/id_rsa
+
+#### Setup new Keys
+
+If you aren't using SSH keys on your host machine, you can setup a new key on your virtual box. These same instructions can be used on your host machine to generate SSH keys. Just execute them on host instead of the virtual box, skipping the step where you SSH into the virtual box.
 
 SSH into the box if you aren't already, from the project directory (the one you made in [using the new Vagrant Base Box](#using-the-new-vagrant-base-box)) on your host system run:
 
