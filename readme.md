@@ -190,7 +190,7 @@ If you are already using SSH keys on your host machine you can copy those keys i
 
 Copy the public key:
 
-    (host) $ cat id_rsa.pub|pbcopy
+    (host) $ cat ~/.ssh/id_rsa.pub|pbcopy
 
 SSH into the virtual box in a new Terminal window. From the project directory (the one you made in [using the new Vagrant Base Box](#using-the-new-vagrant-base-box)) on your host system run:
 
