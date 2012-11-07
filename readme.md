@@ -4,14 +4,25 @@ Django project template for starting a new project.
 
 ## Table of Contents
 
+### Introduction
+
 * [Stop](#stop)
 * [This Template](#this-template)
 * [Vagrant](#vagrant)
 * [Assumptions](#assumptions)
+
+### Directions
+
 * [Legend](#legend)
 * [Initial setup of Vagrant Base](#initial-setup-of-vagrant-base)
 * [Using a Vagrant Virtual Environment That Has Been Shared With You](#using-a-vagrant-virtual-environment-that-has-been-shared-with-you)
+
+### Documentation
+
 * [Installed Files](#installed-files)
+
+### Cheat Sheets
+
 * [Vagrant Command Tips](#vagrant-command-tips)
 * [VirtualenvWrapper Command Tips](#virtualenvwrapper-command-tips)
 * [PIP Command Tips](#pip-command-tips)
