@@ -186,7 +186,7 @@ Using SSH keys makes pushing and pulling changes from Bitbucket or GitHub or the
 
 #### Copy in Existing Keys
 
-If you are already using SSH keys on your host machine you can copy those keys into the Vagrant virtual box. 
+If you are already using SSH keys on your host machine you can copy those keys into the Vagrant virtual box. Alternately, [you can create them from scratch](#setup-new-keys).
 
 Copy the public key:
 
