@@ -588,15 +588,15 @@ The TimeStampledModel class adds `created` and `modified` date time fields and s
 
 ### runserver_plus
 
-`$ runserver_plus` is a shell command for interactive debugging. [More info](http://packages.python.org/django-extensions/runserver_plus.html).
+`runserver_plus` is a shell command for interactive debugging. [More info](http://packages.python.org/django-extensions/runserver_plus.html).
 
 ### shell_plus
 
-`$ shell_plus` is a shell command that expands on `$ ./manage.py shell` by dynamically reloading models.
+`shell_plus` is a shell command that expands on `$ ./manage.py shell` by dynamically reloading models.
 
 ### reset_db
 
-`$ reset_db` is a shell command to reset the database.
+`reset_db` is a shell command to reset the database.
 
 ### More commands
 
