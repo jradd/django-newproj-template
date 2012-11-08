@@ -74,6 +74,10 @@ fabric
 
 # Manual configuration of project needs to happen in order to use these bundles
 
+# Lettuce for BDD Testing
+# Django integration docs @ http://lettuce.it/recipes/django-lxml.html#lettuce-web-development-fun-with-lettuce-and-django
+#lettuce
+
 # Render fields and widgets in templates instead of using string interpolation (http://pypi.python.org/pypi/django-floppyforms)
 # Also HTML5 forms
 # Docs @ http://django-floppyforms.readthedocs.org/en/latest/
