@@ -57,17 +57,12 @@ django-slimmer
 # Docs @ http://django-whatever.readthedocs.org/en/latest/index.html
 django-whatever
 
+# Browser Acceptance Testing with Splinter
+# Docs @ http://splinter.cobrateam.info/docs/
+#splinter
+
 # Mobile middleware (https://github.com/gregmuellegger/django-mobile)
 django_mobile
-
-# Mixins for Class-Based Views (LoginRequiredMixin, SelectRelatedMixin, StaffuserRequiredMixin) (https://github.com/brack3t/django-braces/)
-# Docs @ http://django-braces.readthedocs.org/en/latest/index.html
-django-braces
-
-# Render fields and widgets in templates instead of using string interpolation (http://pypi.python.org/pypi/django-floppyforms)
-# Also HTML5 forms
-# Docs @ http://django-floppyforms.readthedocs.org/en/latest/
-django-floppyforms
 
 # Fabric deployment
 fabric
@@ -80,6 +75,15 @@ fabric
 #####################
 
 # Manual configuration of project needs to happen in order to use these bundles
+
+# Render fields and widgets in templates instead of using string interpolation (http://pypi.python.org/pypi/django-floppyforms)
+# Also HTML5 forms
+# Docs @ http://django-floppyforms.readthedocs.org/en/latest/
+#django-floppyforms
+
+# Mixins for Class-Based Views (LoginRequiredMixin, SelectRelatedMixin, StaffuserRequiredMixin) (https://github.com/brack3t/django-braces/)
+# Docs @ http://django-braces.readthedocs.org/en/latest/index.html
+#django-braces
 
 # Caching via Python Memcached
 #python-memcached
