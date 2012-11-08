@@ -37,7 +37,7 @@ django-compressor
 # Development tools (https://github.com/django-extensions/django-extensions)
 # Docs @ http://packages.python.org/django-extensions/
 #
-# time-stamped model
+# time-stamped model adds `created` and `modified` date time fields and orders by default `('-modified', '-created')`
 # http://packages.python.org/django-extensions/model_extensions.html?highlight=timestampedmodel
 # Usage:
 #   from django_extensions.db.models import TimeStampedModel
