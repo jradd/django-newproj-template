@@ -599,9 +599,9 @@ The TimeStampledModel class adds `created` and `modified` date time fields and s
 
 `reset_db` is a shell command to reset the database.
 
-### More commands
+### More Commands and Other Features
 
-Django Extensions is rather poorly documented but includes many other shell commands and features. [Documentation](http://packages.python.org/django-extensions/command_extensions.html). [Source code](https://github.com/django-extensions/django-extensions).
+See the [documentation](http://packages.python.org/django-extensions/command_extensions.html) or read the [source code](https://github.com/django-extensions/django-extensions).
     
 ## Bash Aliases
 
