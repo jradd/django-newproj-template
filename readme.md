@@ -26,6 +26,7 @@ Django project template for starting a new project.
 * [Vagrant Command Tips](#vagrant-command-tips)
 * [VirtualenvWrapper Command Tips](#virtualenvwrapper-command-tips)
 * [PIP Command Tips](#pip-command-tips)
+* [Django Extensions](#django-extensions)
 * [Bash Aliases](#bash-aliases)
 
 # Introduction
