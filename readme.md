@@ -570,6 +570,37 @@ As in:
 ### Uninstall a package:
 
     (vm) $ pip uninstall <package_name>
+
+## Django Extensions
+
+### TimeStampledModel
+
+Django Extensions includes a [TimeStampledModel](https://github.com/django-extensions/django-extensions/blob/master/django_extensions/db/models.py) class which classes can be inherited from.
+
+The TimeStampledModel class adds `created` and `modified` date time fields and sets the ordering to `('-modified', '-created')`.
+
+#### Usage:
+
+    from django_extensions.db.models import TimeStampedModel
+
+    class foo(TimeStampedModel):
+        ...
+
+### runserver_plus
+
+`$ runserver_plus` is a shell command for interactive debugging. [More info](http://packages.python.org/django-extensions/runserver_plus.html).
+
+### shell_plus
+
+`$ shell_plus` is a shell command that expands on `$ ./manage.py shell` by dynamically reloading models.
+
+### reset_db
+
+`$ reset_db` is a shell command to reset the database.
+
+### More commands
+
+Django Extensions is rather poorly documented but includes many other shell commands and features. [Documentation](http://packages.python.org/django-extensions/command_extensions.html). [Source code](https://github.com/django-extensions/django-extensions).
     
 ## Bash Aliases
 
