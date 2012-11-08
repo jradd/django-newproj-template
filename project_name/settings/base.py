@@ -103,8 +103,6 @@ INSTALLED_APPS = (
     'django_robots',
     'django_templatetags',
     'django_mobile',
-    'braces',
-    'floppyforms',
 )
 
 # A sample logging configuration. The only tangible logging
