@@ -240,7 +240,8 @@ def _load_fixtures():
     "Load fixtures"
     prompt('Which fixtures to load? (Space separate names):', 'fixtures')
     run('cd %(path)s/%(project)s; workon %(virtualenv)s; '\
-        'python2.7 manage.py loaddata %(fixtures)s' % {'path': env.path,
+        'python2.7 manage.py loaddata %(fixtures)s '\
+        '--settings=myproject.settings.production' % {'path': env.path,
         'project': env.project_name, 'virtualenv': env.virtualenv_name,
         'fixtures': env.fixtures})
 
@@ -255,7 +256,8 @@ def _load_packages():
 def _migrate_databases():
     "Migrate databases"
     run('cd %(path)s/%(project)s; workon %(virtualenv)s; '\
-        'python2.7 manage.py migrate; python2.7 manage.py syncdb' % {
+        'python2.7 manage.py migrate --settings=myproject.settings.production; '\
+        'python2.7 manage.py syncdb --settings=myproject.settings.production' % {
         'path': env.path, 'project': env.project_name,
         'virtualenv': env.virtualenv_name})
 
