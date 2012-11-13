@@ -359,19 +359,10 @@ Your teammates will now be able to pull down the repo and setup their own Vagran
 * [Read the assumptions of use](#assumptions).
 * [See the Legend for the following directions](#legend).
 
-### Setup a Directory on Your Host Computer
+### Clone the project from GitHub or Bitbucket or wherever it is hosted onto your host machine and change directory into the new directory.
 
-Make a directory for the project and change to it, replacing <path_to> with the path to the project and <project_name> with the name of the project.
-
-    (host) $ mkdir <path_to>/<project_name> && cd $_
-
-For example, to create a project called 'website' in your home directory:
-
-    (host) $ mkdir ~/website && cd $_
-
-### Clone the project from GitHub or Bitbucket or wherever it is hosted.
-
-    (host) $ git clone <path_to_repo> .
+    (host) $ git clone <path_to_repo>
+    (host) $ cd $_
 
 ### Install the cookbooks.
 
