@@ -49,7 +49,7 @@ Vagrant offers the ability to create unique virtual machines on a per-project ba
 
 These instructions go through the configuration of a new Ubuntu 64-bit operating system on a Vagrant Box hosted on an Apple Macintosh computer with Git and Curl as a minimum. These same set of instructions should work on a Linux box with a similar configuration.
 
-Using the Vagrant box requires you to interact with _manage.py_ from within the virtual environment although you can use a text editor or IDE of your choice for editing on your host system via a shared folder and you can access the site through a web browser of your choice by taking advantage of port forwarding between the virtual environment and the host.
+Using the Vagrant box requires you to interact with _manage.py_ from within the virtual environment but then allows you to use the text editor or IDE of your choice for editing on your host system via a shared folder and allows access to a compiled site through the web browser of your choice by taking advantage of port forwarding between the virtual environment and the host.
 
 This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS, as such managing Git must be done within the virtual environment as well rather than through the Tower or GitHub apps for example on the host. For simplicity sake it is recommended that SASS stylesheets be compiled within the virtual environment and a [shortcut is added to the bash profile to help facilitate this](#compass) as well rather than using an app like Scout on the host.
 
