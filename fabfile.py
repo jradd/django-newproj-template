@@ -7,47 +7,6 @@ from fabric.contrib.project import rsync_project
 
 """
 THIS FILE MUST BE CONFIGURED BEFORE USE
-
-Configuration
-
-# Setup the necessary environments. The framework for the first, production()
-# is sketched out below. At a minimum define teh production environment.
-
-# This uses python2.7 as the default call to Python. If the server uses
-# `python` or `python2.6` or `python3` or `py`, find and replace all the
-# instances of python2.7 with whatever your server uses.
-
-# This assumes that the Python environment on the server is defined using
-# VirtualEnv and VirtualEnvWrapper and that a virtual environment has already
-# been created for the project there.
-
-
-Usage Notes
-
-# Setup the necessary directories on the server (1-time only)
-
-# This file assumes that the directories referenced in the path, media_root
-# and static_root are already created at this point.
-
-$ fab <environment> remote_setup
-
-# Install any other server side software necessary (Memcached, Xapian, etc.)
-
-# Upload the first set of files, install python packages, sync and migrate 
-# databases
-$ fab <environment> deploy
-
-
-"$ fab production deploy" runs the following tasks:
-
-# Compiles SASS for production
-# Collects Python packages to requirements/production.txt
-# Collects static files into the static files directory
-# Uploads the latest version of the project from local Git repository
-# Installs packages from requirements/production.txt
-# Migrates and syncs the database(s)
-# Restarts apache
-# Removes legacy production deployments to keep only the latest (5) versions
 """
 
 # !Global Settings
@@ -147,8 +106,7 @@ def restart_server():
 
 
 def load_data():
-    "Load specified fixtures. Runs locally on the server so deploy or upload "\
-    "latest first."
+    "Load specified fixtures. Runs locally on the server so deploy first."
     _load_fixtures()
 
 

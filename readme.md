@@ -23,6 +23,7 @@ Django project template for starting a new project.
 
 ### Cheat Sheets
 
+* [Fabric Command Tips](#fabric-command-tips)
 * [Vagrant Command Tips](#vagrant-command-tips)
 * [VirtualenvWrapper Command Tips](#virtualenvwrapper-command-tips)
 * [PIP Command Tips](#pip-command-tips)
@@ -481,7 +482,80 @@ A stylesheet specifically for dealing with modifications necessary for Internet 
 
 [Documentation for these files is contained in a seperate repo](https://github.com/jbergantine/django-templatetags/blob/master/README.rst#usage).
 
+### Fabfile
+
+#### Configuration
+
+Setup the necessary environments. The framework for the first, production() is sketched out in _fabfile.py_, just fill in the blanks. 
+
+The Fabfile uses python2.7 as the default call to Python on the server. If the server uses `python` or `python2.6` or `python3` or `py`, find and replace all the instances of python2.7 with whatever your server uses.
+
+The Fabfile assumes that the Python environment on the server is defined using VirtualEnv and VirtualEnvWrapper and that a virtual environment has already been created for the project on the server.
+
+#### Usage Notes
+
+##### Setup the necessary directories on the server (1-time only)
+
+This file assumes that the directories referenced in the environment's `env.path`, `env.remote_media_root` and `env.remote_static_root` variables are already created (that is to say, you've configured a virtual environment on the remote server and setup static media hosting..
+
+    $ fab <environment> remote_setup
+
+If there are no other environment's defined, the default is _production_. As in:
+
+    $ fab production remote_setup
+
+##### Deploy
+
+**Before deploying make sure that any extra software such as a database (PostgreSQL presumably), memcached, Xapian, etc. are installed and setup.**
+
+Upload the first set of files, install python packages, sync and migrate databases:
+
+    $ fab <environment> deploy
+
+``$ fab production deploy`` runs the following tasks:
+
+1. Compiles SASS for production
+1. Collects Python packages to _requirements/production.txt_
+1. Collects static files into the _static_ files directory on the remote server
+1. Uploads the latest version of the project from the local Git repository to the remote server
+1. Installs packages from _requirements/production.txt_ on the remote server
+1. Migrates and syncs the database(s) on the remote server
+1. Restarts apache on the remote server
+1. Removes legacy production deployments to keep only the latest (5) versions on the remote server
+
+``$ fab production deploy`` will be the command you will most frequently run going forward.
+
+For documentation on the other commands bundeled into the fabfile see the [Fabric Cheat Sheet](#fabric-command-tips)
+
 # Cheat Sheets
+
+## Fabric command tips
+
+The following commands reference `<environment>` which is the name of the environment defined in _fabfile.py_. If no adjustments are made this will be `production`. You may define alternate environments (for example `staging`) by duplicating the `production()` method.
+
+### To make the _packages_ and _releases_ directories on the remote server and set permissions on the _media_ directory to allow Django to write to it. This must be the first fabric command you run and won't be run again.
+
+    (vm) $ fab <environment> remote_setup
+
+### To deploy. First make sure that you have committed all your changes to the repository. Uncommitted changes will not be collected for deployment.
+
+    (vm) $ fab <environment> deploy
+
+### To restart Apache on the server
+
+    (vm) $ fab <environment> restart_server
+
+### To load a fixture. First commit the fixture to the repo and run a `deploy` to upload the fixture to the remote server. Once the fixture is in place on the remote run the following. You will be prompted to name the fixture you want to load.
+
+    (vm) $ fab <environment> load_data
+
+### To simutaniously deploy and load_data run
+
+    (vm) $ fab <environment> deploy_and_loaddata
+
+### To export the remote database and copy it locally (to be then manually loaded)
+
+    (vm) $ fab <environment> grab_data
 
 ## Vagrant command tips
 
