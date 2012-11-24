@@ -31,22 +31,20 @@ Usage Notes
 
 $ fab <environment> remote_setup
 
-# Upload the first set of files but don't do anything with it
-$ fab <environment> upload_latest
+# Install any other server side software necessary (Memcached, Xapian, etc.)
 
-# With that in place use the stable-req.txt file from within to install
-# site packages
-$ fab <environment> load_packages
-
-# And then deploy the project:
-$ fab <environment> deploy - deploys your application
+# Upload the first set of files, install python packages, sync and migrate 
+# databases
+$ fab <environment> deploy
 
 
 "$ fab production deploy" runs the following tasks:
 
 # Compiles SASS for production
+# Collects Python packages to requirements/production.txt
 # Collects static files into the static files directory
 # Uploads the latest version of the project from local Git repository
+# Installs packages from requirements/production.txt
 # Migrates and syncs the database(s)
 # Restarts apache
 # Removes legacy production deployments to keep only the latest (5) versions
@@ -148,35 +146,10 @@ def restart_server():
     _reload_apache()
 
 
-# Rarely Used Host Tasks, Generally for Setup of a New Environment
-def deploy_static():
-    "Compile SASS for production and replace static files on server."
-    _compile_sass()
-    _deploy_static()
-
-
 def load_data():
     "Load specified fixtures. Runs locally on the server so deploy or upload "\
     "latest first."
     _load_fixtures()
-
-
-def load_packages():
-    "Load packages from requirements file. Runs locally on the server so "\
-    "deploy or upload latest before running. Requires PIP to be installed on "\
-    "the server."
-    _load_packages()
-
-
-def upload_latest():
-    "Use sparingly during setup because files will be changed but database "\
-    "will not be migrated nor will the server be restarted. For example "\
-    "before running load_data or load_packages."
-    env.release = time.strftime('%Y%m%d%H%M%S')
-    prompt('Git branch:', 'git_branch', default='master')
-    _upload_archive_from_git()
-    _symlink_current_release()
-    _cleanup()
 
 
 # !Helper Tasks
@@ -220,9 +193,11 @@ def _deploy():
     env.release = time.strftime('%Y%m%d%H%M%S')
 
     _compile_sass()
+    _freeze_packages()
     _deploy_static()
     _upload_archive_from_git()
     _symlink_current_release()
+    _load_packages()
     _migrate_databases()
     _reload_apache()
     _cleanup()
@@ -234,6 +209,20 @@ def _deploy_static():
         remote_dir=env.remote_static_root,
         local_dir=env.local_static_root,
         delete=True)
+
+
+def _freeze_packages():
+    local('pip freeze > %(current_dir)s/requirements/production.txt' % {
+            'current_dir': os.path.dirname(__file__),
+        })
+    try:
+        local('git commit -am "freezing requiremnts for production"',
+            capture=False)
+    except:
+        # This will be thrown if the requirments doc hasn't changed during the
+        # freeze. A 'Nothing to commit.' message will still be shown.
+        _output_message("Commit failed for reason above. "\
+            "Continuing on with deployment.")
 
 
 def _load_fixtures():
@@ -248,7 +237,7 @@ def _load_fixtures():
 
 def _load_packages():
     run('workon %(virtualenv)s; pip install -r '\
-        '%(path)s/%(project)s/stable-req.txt' % {
+        '%(path)s/%(project)s/requirements/production.txt' % {
         'virtualenv': env.virtualenv_name, 'path': env.path,
         'project': env.project_name})
 

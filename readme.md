@@ -122,7 +122,7 @@ Chef-Cookbook-DjangoNewProj installs the necessary libraries (libjpeg, libfreety
 
 ### Other applications
 
-Review _stable-req.txt_ for other default application choices.
+Review _requirements/base.txt_ for other default application choices.
 
 # Directions
 
@@ -349,6 +349,10 @@ That's a lot to remember so there's a shortcut for it:
 
 #### Share
 
+Freeze the requirments
+
+    (vm) $ pip freeze > requirements/development.txt
+
 Add a Git remote per the instructions at BitBucket or GitHub or whatever remote hosting service for adding an existing repo. Add and push.
 
     (vm) $ git remote add origin <path to repo>
@@ -385,7 +389,7 @@ Your teammates will now be able to pull down the repo and setup their own Vagran
 
 ### Install the project-specific packages
 
-    (vm) sudo pip install -r stable-req.txt
+    (vm) sudo pip install -r requirements/development.txt
 
 ### Sync the database and migrate any migrations.
 
@@ -417,7 +421,7 @@ This template includes a number of HTML templates and template tags as well as o
 
 [View source.](https://gist.github.com/3870080)
 
-A hook that runs every time a merge is made. A merge will happen every time `$ git pull` is executed (and there are changes to be brought in; it won't happen if there are no changes) in addition to the explicit `$ git merge` command. This hook will compile stylesheets, sync and migrate the database and install new requirements if _stable-req.txt_ is updated. This hook lives in _.git/hooks/post-merge_ and can be disabled by either removing the _post-merge_ file or making it non-executable. If you want to use Scout to compile SASS or use Tower or a similar application to manage Git you will want to disable or remove this hook as it relies on the presence of SASS, Compass, Susy, Django and a database among other things.
+A hook that runs every time a merge is made. A merge will happen every time `$ git pull` is executed (and there are changes to be brought in; it won't happen if there are no changes) in addition to the explicit `$ git merge` command. This hook will compile stylesheets, sync and migrate the database and install new requirements if _requirements/development.txt_ is updated. This hook lives in _.git/hooks/post-merge_ and can be disabled by either removing the _post-merge_ file or making it non-executable. If you want to use Scout to compile SASS or use Tower or a similar application to manage Git you will want to disable or remove this hook as it relies on the presence of SASS, Compass, Susy, Django and a database among other things.
 
 ### HTML Templates Created
 
