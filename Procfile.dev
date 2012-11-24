@@ -1,0 +1,2 @@
+compass: compass watch myproject/static_media/stylesheets
+web: python manage.py runserver [::]:8000
