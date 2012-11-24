@@ -133,6 +133,9 @@ fabric==1.4.3 # fabric 1.5 has weird shell errors (can't import git, can't impor
 # Django Blog (https://github.com/jbergantine/django-blog)
 #-e git+git://github.com/jbergantine/django-blog.git#egg=django_blog
 
+# Django Events (https://github.com/jbergantine/django-events)
+#-e git://github.com/jbergantine/django-events.git#egg=events
+
 ##########
 # Heroku #
 ##########
