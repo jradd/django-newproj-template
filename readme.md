@@ -638,6 +638,13 @@ The following bash aliases are added to the shell.
         </td>
     </tr>
     <tr>
+        <th>rsp</th>
+        <td>
+            <pre>python manage.py runserver_plus [::]:8000</pre>
+            <p>Instigates django-extension's (RunServerPlus)[http://packages.python.org/django-extensions/runserver_plus.html] command with proper port forwarding. In a host the site will now be available at http://127.0.0.1:8001.</p>
+        </td>
+    </tr>
+    <tr>
         <th>sh</th>
         <td><pre>python manage.py shell</pre></td>
     </tr>
