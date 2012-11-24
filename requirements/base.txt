@@ -68,11 +68,9 @@ fabric==1.4.3 # fabric 1.5 has weird shell errors (can't import git, can't impor
 # Generic Templatetags
 -e git+git://github.com/jbergantine/django-templatetags.git#egg=django_templatetags
 
-#####################
-# Optional Installs #
-#####################
-
-# Manual configuration of project needs to happen in order to use these bundles
+############################################################################
+# Optional Installs: Manual Configuration of Project Required to Use These #
+############################################################################
 
 # Lettuce for BDD Testing
 # Django integration docs @ http://lettuce.it/recipes/django-lxml.html#lettuce-web-development-fun-with-lettuce-and-django
@@ -119,14 +117,21 @@ fabric==1.4.3 # fabric 1.5 has weird shell errors (can't import git, can't impor
 # Usage Stats in the Admin (http://kylefuller.co.uk/projects/django-request/)
 #django-request
 
-# Django Contact Form (https://github.com/jbergantine/django-contact-form)
-#-e git+git://github.com/jbergantine/django-contact-form.git#egg=django_contact_form
-
 # Social Authentication (https://github.com/omab/django-social-auth)
 #django-social-auth
 
 # Non-Social Authentication (http://pypi.python.org/pypi/django-registration)
 #django-registration
+
+####################
+# jbergantine Apps #
+####################
+
+# Django Contact Form (https://github.com/jbergantine/django-contact-form)
+#-e git+git://github.com/jbergantine/django-contact-form.git#egg=django_contact_form
+
+# Django Blog (https://github.com/jbergantine/django-blog)
+#-e git+git://github.com/jbergantine/django-blog.git#egg=django_blog
 
 ##########
 # Heroku #
