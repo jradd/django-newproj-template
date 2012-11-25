@@ -433,9 +433,9 @@ The other recipes are tied together via the recipe in [chef-cookbook-djangonewpr
 
 ### Gists referenced in chef-cookbook-djangonewproj
 
-* [Bash Profile with Coloring and Git Knowledge](https://github.com/gist/4004242/)
-* [Custom Build of Modernizr.js](https://github.com/gist/3868451/)
-* [Git Post-Merge Hook](https://github.com/gist/3870080/)
+* [Bash Profile with Coloring and Git Knowledge](https://gist.github.com/4004242/)
+* [Custom Build of Modernizr.js](https://gist.github.com/3868451/)
+* [Git Post-Merge Hook](https://gist.github.com/3870080/)
 
 ## Installed Files
 
