@@ -484,6 +484,8 @@ A stylesheet specifically for dealing with modifications necessary for Internet 
 
 ### Fabfile
 
+This project includes a default fabfile, the primary use of which is deploying changes to a remote server or servers. The file is broken into "public" and "private" methods which can be bundled into custom commands or expanded on. The public methods are [documented](#fabric-command-tips) below.
+
 #### Configuration
 
 Setup the necessary environments. The framework for the first, production() is sketched out in _fabfile.py_, just fill in the blanks. 

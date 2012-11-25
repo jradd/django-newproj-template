@@ -46,8 +46,10 @@ def production():
     # Don't end with a trailing slash.
     env.remote_static_root = ''
 
-    # The following settings are for the grab_data method.
-    # Name of remote database (must be PostgreSQL).
+    # The following settings are for the grab_data method ONLY
+    # and are otherwise OPTIONAL.
+
+    # Name of remote database (must be a PostgreSQL-type database).
     # This is the same as settings.DATABASES['default']['NAME']
     env.database_name = ''
     # User of remote database.
