@@ -418,6 +418,24 @@ Follow the directions [here](#personalize-git).
 
 # Documentation
 
+## Dependencies
+
+This is a developer reference only. Additional dependencies not listed include cookbooks as referenced in the [Vagrant file](https://gist.github.com/3875868).
+
+### Gists referenced in this project's readme
+
+* [Vagrant File](https://gist.github.com/3875868)
+
+### Cookbooks
+
+The other recipes are tied together via the recipe in [chef-cookbook-djangonewproj](https://github.com/jbergantine/chef-cookbook-djangonewproj)
+
+### Gists referenced in chef-cookbook-djangonewproj
+
+* [Bash Profile with Coloring and Git Knowledge](https://raw.github.com/gist/4004242/prompt.sh)
+* [Custom Build of Modernizr.js](https://raw.github.com/gist/3868451/gistfile1.js)
+* [Git Post-Merge Hook](https://raw.github.com/gist/3870080/gistfile1.sh)
+
 ## Installed Files
 
 This template includes a number of HTML templates and template tags as well as other things.
