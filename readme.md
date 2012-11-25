@@ -539,27 +539,27 @@ The following command make the _packages_ and _releases_ directories on the remo
 
     (vm) $ fab <environment> remote_setup
 
-### Deploy
+### Deploy:
 
 First make sure that you have committed all your changes to the repository. **Uncommitted changes will not be collected for deployment.**
 
     (vm) $ fab <environment> deploy
 
-### To restart Apache on the server
+### To restart Apache on the server:
 
     (vm) $ fab <environment> restart_server
 
-### To load a fixture
+### To load a fixture:
 
 Before running the following, commit the fixture to the repo and run a `deploy` to upload the fixture to the remote server. Once the fixture is in place on the remote run the following. You will be prompted to name the fixture you want to load.
 
     (vm) $ fab <environment> load_data
 
-### To simutaniously deploy and load_data 
+### To simutaniously deploy and load_data:
 
     (vm) $ fab <environment> deploy_and_loaddata
 
-### To export the remote database and copy it locally (to be then manually loaded)
+### To export the remote database and copy it locally (to be then manually loaded):
 
     (vm) $ fab <environment> grab_data
 
