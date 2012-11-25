@@ -533,7 +533,7 @@ For documentation on the other commands bundeled into the fabfile see the [Fabri
 
 The following commands reference `<environment>` which is the name of the environment defined in _fabfile.py_. If no adjustments are made this will be `production`. You may define alternate environments (for example `staging`) by duplicating the `production()` method.
 
-### Setup the server
+### Setup the server:
 
 The following command make the _packages_ and _releases_ directories on the remote server and set permissions on the _media_ directory to allow Django to write to it. This must be the first fabric command you run and won't be run again.
 
