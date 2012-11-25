@@ -20,6 +20,12 @@ Django project template for starting a new project.
 ### Documentation
 
 * [Installed Files](#installed-files)
+    * [Git Hooks](#git-hooks-created)
+    * [HTML Templates](#html-templates-created)
+    * [JavaScript Files](#javascript-files-created)
+    * [Stylesheets](#stylesheets-created)
+    * [TemplateTags](#templatetags-installed)
+    * [Fabfile](#fabfile)
 
 ### Cheat Sheets
 
@@ -527,7 +533,7 @@ Upload the first set of files, install python packages, sync and migrate databas
 
 ``$ fab production deploy`` will be the command you will most frequently run going forward.
 
-For documentation on the other commands bundeled into the fabfile see the [Fabric Cheat Sheet](#fabric-command-tips)
+For documentation on the other commands bundeled into the fabfile see the [Fabric Cheat Sheet](#fabric-command-tips).
 
 # Cheat Sheets
 
