@@ -19,6 +19,7 @@ Django project template for starting a new project.
 
 ### Documentation
 
+* [Dependencies](#dependencies)
 * [Installed Files](#installed-files)
     * [Git Hooks](#git-hooks-created)
     * [HTML Templates](#html-templates-created)
