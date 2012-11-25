@@ -549,7 +549,7 @@ First make sure that you have committed all your changes to the repository. **Un
 
     (vm) $ fab <environment> restart_server
 
-### To load a fixture. 
+### To load a fixture
 
 Before running the following, commit the fixture to the repo and run a `deploy` to upload the fixture to the remote server. Once the fixture is in place on the remote run the following. You will be prompted to name the fixture you want to load.
 
@@ -569,7 +569,7 @@ Before running the following, commit the fixture to the repo and run a `deploy` 
 
     (vm) $ exit
 
-### To shutdown the VM, type:
+### To shutdown the VM:
 
     (host) $ vagrant halt
 
