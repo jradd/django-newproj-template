@@ -23,10 +23,10 @@ Django project template for starting a new project.
 
 ### Cheat Sheets
 
-* [Fabric Command Tips](#fabric-command-tips)
 * [Vagrant Command Tips](#vagrant-command-tips)
 * [VirtualenvWrapper Command Tips](#virtualenvwrapper-command-tips)
 * [PIP Command Tips](#pip-command-tips)
+* [Fabric Command Tips](#fabric-command-tips)
 * [Django Extensions](#django-extensions)
 * [Bash Aliases](#bash-aliases)
 
