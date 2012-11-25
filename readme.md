@@ -488,7 +488,7 @@ A stylesheet specifically for dealing with modifications necessary for Internet 
 
 Setup the necessary environments. The framework for the first, production() is sketched out in _fabfile.py_, just fill in the blanks. 
 
-The Fabfile uses python2.7 as the default call to Python on the server. If the server uses `python` or `python2.6` or `python3` or `py`, find and replace all the instances of python2.7 with whatever your server uses.
+The Fabfile uses `python2.7` as the default call to Python on the server. If the server uses `python` or `python2.6` or `python3` or `py`, find and replace all the instances of `python2.7` with whatever your server uses.
 
 The Fabfile assumes that the Python environment on the server is defined using VirtualEnv and VirtualEnvWrapper and that a virtual environment has already been created for the project on the server.
 
