@@ -531,40 +531,6 @@ For documentation on the other commands bundeled into the fabfile see the [Fabri
 
 # Cheat Sheets
 
-## Fabric command tips
-
-The following commands reference `<environment>` which is the name of the environment defined in _fabfile.py_. If no adjustments are made this will be `production`. You may define alternate environments (for example `staging`) by duplicating the `production()` method.
-
-### Setup the server:
-
-The following command make the _packages_ and _releases_ directories on the remote server and set permissions on the _media_ directory to allow Django to write to it. This must be the first fabric command you run and won't be run again.
-
-    (vm) $ fab <environment> remote_setup
-
-### Deploy:
-
-First make sure that you have committed all your changes to the repository. **Uncommitted changes will not be collected for deployment.**
-
-    (vm) $ fab <environment> deploy
-
-### To restart Apache on the server:
-
-    (vm) $ fab <environment> restart_server
-
-### To load a fixture:
-
-Before running the following, commit the fixture to the repo and run a `deploy` to upload the fixture to the remote server. Once the fixture is in place on the remote run the following. You will be prompted to name the fixture you want to load.
-
-    (vm) $ fab <environment> load_data
-
-### To simutaniously deploy and load_data:
-
-    (vm) $ fab <environment> deploy_and_loaddata
-
-### To export the remote database and copy it locally (to be then manually loaded):
-
-    (vm) $ fab <environment> grab_data
-
 ## Vagrant command tips
 
 ### To exit the VM and return to your host machine:
@@ -654,6 +620,40 @@ As in:
 ### Uninstall a package:
 
     (vm) $ pip uninstall <package_name>
+
+## Fabric command tips
+
+The following commands reference `<environment>` which is the name of the environment defined in _fabfile.py_. If no adjustments are made this will be `production`. You may define alternate environments (for example `staging`) by duplicating the `production()` method.
+
+### Setup the server:
+
+The following command make the _packages_ and _releases_ directories on the remote server and set permissions on the _media_ directory to allow Django to write to it. This must be the first fabric command you run and won't be run again.
+
+    (vm) $ fab <environment> remote_setup
+
+### Deploy:
+
+First make sure that you have committed all your changes to the repository. **Uncommitted changes will not be collected for deployment.**
+
+    (vm) $ fab <environment> deploy
+
+### To restart Apache on the server:
+
+    (vm) $ fab <environment> restart_server
+
+### To load a fixture:
+
+Before running the following, commit the fixture to the repo and run a `deploy` to upload the fixture to the remote server. Once the fixture is in place on the remote run the following. You will be prompted to name the fixture you want to load.
+
+    (vm) $ fab <environment> load_data
+
+### To simutaniously deploy and load_data:
+
+    (vm) $ fab <environment> deploy_and_loaddata
+
+### To export the remote database and copy it locally (to be then manually loaded):
+
+    (vm) $ fab <environment> grab_data
 
 ## Django Extensions
 
