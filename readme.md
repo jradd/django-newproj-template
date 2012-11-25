@@ -421,7 +421,7 @@ Follow the directions [here](#personalize-git).
 
 ## Dependencies
 
-This is a developer reference only. Additional dependencies not listed include cookbooks as referenced in the [Vagrant file](https://gist.github.com/3875868).
+This is a developer reference only to make sure that changes made to this project are referenced in its support files that are not directly included with the project. Dependencies not listed below include cookbooks as referenced in the [Vagrant file](https://gist.github.com/3875868).
 
 ### Gists referenced in this project's readme
 
@@ -429,7 +429,7 @@ This is a developer reference only. Additional dependencies not listed include c
 
 ### Cookbooks
 
-The other recipes are tied together via the recipe in [chef-cookbook-djangonewproj](https://github.com/jbergantine/chef-cookbook-djangonewproj)
+The other recipes are tied together via the recipe in [chef-cookbook-djangonewproj](https://github.com/jbergantine/chef-cookbook-djangonewproj).
 
 ### Gists referenced in chef-cookbook-djangonewproj
 
