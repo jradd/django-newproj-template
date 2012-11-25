@@ -512,7 +512,7 @@ Upload the first set of files, install python packages, sync and migrate databas
 
     $ fab <environment> deploy
 
-``$ fab production deploy`` runs the following tasks:
+``$ fab <environment> deploy`` runs the following tasks:
 
 1. Compiles SASS for production
 1. Collects Python packages to _requirements/production.txt_
