@@ -496,7 +496,7 @@ The Fabfile assumes that the Python environment on the server is defined using V
 
 ##### Setup the necessary directories on the server (1-time only)
 
-This file assumes that the directories referenced in the environment's `env.path`, `env.remote_media_root` and `env.remote_static_root` variables are already created (that is to say, you've configured a virtual environment on the remote server and setup static media hosting..
+This file assumes that the directories referenced in _fabfile.py_ for the environment as `env.path`, `env.remote_media_root` and `env.remote_static_root` have already been created (that is to say, you've configured a virtual environment on the remote server and setup static media hosting).
 
     $ fab <environment> remote_setup
 
