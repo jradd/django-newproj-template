@@ -76,14 +76,27 @@
             {% block nav %}
 
                 <header id="site_header">
-                    {% include "_nav.html" %}
-                    <a href="#site_footer" class="jump-to-nav">Nav</a>
+                    <nav>
+                        <ol>
+                            {% include "_nav.html" %}
+                            <li class="jump-to-nav">
+                                <a href="#site_footer">Nav</a>
+                            </li>
+                        </ol>
+                    </nav>
                 </header>
         
                 {% block content %}{% endblock %}
         
                 <footer id="site_footer">
-                    {% include "_nav.html" %}
+                    <nav>
+                        <ol>
+                            <li class="back-to-top">
+                                <a href="#site_header">Back to Top</a>
+                            </li>
+                            {% include "_nav.html" %}
+                        </ol>
+                    </nav>
                 </footer>
 
             {% endblock nav %}
