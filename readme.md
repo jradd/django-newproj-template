@@ -320,11 +320,7 @@ If you've been configuring your SSH Keys, you may need to move back to _/vagrant
 
     (vm) $ cd /vagrant/
 
-Additionally, make sure you're working on the _djangoproj_ virtual environment. You should be able to see this in the terminal prompt. It should look like:
-
-    (djangoproj)vagrant@precise64:/vagrant/myproject$
-
-The bit in parens at the beginning is the name of the virtual environment (_djangoproj_). It is followed by the current user (_vagrant_), the name of the host (_precise64_) and the current directory (_/vagrant/myrpoject_). If you're not working on the _djangoproj_ project, run the following virtualenvwrapper command to instantiate it:
+Additionally, make sure you're working on the _djangoproj_ virtual environment. To be doubly sure, run the following virtualenvwrapper command to instantiate it:
 
     (vm) $ workon djangoproj
 
