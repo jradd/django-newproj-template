@@ -15,6 +15,7 @@ Django project template for starting a new project.
 
 * [Legend](#legend)
 * [Initial setup of Vagrant Base](#initial-setup-of-vagrant-base)
+* [Starting a New Project](#starting-a-new-project)
 * [Using a Vagrant Virtual Environment That Has Been Shared With You](#using-a-vagrant-virtual-environment-that-has-been-shared-with-you)
 
 ### Documentation
@@ -154,7 +155,9 @@ Launch a terminal window, check that it installed:
 Add a vagrant box (we'll be using Ubuntu Precise Pangolin (12.04 LTS) 64-bit):
 
     (host) $ vagrant box add precise64 http://files.vagrantup.com/precise64.box
-    
+
+## Starting a New Project
+
 Make a directory for the project and change to it, replacing `<path_to>` with the path to the project and `<project_name>` with the name of the project.
 
     (host) $ mkdir <path_to>/<project_name> && cd $_
