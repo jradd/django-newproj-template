@@ -304,6 +304,8 @@ This project utilizes separate settings files for development and production tha
     
 ### Update the newly created fabfile.py
 
+__This can be put off until you are ready to deploy the site to your production environment.__
+
 * Configure the environments and default call to Python as described in the Configuration notes within the file. Read the full configuration and usage notes to understand how the fabfile works with the production environment.
 
 ### Update the [500 Error template](#500html)
