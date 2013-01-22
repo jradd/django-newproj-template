@@ -91,7 +91,7 @@ These are defacto standards for Python development. Virtualenv allows you to hav
 
 ### You will be using separate settings files for development and production.
 
-This template sets up separate development and production settings files that inherit from a common base settings file.
+This template sets up separate development (the Django project running only on your local computer) and production (the Django project running on the world wide web) settings files that inherit from a common base settings file.
 
 Chef-Cookbook-DjangoNewProj configures postactivate and postdeactivate virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development so the `--settings=` flag doesn't need to be explicitly used. Something similar will need to be done in production.
 
