@@ -432,7 +432,7 @@ This is a developer reference only to make sure that changes made to this projec
 
 ### Cookbooks
 
-The other recipes are tied together via the recipe in [chef-cookbook-djangonewproj](https://github.com/jbergantine/chef-cookbook-djangonewproj).
+Some of the recipes referred to in the [Vagrant file](https://gist.github.com/3875868) are tied together via the recipe in [chef-cookbook-djangonewproj](https://github.com/jbergantine/chef-cookbook-djangonewproj).
 
 ### Gists referenced in chef-cookbook-djangonewproj
 
