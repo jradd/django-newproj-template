@@ -293,7 +293,7 @@ Git saves your email address into the commits you make. GitHub uses the email ad
 
 ### Update the newly created settings files
 
-This project utilizes separate settings files for development and production that both inherit from a common base file. The following is a list of things that need to be configured. If you're not ready to deploy the site you can just edit the development settings in the **development.py** file for the time being and come back to the production settings in the **production.py** file later.
+This project utilizes separate settings files for development and production that both inherit from a common base file. The following is a list of things that need to be configured. If you're not ready to deploy the site you can just edit the development settings in the _development.py_ file for the time being and come back to the production settings in the _production.py_ file later.
 
 * Set `ADMINS` and `MANAGERS` for both local and production.
 * Set `EMAIL_HOST`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `DEFAULT_FROM_EMAIL` values for both local and production.
@@ -304,7 +304,7 @@ This project utilizes separate settings files for development and production tha
     
 ### Update the newly created fabfile.py
 
-_This can be put off until you are ready to deploy the site to your production environment._
+**This can be put off until you are ready to deploy the site to your production environment.**
 
 * Configure the environments and default call to Python as described in the Configuration notes within the file. Read the full configuration and usage notes to understand how the fabfile works with the production environment.
 
