@@ -399,6 +399,8 @@ Your teammates will now be able to pull down the repo and setup their own Vagran
 ### Install the project-specific packages
 
     (vm) sudo pip install -r requirements/development.txt
+    
+If this fails, the person sharing the environment with you probably forgot to [freeze the requirements](#share).
 
 ### Sync the database and migrate any migrations.
 
