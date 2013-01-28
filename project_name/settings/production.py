@@ -58,18 +58,16 @@ MIDDLEWARE_CLASSES += (
     'slimmer.middleware.CompressHtmlMiddleware',
 )
 
-"""
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '', # 127.0.0.1:11211
+        'LOCATION': '127.0.0.1:11211',
     }
 }
-"""
 
 TEMPLATE_DEBUG = DEBUG
 
 # django_compress configuration
 COMPRESS_URL = STATIC_URL
 COMPRESS_ROOT = STATIC_ROOT
-COMPRESS = DEBUG
+COMPRESS_ENABLED = True
