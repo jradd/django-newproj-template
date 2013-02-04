@@ -63,13 +63,13 @@ def production():
 # !Host Tasks
 def deploy():
     "Deploy the latest version of the site to the server(s)."
-    prompt('Git branch:', 'git_branch', default='master')
+    prompt('Git branch:', 'git_branch', default='production')
     _deploy()
 
 
 def deploy_and_loaddata():
     "Deploy and then load specified fixtures."
-    prompt('Git branch:', 'git_branch', default='master')
+    prompt('Git branch:', 'git_branch', default='production')
     _deploy()
     _load_fixtures()
 
