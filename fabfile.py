@@ -225,7 +225,7 @@ def _symlink_current_release():
 
 
 def _upload_archive_from_git():
-    "Create an archive from the current Git master branch and upload it"
+    "Create an archive from the current Git production branch and upload it"
     require('release', provided_by=[deploy])
 
     local('git archive --format=zip %(branch)s > %(release)s.zip' % {
