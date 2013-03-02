@@ -2,8 +2,8 @@
 #-e svn+http://code.djangoproject.com/svn/django/trunk#egg=Django
 
 # Latest (stable) Django release
-# Requires Django 1.4 or higher
-django
+# Requires Django 1.4.x
+django<1.5
 
 # Time Zone Support
 # https://docs.djangoproject.com/en/1.4/topics/i18n/timezones/#faq
