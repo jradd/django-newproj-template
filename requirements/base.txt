@@ -9,6 +9,9 @@ django<1.5
 # https://docs.djangoproject.com/en/1.4/topics/i18n/timezones/#faq
 pytz
 
+# Caching via Python Memcached
+python-memcached
+
 # Image manipulation
 # http://sorl-thumbnail.readthedocs.org/en/latest/requirements.html
 #PIL
@@ -84,9 +87,6 @@ fabric==1.4.3 # fabric 1.5 has weird shell errors (can't import git, can't impor
 # Mixins for Class-Based Views (LoginRequiredMixin, SelectRelatedMixin, StaffuserRequiredMixin) (https://github.com/brack3t/django-braces/)
 # Docs @ http://django-braces.readthedocs.org/en/latest/index.html
 #django-braces
-
-# Caching via Python Memcached
-#python-memcached
 
 # Utilities and a 'linter' to help you make your Django site more secure.
 # Inspired by Mozilla’s Secure Coding Guidelines (https://wiki.mozilla.org/WebAppSec/Secure_Coding_Guidelines), and intended for sites that are entirely or mostly served over SSL (which should include anything with user logins).
