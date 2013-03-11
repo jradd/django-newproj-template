@@ -1,6 +1,3 @@
-# Latest Django version
-#-e svn+http://code.djangoproject.com/svn/django/trunk#egg=Django
-
 # Latest (stable) Django release
 # Requires Django 1.4.x
 django<1.5
@@ -54,6 +51,9 @@ fabric==1.4.3 # fabric 1.5 has weird shell errors (can't import git, can't impor
 
 # Generic Templatetags
 -e git+git://github.com/jbergantine/django-templatetags.git#egg=django_templatetags
+
+# Grappelli backend
+django-grappelli
 
 ############################################################################
 # Optional Installs: Manual Configuration of Project Required to Use These #
