@@ -67,9 +67,11 @@ django-grappelli
 #textile
 
 # Image manipulation
-# http://sorl-thumbnail.readthedocs.org/en/latest/requirements.html
+# SORL Documentation: http://sorl-thumbnail.readthedocs.org/en/latest/requirements.html
+# Django Filebrowser Documentation: https://django-filebrowser.readthedocs.org/en/3.5.2/
 #PIL
 #sorl-thumbnail
+#django-filebrowser
 
 # Browser Acceptance Testing with Splinter
 # Docs @ http://splinter.cobrateam.info/docs/
