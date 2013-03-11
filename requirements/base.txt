@@ -12,25 +12,13 @@ pytz
 # Caching via Python Memcached
 python-memcached
 
-# Image manipulation
-# http://sorl-thumbnail.readthedocs.org/en/latest/requirements.html
-#PIL
-#sorl-thumbnail
-
 # Database migrations
 South
-
-# Text markup
-#markdown
-#textile
 
 # PostgreSQL
 # Psycopg2.4.2 has issues with tests in Django 1.3.X
 # https://code.djangoproject.com/ticket/16250
 psycopg2
-
-# MySQL
-#msyqldb
 
 # CSS/JS Compression (https://github.com/mintchaos/django_compressor)
 # Also does pre-compilation of SASS, LESS, CoffeeScript if so-configured (http://django_compressor.readthedocs.org/en/1.1.2/settings/#compress-precompilers)
@@ -58,10 +46,6 @@ django-slimmer
 # Docs @ http://django-whatever.readthedocs.org/en/latest/index.html
 django-whatever
 
-# Browser Acceptance Testing with Splinter
-# Docs @ http://splinter.cobrateam.info/docs/
-#splinter
-
 # Mobile middleware (https://github.com/gregmuellegger/django-mobile)
 django_mobile
 
@@ -74,6 +58,22 @@ fabric==1.4.3 # fabric 1.5 has weird shell errors (can't import git, can't impor
 ############################################################################
 # Optional Installs: Manual Configuration of Project Required to Use These #
 ############################################################################
+
+# MySQL
+#msyqldb
+
+# Text markup
+#markdown
+#textile
+
+# Image manipulation
+# http://sorl-thumbnail.readthedocs.org/en/latest/requirements.html
+#PIL
+#sorl-thumbnail
+
+# Browser Acceptance Testing with Splinter
+# Docs @ http://splinter.cobrateam.info/docs/
+#splinter
 
 # Lettuce for BDD Testing
 # Django integration docs @ http://lettuce.it/recipes/django-lxml.html#lettuce-web-development-fun-with-lettuce-and-django
