@@ -331,11 +331,12 @@ Additionally, make sure you're working on the _djangoproj_ virtual environment. 
 
     (vm) $ workon djangoproj
 
-#### Syndb and migrate, first you'll have to move into _/vagrant/myproject/_.
+#### Syndb and migrate, first you'll have to move into _/vagrant/myproject/_. Then `collectstatic` for Django Grappelli.
 
     (vm) $ cd /vagrant/myproject/
     (vm) $ dj syncdb
     (vm) $ dj migrate
+    (vm) $ dj collectstatic
 
 #### Run server
 
@@ -407,10 +408,11 @@ Your teammates will now be able to pull down the repo and setup their own Vagran
     
 If this fails, the person sharing the environment with you probably forgot to [freeze the requirements](#share).
 
-### Sync the database and migrate any migrations.
+### Sync the database and migrate any migrations. Collectstatic.
 
     (vm) $ dj syncdb
     (vm) $ dj migrate
+    (vm) $ dj collectstatic
 
 ### Setup or copy over SSH keys.
 
