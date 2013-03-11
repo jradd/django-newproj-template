@@ -26,6 +26,9 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    
+    # Grappelli
+    url(r'^grappelli/', include('grappelli.urls')),
 
     # Robots.txt file
     url(r'^robots.txt$', include('django_robots.urls')),
