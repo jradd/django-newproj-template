@@ -133,6 +133,10 @@ This project installs memcached and Python bindings.
 
 This project installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL (you will have to still install the _pil_ Python package, however). To use SORL-Thumbnail you will have to install the _pil_ and _sorl-thumbanil_ Python packages and configure the project as appropriate.
 
+### Optionally, you will be using djanog-celery with RabbitMQ as a broker.
+
+This project installs the necessary libraries (Erlang, RabbitMQ) to use django-celery with RabbitMQ as the broker (you will still have to install and configure [django-celery](http://docs.celeryproject.org/en/latest/django/first-steps-with-django.html) as wll as any worker processes or daemons.
+
 ### Other applications
 
 Review _requirements/base.txt_ for other default application choices.
@@ -194,6 +198,8 @@ Clone the Chef cookbooks repositories as needed (we will use the following cookb
     (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-xapian.git cookbooks/chef-cookbook-xapian
     (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-djangonewproj.git cookbooks/chef-cookbook-djangonewproj
     (host) $ git submodule add git://github.com/opscode-cookbooks/memcached.git cookbooks/memcached
+    (host) $ git submodule add git://github.com/opscode-cookbooks/erlang.git cookbooks/erlang
+    (host) $ git submodule add git://github.com/opscode-cookbooks/rabbitmq.git cookbooks/rabbitmq
 
 Init and update the submodules.
 
