@@ -517,11 +517,15 @@ This project utilizes the [Compass](http://compass-style.org) [SASS](http://sass
 
 A stylesheet specifically for dealing with modifications necessary for Internet Explorer. Meant to be used in a way that styles defined here override _screen.sass_.
 
-### TemplateTags Installed
+### Template Tags Installed
 
 #### fetch_content, nav, widont
 
-[Documentation for these files is contained in a seperate repo](https://github.com/jbergantine/django-templatetags/blob/master/README.rst#usage).
+[Documentation for these template tags is contained in a seperate repo](https://github.com/jbergantine/django-templatetags/blob/master/README.rst#usage).
+
+### current_site_url
+
+[Documentation for this template tag is contained in a seperate repo](https://github.com/jbergantine/django-robots/blob/master/README.rst#template-tags-installed).
 
 ### Fabfile
 
