@@ -26,7 +26,7 @@ Django project template for starting a new project.
     * [HTML Templates](#html-templates-created)
     * [JavaScript Files](#javascript-files-created)
     * [Stylesheets](#stylesheets-created)
-    * [TemplateTags](#templatetags-installed)
+    * [Template Tags](#template-tags-installed)
     * [Fabfile](#fabfile)
 
 ### Cheat Sheets
