@@ -110,8 +110,10 @@ django-grappelli
 # Pagination (https://github.com/ericflo/django-pagination)
 #django-pagination
 
-# Background processing (https://github.com/ask/django-celery)
+# Background processing with Celery (https://github.com/ask/django-celery)
+# Process daemonizing with Supervisor (https://github.com/rfk/django-supervisor)
 #django-celery
+#django-supervisor
 
 # REST API with TastyPie (http://toastdriven.github.com/django-tastypie/)
 #-e git+git://github.com/joshbohde/django-tastypie.git#egg=django-tastypie
