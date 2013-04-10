@@ -393,7 +393,7 @@ Your teammates will now be able to pull down the repo and setup their own Vagran
 ### Clone the project from GitHub or Bitbucket or wherever it is hosted onto your host machine and change directory into the new directory.
 
     (host) $ git clone <path_to_repo>
-    (host) $ cd $_
+    (host) $ cd <path_to_cloned_repo>
 
 ### Install the cookbooks.
 
