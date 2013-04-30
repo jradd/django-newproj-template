@@ -73,7 +73,8 @@ def deploy():
 
 def deploy_and_loaddata():
     "Deploy and then load specified fixtures."
-    prompt('Git branch:', 'git_branch', default='production')
+    prompt('Git branch:', 'git_branch', default='%(branch)s' % {
+        'branch': env.default_branch})
     _deploy()
     _load_fixtures()
 
@@ -180,7 +181,7 @@ def _freeze_packages():
             'current_dir': os.path.dirname(__file__),
         })
     try:
-        local('git commit -am "freezing requiremnts for production"',
+        local('git commit -am "freezing requiremnts for server environment"',
             capture=False)
     except:
         # This will be thrown if the requirments doc hasn't changed during the
