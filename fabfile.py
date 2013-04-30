@@ -65,7 +65,7 @@ def production():
 # !Host Tasks
 def deploy():
     "Deploy the latest version of the site to the server(s)."
-    prompt('Git branch:', 'git_branch', default='%(branch)' % {
+    prompt('Git branch:', 'git_branch', default='%(branch)s' % {
         'branch': env.default_branch})
     _deploy()
 
