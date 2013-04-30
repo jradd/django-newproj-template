@@ -21,47 +21,57 @@ env.local_static_root = os.path.join(os.path.dirname(__file__),
 def production():
     # Command to use to restart Apache, this will vary between hosts
     # On WebFaction it is:
-    # /home/<username>/webapps/<application name>/apache2/bin/restart,
+    #   /home/<username>/webapps/<application name>/apache2/bin/restart,
     # In a Ubuntu server it is: apache2ctl graceful
     env.apache_restart_command = ''
     # One or multiple username@server/IP address combos
     env.hosts = ['']
     # Connection and sudo password (this can be left as an empty string
-    # and Fabric will prompt as necessary)
+    #   and Fabric will prompt as necessary)
     env.password = ''
     # Name of the virtual environment
     env.virtualenv_name = ''
     # Absolute path to where the application will be deployed
-    # (directory immediately above project in virtual environemt).
+    #   (directory immediately above project in virtual environemt).
     # Don't end with a trailing slash.
     # On Webfaction this will be:
-    # '/home/<accountname>/.virtualenvs/<virtualenv_name>'
+    #   '/home/<accountname>/.virtualenvs/<virtualenv_name>'
     env.path = ''
-    # Absolute path to where media files will be served from
-    # This is the same as settings.MEDIA_ROOT
-    # Don't end with a trailing slash
+    # Absolute path to where media files will be served from.
+    # This is the same as settings.MEDIA_ROOT.
+    # Don't end with a trailing slash.
     env.remote_media_root = ''
-    # Absolute path to the directory above where static files
-    # will be served from. This is the same as settings.STATIC_ROOT.
+    # Absolute path to the directory above where static files.
+    #   will be served from. This is the same as settings.STATIC_ROOT.
     # Don't end with a trailing slash.
     env.remote_static_root = ''
+    
+    # The following settings are environment specific and generally 
+    #   should be named after the name of this environment.
+    
     # Default branch of Git repository to be used to deploy to 
-    # this environment. Should match name of this method.
+    #   this environment. 
     env.default_branch = 'production'
     # Requirements file to be used for this environment.
-    # Should match the name of this method followed by '.txt'
+    # Should match the name of this environment followed by '.txt'
     # Dynamically created by the script at: 
-    # <project_name>/requirements/<requirements_filename>
+    #   <project_name>/requirements/<requirements_filename>
     env.requirements_filename = 'production.txt'
+    # Settings module to be used for this environment.
+    # Should extend <project_name>/settings/base.py.
+    # Lives at:
+    #   <project_name>/settings/<settings_module>.py
+    # Filename should match the name of this environment followed by '.py'
+    env.settings_module = 'production'
 
     # The following settings are for the grab_data method ONLY
-    # and are otherwise OPTIONAL.
+    #   and are otherwise OPTIONAL.
 
     # Name of remote database (must be a PostgreSQL-type database).
-    # This is the same as settings.DATABASES['default']['NAME']
+    # This is the same as settings.DATABASES['default']['NAME'].
     env.database_name = ''
     # User of remote database.
-    # This is the same as settings.DATABASES['default']['USER']
+    # This is the same as settings.DATABASES['default']['USER'].
     env.database_user = ''
     # Path to tmp or other remote directory for temporary storage.
     # Don't end with a trailing slash
@@ -201,9 +211,9 @@ def _load_fixtures():
     prompt('Which fixtures to load? (Space separate names):', 'fixtures')
     run('cd %(path)s/%(project)s; workon %(virtualenv)s; '\
         'python2.7 manage.py loaddata %(fixtures)s '\
-        '--settings=myproject.settings.production' % {'path': env.path,
+        '--settings=myproject.settings.%(settings_module)s' % {'path': env.path,
         'project': env.project_name, 'virtualenv': env.virtualenv_name,
-        'fixtures': env.fixtures})
+        'fixtures': env.fixtures, 'settings_module': env.settings_module})
 
 
 def _load_packages():
@@ -217,10 +227,10 @@ def _load_packages():
 def _migrate_databases():
     "Migrate databases"
     run('cd %(path)s/%(project)s; workon %(virtualenv)s; '\
-        'python2.7 manage.py migrate --settings=myproject.settings.production; '\
-        'python2.7 manage.py syncdb --settings=myproject.settings.production' % {
+        'python2.7 manage.py migrate --settings=myproject.settings.%(settings_module)s; '\
+        'python2.7 manage.py syncdb --settings=myproject.settings.%(settings_module)s' % {
         'path': env.path, 'project': env.project_name,
-        'virtualenv': env.virtualenv_name})
+        'virtualenv': env.virtualenv_name, 'settings_module': env.settings_module})
 
 
 def _reload_apache():
@@ -237,7 +247,7 @@ def _symlink_current_release():
 
 
 def _upload_archive_from_git():
-    "Create an archive from the current Git production branch and upload it"
+    "Create an archive from the current Git branch and upload it"
     require('release', provided_by=[deploy])
 
     local('git archive --format=zip %(branch)s > %(release)s.zip' % {
