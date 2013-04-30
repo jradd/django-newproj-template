@@ -45,6 +45,8 @@ def production():
     # will be served from. This is the same as settings.STATIC_ROOT.
     # Don't end with a trailing slash.
     env.remote_static_root = ''
+    # Default branch to be used to deploy to this environment.
+    env.default_branch = 'production'
 
     # The following settings are for the grab_data method ONLY
     # and are otherwise OPTIONAL.
@@ -63,7 +65,8 @@ def production():
 # !Host Tasks
 def deploy():
     "Deploy the latest version of the site to the server(s)."
-    prompt('Git branch:', 'git_branch', default='production')
+    prompt('Git branch:', 'git_branch', default='%(branch)' % {
+        'branch': env.default_branch})
     _deploy()
 
 
