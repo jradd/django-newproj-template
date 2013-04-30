@@ -45,7 +45,8 @@ def production():
     # will be served from. This is the same as settings.STATIC_ROOT.
     # Don't end with a trailing slash.
     env.remote_static_root = ''
-    # Default branch to be used to deploy to this environment.
+    # Default branch of Git repository to be used to deploy to 
+    # this environment.
     env.default_branch = 'production'
 
     # The following settings are for the grab_data method ONLY
