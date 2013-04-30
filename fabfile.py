@@ -46,8 +46,13 @@ def production():
     # Don't end with a trailing slash.
     env.remote_static_root = ''
     # Default branch of Git repository to be used to deploy to 
-    # this environment.
+    # this environment. Should match name of this method.
     env.default_branch = 'production'
+    # Requirements file to be used for this environment.
+    # Should match the name of this method followed by '.txt'
+    # Dynamically created by the script at: 
+    # <project_name>/requirements/<requirements_filename>
+    env.requirements_filename = 'production.txt'
 
     # The following settings are for the grab_data method ONLY
     # and are otherwise OPTIONAL.
@@ -177,8 +182,9 @@ def _deploy_static():
 
 
 def _freeze_packages():
-    local('pip freeze > %(current_dir)s/requirements/production.txt' % {
+    local('pip freeze > %(current_dir)s/requirements/%(requirements_filename)s' % {
             'current_dir': os.path.dirname(__file__),
+            'requirements_filename': env.requirements_filename,
         })
     try:
         local('git commit -am "freezing requiremnts for server environment"',
@@ -202,9 +208,10 @@ def _load_fixtures():
 
 def _load_packages():
     run('workon %(virtualenv)s; pip install -r '\
-        '%(path)s/%(project)s/requirements/production.txt' % {
+        '%(path)s/%(project)s/requirements/%(requirements_filename)s' % {
         'virtualenv': env.virtualenv_name, 'path': env.path,
-        'project': env.project_name})
+        'project': env.project_name,
+        'requirements_filename': env.requirements_filename})
 
 
 def _migrate_databases():
