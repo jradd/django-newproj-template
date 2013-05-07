@@ -51,7 +51,7 @@ def production():
     
     # Default branch of Git repository to be used to deploy to 
     #   this environment. 
-    env.default_branch = 'production'
+    env.default_branch = 'master'
     # Requirements file to be used for this environment.
     # Should match the name of this environment followed by '.txt'
     # Dynamically created by the script at: 
