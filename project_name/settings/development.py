@@ -53,14 +53,11 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 CACHES = {
     'default': {
-        """
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '', # 127.0.0.1:11211
-        """
-        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'LOCATION': '127.0.0.1:11211',
     }
 }
-
+        
 TEMPLATE_DEBUG = DEBUG
 
 # django_compress configuration
