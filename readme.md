@@ -187,6 +187,7 @@ Clone the Chef cookbooks repositories as needed (we will use the following cookb
 
     (host) $ git submodule add git://github.com/opscode-cookbooks/apt.git cookbooks/apt
     (host) $ git submodule add git://github.com/opscode-cookbooks/build-essential.git cookbooks/build-essential
+    (host) $ git submodule add git://github.com/opscode-cookbooks/sudo.git
     (host) $ git submodule add git://github.com/opscode-cookbooks/git.git cookbooks/git
     (host) $ git submodule add git://github.com/opscode-cookbooks/openssl.git cookbooks/openssl
     (host) $ git submodule add git://github.com/opscode-cookbooks/postgresql.git cookbooks/postgresql
