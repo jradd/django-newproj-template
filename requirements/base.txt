@@ -47,7 +47,7 @@ django-whatever
 django_mobile
 
 # Fabric deployment
-fabric==1.4.3 # fabric 1.5 has weird shell errors (can't import git, can't import compass)
+fabric>=1.6.1 # fabric 1.5 has weird shell errors (can't import git, can't import compass)
 
 # Generic Templatetags
 -e git+git://github.com/jbergantine/django-templatetags.git#egg=django_templatetags
