@@ -1,6 +1,5 @@
 # Latest (stable) Django release
-# Requires Django 1.4.x
-django<1.5
+django
 
 # Time Zone Support
 # https://docs.djangoproject.com/en/1.4/topics/i18n/timezones/#faq
