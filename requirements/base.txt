@@ -55,6 +55,9 @@ fabric>=1.6.1 # fabric 1.5 has weird shell errors (can't import git, can't impor
 # Grappelli backend
 django-grappelli
 
+# Docutils for Django Admin Docs
+docutils
+
 ############################################################################
 # Optional Installs: Manual Configuration of Project Required to Use These #
 ############################################################################
