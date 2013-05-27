@@ -1,6 +1,5 @@
 # Latest (stable) Django release
-# Requires Django 1.4.x
-django<1.5
+django
 
 # Time Zone Support
 # https://docs.djangoproject.com/en/1.4/topics/i18n/timezones/#faq
@@ -54,6 +53,9 @@ fabric>=1.6.1 # fabric 1.5 has weird shell errors (can't import git, can't impor
 
 # Grappelli backend
 django-grappelli
+
+# Docutils for Django Admin Docs
+docutils
 
 ############################################################################
 # Optional Installs: Manual Configuration of Project Required to Use These #
