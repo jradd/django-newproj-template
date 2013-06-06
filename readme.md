@@ -135,7 +135,7 @@ This project installs the necessary libraries (libjpeg, libfreetype, zlib) to us
 
 ### Other applications
 
-Review _requirements/base.txt_ for other default application choices.
+Review _requirements/base.txt_ for other default Python application choices and [Additional Optional Installs](#additional-optional-installs) for how to install other Linux packages such as Redis, Erlang and RabbitMQ.
 
 # Directions
 
@@ -220,7 +220,7 @@ SSH in to the virtualbox:
     (host) $ git submodule add git://github.com/opscode-cookbooks/erlang.git cookbooks/erlang
     (host) $ git submodule add git://github.com/opscode-cookbooks/rabbitmq.git cookbooks/rabbitmq
     
-Then edit the __Vagrantfile__ to include the following in the `cfg.vm.provision :chef_solo do |chef|` loop below the installation of __build-essential__:
+Then edit the _Vagrantfile_ to include the following in the `cfg.vm.provision :chef_solo do |chef|` loop below the installation of _build-essential_:
 
     chef.add_recipe "erlang"
     chef.add_recipe "rabbitmq"
@@ -233,7 +233,7 @@ Reprovision the machine (if it is running) or run `$ vagrant up` if it is not ru
 
    (host) $ git submodule add git://github.com/miah/chef-redis.git cookbooks/redis
 
-Then edit the __Vagrantfile__ to include the following in the `cfg.vm.provision :chef_solo do |chef|` loop below the installation of __build-essential__:
+Then edit the _Vagrantfile_ to include the following in the `cfg.vm.provision :chef_solo do |chef|` loop below the installation of _build-essential_:
 
    chef.add_recipe "redis::server_package"
 
