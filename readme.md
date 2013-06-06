@@ -98,7 +98,9 @@ This project installs [Fabric](https://pypi.python.org/pypi/Fabric/) and include
 
 ### You will be using an HTML5 Doctype and writing your stylesheets with SASS
 
-By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backwards compatibility this project installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. Finally, this project installs [and configures](#stylesheets-created) SASS, Compass and Susy to instantiate the Compass [`+global-reset` mixin](http://compass-style.org/reference/compass/reset/utilities/#mixin-global-reset) which resets HTML5 element's display-roles for older browsers.
+By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backwards compatibility this project installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. 
+
+This project installs [SASS, Compass and Susy])(#stylesheets-created) and begins sketching in styles with [Gesso](https://github.com/jbergantine/compass-gesso). 
 
 ### Optionally, you will be using Xapian for plain text search.
 
@@ -509,11 +511,11 @@ When you run the script to create the project, the script downloads the latest v
 
 ### Stylesheets Created
 
-This project utilizes the [Compass](http://compass-style.org) [SASS](http://sass-lang.com) framework and creates a stylesheet directory following the requirements of that application. CSS files will be created in the appropriate spots the first time you run either `$ compass watch static_media/stylesheets` or `$ compass compile static_media/stylesheets`. The [bash shortcut `cw`](#compass) is set up to reduce keyboard fatigue. 
+This project utilizes the [Compass](http://compass-style.org) [SASS](http://sass-lang.com) framework and [Susy respoonsive grid plugin](http://susy.oddbird.net/) and creates a stylesheet directory following the requirements of that application. CSS files will be created in the appropriate spots the first time you run either `$ compass watch static_media/stylesheets` or `$ compass compile static_media/stylesheets`. The [bash shortcut `cw`](#compass) is set up to reduce keyboard fatigue. 
 
 #### _base.sass, screen.sass, print.sass
 
-[Documentation for these files is contained in a seperate repo](https://github.com/jbergantine/compass-gesso#included-files).
+[Documentation for these files is contained in the Gesso project repo](https://github.com/jbergantine/compass-gesso#included-files).
 
 #### ie.sass
 
