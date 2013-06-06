@@ -93,11 +93,11 @@ These are defacto standards for Python development. Virtualenv allows you to hav
 
 This template sets up separate development (the Django project running only on your local computer) and production (the Django project running on the world wide web) settings files that inherit from a common base settings file.
 
-This project configures postactivate and postdeactivate virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development so the `--settings=` flag doesn't need to be explicitly used. Something similar will need to be done in production.
+This project configures [postactivate](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/recipes/default.rb#L119) and [postdeactivate](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/recipes/default.rb#L120) virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development so the `--settings=` flag doesn't need to be explicitly used. Something similar will need to be done in production to [specify the settings file to use](https://docs.djangoproject.com/en/dev/topics/settings/#designating-the-settings).
 
 ### You will be using PostgreSQL as your database and South for database migrations.
 
-This settings files in this template are explicitly configured to connect to a PostgreSQL server.
+This project installs both PostgreSQL as well as [South](https://pypi.python.org/pypi/South) and the settings files in this template are explicitly configured to connect to a PostgreSQL server.
 
 This project configures your Django project for use with a PostgreSQL database, _django\_db_, which it installs along with a user, _django\_login_, for said database and installs South for database migrations.
 
@@ -109,13 +109,13 @@ This template also installs [Django-Robots](https://github.com/jbergantine/djang
 
 ### You will be developing for use on multiple devices.
 
-The settings file in this template reference [django_mobile](https://github.com/gregmuellegger/django-mobile) middleware and templatetags to do device detection for making server or template-level modifications on a platform or device level.
+The settings file in this template reference [django-mobile](https://pypi.python.org/pypi/django-mobile/) middleware and templatetags to do device detection for making server or template-level modifications on a platform or device level.
 
-This project installs [django-floppyforms](https://github.com/brutasse/django-floppyforms) to take advantage of HTML5 form fields to greatly enhance the mobile user experience.
+This project installs [django-floppyforms](https://pypi.python.org/pypi/django-floppyforms) to take advantage of HTML5 form fields to greatly enhance the mobile user experience.
 
 ### You will be using Fabric for deployment.
 
-This template includes a fabfile with a number of pre-configured methods for deployment and server management.
+This project installs [Fabric](https://pypi.python.org/pypi/Fabric/) and includes a [fabfile](#fabfile) with a number of pre-configured methods for deployment and server management.
 
 ### You will be using an HTML5 Doctype and writing your stylesheets with SASS
 
@@ -123,15 +123,15 @@ By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backw
 
 ### Optionally, you will be using Xapian for plain text search.
 
-This project installs Xapian with Python bindings. You will have to additionally install the _django-haystack_ and _xapian-haystack_ Python packages and configure the project to use this.
+This project installs Xapian with Python bindings. You will have to additionally install the [_django-haystack_](https://pypi.python.org/pypi/django-haystack/) and [_xapian-haystack_](https://pypi.python.org/pypi/xapian-haystack) Python packages and [configure the project as appropriate](http://django-haystack.readthedocs.org/en/latest/tutorial.html#configuration).
 
 ### Optionally, you will be using memcached for caching.
 
-This project installs memcached and Python bindings.
+This project installs memcached and Python bindings and configures the development environment (in _myproject/settings/development.py_) to use memcached. The production environment settings file includes the necessary config for memcached but commented out since the production environment will need to have memcached installed onto the server with Python bindings in order for that to work.
 
 ### Optionally, you will be using PIL and possibly SORL-Thumbnail.
 
-This project installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL (you will have to still install the _pil_ Python package, however). To use SORL-Thumbnail you will have to install the _pil_ and _sorl-thumbanil_ Python packages and configure the project as appropriate.
+This project installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL (you will have to still install the [_pil_](https://pypi.python.org/pypi/PIL) Python package, however). To use SORL-Thumbnail you will have to install the [_pil_](https://pypi.python.org/pypi/PIL) and [_sorl-thumbnail_](https://pypi.python.org/pypi/sorl-thumbnail/) Python packages and [configure the project as appropriate](http://sorl-thumbnail.readthedocs.org/en/latest/installation.html#setup).
 
 ### Other applications
 
