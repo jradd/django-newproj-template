@@ -80,27 +80,25 @@ This template sets up separate development (the Django project running only on y
 
 This project configures [postactivate](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/recipes/default.rb#L119) and [postdeactivate](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/recipes/default.rb#L120) virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development so the `--settings=` flag doesn't need to be explicitly used. Something similar will need to be done in production to [specify the settings file to use](https://docs.djangoproject.com/en/dev/topics/settings/#designating-the-settings).
 
-### Your site will be optimized for search engines.
-
-This template includes a sitemaps module, _sitemaps.py_, which is initially configured to create a sitemaps XML file referencing "static" pages of a site but which can be expanded to most any application. The sitemap module is imported into _urls.py_ which sets up routing. 
-
-This template also installs [Django-Robots](https://github.com/jbergantine/django-robots), a small app for creating a _robots.txt_ file.
-
 ### You will be developing for use on multiple devices.
 
 The settings file in this template reference [django-mobile](https://pypi.python.org/pypi/django-mobile/) middleware and templatetags to do device detection for making server or template-level modifications on a platform or device level.
 
 This project installs [django-floppyforms](https://pypi.python.org/pypi/django-floppyforms) to take advantage of HTML5 form fields to greatly enhance the mobile user experience.
 
+By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backwards compatibility this project installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. 
+
+This project installs [SASS along with Compass and Susy responsive grids](#stylesheets-created) and begins sketching in styles with [Gesso](https://github.com/jbergantine/compass-gesso). 
+
+### Your site will be optimized for search engines.
+
+This template includes a sitemaps module, _sitemaps.py_, which is initially configured to create a sitemaps XML file referencing "static" pages of a site but which can be expanded to most any application. The sitemap module is imported into _urls.py_ which sets up routing. 
+
+This template also installs [Django-Robots](https://github.com/jbergantine/django-robots), a small app for creating a _robots.txt_ file.
+
 ### You will be using Fabric for deployment.
 
 This project installs [Fabric](https://pypi.python.org/pypi/Fabric/) and includes a [fabfile](#fabfile) with a number of pre-configured methods for deployment and server management.
-
-### You will be using an HTML5 Doctype and writing your stylesheets with SASS
-
-By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backwards compatibility this project installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. 
-
-This project installs [SASS, Compass and Susy](#stylesheets-created) and begins sketching in styles with [Gesso](https://github.com/jbergantine/compass-gesso). 
 
 ### Optionally, you will be using Xapian for plain text search.
 
