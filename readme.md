@@ -777,16 +777,13 @@ The following bash aliases are added to the shell.
         <th>sh</th>
         <td><pre>python manage.py shell</pre></td>
     </tr>
-</table>
-
-### Foreman
-
-<table>
     <tr>
         <th>frs</th>
-        <td><pre>foreman start -f Procfile.dev</pre></td>
-    </tr>
-</table>
+        <td>
+            <pre>foreman start -f Procfile.dev</pre>
+            <p>Simutaniously starts `compass watch myproject/static_media/stylesheets` and `python manage.py runserver [::]:8000` so stylesheets can be compiled and the server run from the same SSH session without manually managing processes.</p>
+        </td>
+    </tr></table>
 
 ### Git
 
