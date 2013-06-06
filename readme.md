@@ -168,12 +168,12 @@ Clone the Chef cookbooks repositories as needed (we will use the following cookb
     (host) $ git submodule add git://github.com/opscode-cookbooks/postgresql.git cookbooks/postgresql
     (host) $ git submodule add git://github.com/opscode-cookbooks/python.git cookbooks/python
     (host) $ git submodule add git://github.com/opscode-cookbooks/zlib.git cookbooks/zlib
+    (host) $ git submodule add git://github.com/opscode-cookbooks/memcached.git cookbooks/memcached
     (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-python-psycopg2.git cookbooks/chef-cookbook-python-psycopg2
     (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-libjpeg.git cookbooks/chef-cookbook-libjpeg
     (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-libfreetype.git cookbooks/chef-cookbook-libfreetype
     (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-xapian.git cookbooks/chef-cookbook-xapian
     (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-djangonewproj.git cookbooks/chef-cookbook-djangonewproj
-    (host) $ git submodule add git://github.com/opscode-cookbooks/memcached.git cookbooks/memcached
 
 
 Init and update the submodules.
