@@ -770,7 +770,7 @@ The following bash aliases are added to the shell.
         <th>rsp</th>
         <td>
             <pre>python manage.py runserver_plus [::]:8000</pre>
-            <p>Instigates django-extension's (RunServerPlus)[http://packages.python.org/django-extensions/runserver_plus.html] command with proper port forwarding. In a host the site will now be available at http://127.0.0.1:8001.</p>
+            <p>Instigates django-extension's <a href="http://packages.python.org/django-extensions/runserver_plus.html">RunServerPlus</a> command with proper port forwarding. In a host the site will now be available at http://127.0.0.1:8001.</p>
         </td>
     </tr>
     <tr>
@@ -781,7 +781,7 @@ The following bash aliases are added to the shell.
         <th>frs</th>
         <td>
             <pre>foreman start -f Procfile.dev</pre>
-            <p>Simutaniously starts `compass watch myproject/static_media/stylesheets` and `python manage.py runserver [::]:8000` so stylesheets can be compiled and the server run from the same SSH session without manually managing processes.</p>
+            <p>Simutaniously starts <pre>compass watch myproject/static_media/stylesheets</pre> and <pre>python manage.py runserver [::]:8000</pre> so stylesheets can be compiled and the server run from the same SSH session without manually managing processes.</p>
         </td>
     </tr></table>
 
