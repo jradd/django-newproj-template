@@ -54,52 +54,31 @@ However, this template is intended to be used in conjunction with Vagrant as par
 
 ## Vagrant
 
-Vagrant offers the ability to create unique virtual machines on a per-project basis. Using Vagrant you can install system-level libraries without conflicting with other projects and share virtual machines with others on your team so you're all using the same thing.
+Vagrant offers the ability to create unique virtual machines on a per-project basis. Using Vagrant you can install system-level libraries without conflicting with other projects and share virtual machines with others on your team so you're all using the same thing. Because of the way Vagrant works you can continue to edit files in your editor of choice on your host machine (TextMate, Coda, Dreamweaver, Sublime, whatever) and view the site in a variety of browsers (Firefox, Chrome, the iPhone Emulator's Safari browser, etc.).
 
 These instructions go through the configuration of a new Ubuntu 64-bit operating system on a Vagrant Box hosted on an Apple Macintosh computer with Git and Curl as a minimum. These same set of instructions should work on a Linux box with a similar configuration.
 
-Using the Vagrant box requires you to interact with _manage.py_ from within the virtual environment but then allows you to use the text editor or IDE of your choice for editing on your host system via a shared folder and allows access to a compiled site through the web browser of your choice by taking advantage of port forwarding between the virtual environment and the host.
-
-This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS when pulling changes in from others, as such, it is strongly recommended that you execute Git commands within the virtual environment using the command line rather than using applications installed on the host machine such as Tower or GitHub App. Similarly, SASS stylesheets should be compiled within the virtual environment using the command line and a [shortcut is added to the bash profile to help facilitate this](#compass) rather than using an app like Scout to complie SASS or SCSS files on the host machine.
-
-The [Vagrantfile](https://gist.github.com/3875868) configures a virtual environment to include:
-
-* Python 2.7.3
-* PIP
-* Virtualenv
-* VirtualenvWrapper
-* Postgres 9.1
-* Git
-* libfreetype
-* libjpeg
-* zlib
-* Xapian
-
-Additionally, the Vagrantfile installs the recipes from a Chef Cookbook [(Chef-Cookbook-DjangoNewProj)](https://github.com/jbergantine/chef-cookbook-djangonewproj) intended to be used with this project which sets up a new Django project called _myproject_ in a virtual environment named _djangoproj_ and connects that to a PostgreSQL database called _django_db_.
-
 ## Assumptions
 
-This template sets up a number of defaults for `django-admin.py startproject` by making a number of assumptions about your preferences, application choices, encouraging a particular dev environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
+### You will be using Django within a [Virtual Environemnt](https://pypi.python.org/pypi/virtualenv) managed by [PIP](https://pypi.python.org/pypi/pip), associated with a PostgreSQL database.
+
+This template sets up a number of defaults for `django-admin.py startproject` by making a number of assumptions about your preferences, application choices, encouraging a particular development environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
+
+On the virtual machine, a new Django project called _myproject_ is created in a virtual environment named _djangoproj_.
+
+Using the Vagrant box requires you to interact with Django's management command (_manage.py_) [from within the virtual machine](#Django).
+
+This project configures your Django project for use with a PostgreSQL database, _django\_db_, which it installs along with a user, _django\_login_, for said database and installs [South](https://pypi.python.org/pypi/South) for database migrations.
 
 ### You will be using Git for Version Control.
 
-This should be obvious by now. 
-
-### You will be using VirtualEnv and PIP.
-
-These are defacto standards for Python development. Virtualenv allows you to have multiple versions of packages installed on one machine which it collects into sets called "virtual environments". PIP is a package manager for installing, updating and removing packages.
+This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS when pulling changes in from others, as such, it is strongly recommended that you execute Git commands within the virtual environment using the command line rather than using applications installed on the host machine such as Tower or GitHub App. 
 
 ### You will be using separate settings files for development and production.
 
 This template sets up separate development (the Django project running only on your local computer) and production (the Django project running on the world wide web) settings files that inherit from a common base settings file.
 
 This project configures [postactivate](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/recipes/default.rb#L119) and [postdeactivate](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/recipes/default.rb#L120) virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development so the `--settings=` flag doesn't need to be explicitly used. Something similar will need to be done in production to [specify the settings file to use](https://docs.djangoproject.com/en/dev/topics/settings/#designating-the-settings).
-
-### You will be using PostgreSQL as your database and South for database migrations.
-
-This project installs both PostgreSQL as well as [South](https://pypi.python.org/pypi/South) and the settings files in this template are explicitly configured to connect to a PostgreSQL server.
-
-This project configures your Django project for use with a PostgreSQL database, _django\_db_, which it installs along with a user, _django\_login_, for said database and installs South for database migrations.
 
 ### Your site will be optimized for search engines.
 
@@ -119,7 +98,7 @@ This project installs [Fabric](https://pypi.python.org/pypi/Fabric/) and include
 
 ### You will be using an HTML5 Doctype and writing your stylesheets with SASS
 
-By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backwards compatibility this project installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. Finally, this project installs [and configures](#stylesheets-created) Compass to instantiate the Compass [`+global-reset` mixin](http://compass-style.org/reference/compass/reset/utilities/#mixin-global-reset) which resets HTML5 element's display-roles for older browsers.
+By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backwards compatibility this project installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. Finally, this project installs [and configures](#stylesheets-created) SASS, Compass and Susy to instantiate the Compass [`+global-reset` mixin](http://compass-style.org/reference/compass/reset/utilities/#mixin-global-reset) which resets HTML5 element's display-roles for older browsers.
 
 ### Optionally, you will be using Xapian for plain text search.
 
