@@ -133,10 +133,6 @@ This project installs memcached and Python bindings.
 
 This project installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL (you will have to still install the _pil_ Python package, however). To use SORL-Thumbnail you will have to install the _pil_ and _sorl-thumbanil_ Python packages and configure the project as appropriate.
 
-### Optionally, you will be using django-celery with RabbitMQ as a broker.
-
-This project installs the necessary libraries (Erlang, RabbitMQ) to use django-celery with RabbitMQ as the broker (you will still have to install and configure [django-celery](http://docs.celeryproject.org/en/latest/django/first-steps-with-django.html) as wll as any worker processes or daemons.
-
 ### Other applications
 
 Review _requirements/base.txt_ for other default application choices.
@@ -199,8 +195,7 @@ Clone the Chef cookbooks repositories as needed (we will use the following cookb
     (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-xapian.git cookbooks/chef-cookbook-xapian
     (host) $ git submodule add git://github.com/jbergantine/chef-cookbook-djangonewproj.git cookbooks/chef-cookbook-djangonewproj
     (host) $ git submodule add git://github.com/opscode-cookbooks/memcached.git cookbooks/memcached
-    (host) $ git submodule add git://github.com/opscode-cookbooks/erlang.git cookbooks/erlang
-    (host) $ git submodule add git://github.com/opscode-cookbooks/rabbitmq.git cookbooks/rabbitmq
+
 
 Init and update the submodules.
 
@@ -210,7 +205,6 @@ Init and update the submodules.
 Copy in the Vagrantfile.
     
     (host) $ curl https://raw.github.com/gist/3875868/gistfile1.rb > Vagrantfile
-
 Startup Vagrant and install cookbooks (first time through), use `$ vagrant provision` instead if you mess something up and have to go through it again:
 
     (host) $ vagrant up
@@ -218,6 +212,34 @@ Startup Vagrant and install cookbooks (first time through), use `$ vagrant provi
 SSH in to the virtualbox:
 
     (host) $ vagrant ssh 
+    
+### Additional Optional Installs
+
+#### Erlang and RabbitMQ
+
+    (host) $ git submodule add git://github.com/opscode-cookbooks/erlang.git cookbooks/erlang
+    (host) $ git submodule add git://github.com/opscode-cookbooks/rabbitmq.git cookbooks/rabbitmq
+    
+Then edit the __Vagrantfile__ to include the following in the `cfg.vm.provision :chef_solo do |chef|` loop below the installation of __build-essential__:
+
+    chef.add_recipe "erlang"
+    chef.add_recipe "rabbitmq"
+   
+Reprovision the machine (if it is running) or run `$ vagrant up` if it is not running to reprovision.
+
+   (host) $ vagrant provision
+
+#### Redis
+
+   (host) $ git submodule add git://github.com/miah/chef-redis.git cookbooks/redis
+
+Then edit the __Vagrantfile__ to include the following in the `cfg.vm.provision :chef_solo do |chef|` loop below the installation of __build-essential__:
+
+   chef.add_recipe "redis::server_package"
+
+Reprovision the machine (if it is running) or run `$ vagrant up` if it is not running to reprovision.
+
+   (host) $ vagrant provision
 
 ### Setup SSH Keys
 
