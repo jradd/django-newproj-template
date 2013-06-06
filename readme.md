@@ -227,19 +227,19 @@ Then edit the _Vagrantfile_ to include the following in the `cfg.vm.provision :c
    
 Reprovision the machine (if it is running) or run `$ vagrant up` if it is not running to reprovision.
 
-   (host) $ vagrant provision
+    (host) $ vagrant provision
 
 #### Redis
 
-   (host) $ git submodule add git://github.com/miah/chef-redis.git cookbooks/redis
+    (host) $ git submodule add git://github.com/miah/chef-redis.git cookbooks/redis
 
 Then edit the _Vagrantfile_ to include the following in the `cfg.vm.provision :chef_solo do |chef|` loop below the installation of _build-essential_:
 
-   chef.add_recipe "redis::server_package"
+    chef.add_recipe "redis::server_package"
 
 Reprovision the machine (if it is running) or run `$ vagrant up` if it is not running to reprovision.
 
-   (host) $ vagrant provision
+    (host) $ vagrant provision
 
 ### Setup SSH Keys
 
