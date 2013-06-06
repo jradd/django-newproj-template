@@ -100,7 +100,7 @@ This project installs [Fabric](https://pypi.python.org/pypi/Fabric/) and include
 
 By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backwards compatibility this project installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. 
 
-This project installs [SASS, Compass and Susy])(#stylesheets-created) and begins sketching in styles with [Gesso](https://github.com/jbergantine/compass-gesso). 
+This project installs [SASS, Compass and Susy](#stylesheets-created) and begins sketching in styles with [Gesso](https://github.com/jbergantine/compass-gesso). 
 
 ### Optionally, you will be using Xapian for plain text search.
 
