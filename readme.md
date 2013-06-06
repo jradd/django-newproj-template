@@ -66,7 +66,7 @@ This template sets up a number of defaults for `django-admin.py startproject` by
 
 On the virtual machine, a new Django project called _myproject_ is created in a virtual environment named _djangoproj_.
 
-Using the Vagrant box requires you to interact with Django's management command (_manage.py_) [from within the virtual machine](#Django).
+Using the Vagrant box requires you to interact with Django's management command (`$ python manage.py`) [from within the virtual machine](#django).
 
 This project configures your Django project for use with a PostgreSQL database, _django\_db_, which it installs along with a user, _django\_login_, for said database and installs [South](https://pypi.python.org/pypi/South) for database migrations.
 
