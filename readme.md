@@ -781,7 +781,7 @@ The following bash aliases are added to the shell.
         <th>frs</th>
         <td>
             <pre>foreman start -f Procfile.dev</pre>
-            <p>Simutaniously starts <pre>compass watch myproject/static_media/stylesheets</pre> and <pre>python manage.py runserver [::]:8000</pre> so stylesheets can be compiled and the server run from the same SSH session without manually managing processes.</p>
+            <p>Simutaniously starts <kbd>compass watch myproject/static_media/stylesheets</kbd> and <kbd>python manage.py runserver [::]:8000</kbd> so stylesheets can be compiled and the server run from the same SSH session without manually managing processes.</p>
         </td>
     </tr></table>
 
