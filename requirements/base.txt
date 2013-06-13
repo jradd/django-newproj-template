@@ -45,6 +45,9 @@ django-whatever
 # Mobile middleware (https://github.com/gregmuellegger/django-mobile)
 django_mobile
 
+# Responsive middleware (https://github.com/mlavin/django-responsive)
+django-responsive
+
 # Fabric deployment
 fabric>=1.6.1 # fabric 1.5 has weird shell errors (can't import git, can't import compass)
 
