@@ -16,6 +16,8 @@ MIDDLEWARE_CLASSES = (
     # django mobile
     'django_mobile.middleware.MobileDetectionMiddleware',
     'django_mobile.middleware.SetFlavourMiddleware',
+    # django responsive
+    'responsive.middleware.DeviceInfoMiddleware',
 )
 
 # Local time zone for this installation. Choices can be found here:
@@ -144,7 +146,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
+    # django mobile
     'django_mobile.context_processors.flavour',
+    # django responsive
+    'responsive.context_processors.device_info',
 )
 
 PASSWORD_HASHERS = (
