@@ -82,7 +82,7 @@ This project configures [postactivate](https://github.com/jbergantine/chef-cookb
 
 ### You will be developing for use on multiple devices.
 
-The settings file in this template reference [django-mobile](https://pypi.python.org/pypi/django-mobile/) middleware and templatetags to do device detection for making server or template-level modifications on a platform or device level.
+This project configures the project for use with [django-mobile](https://pypi.python.org/pypi/django-mobile/) and [django-responsive](https://github.com/mlavin/django-responsive) for doing server-level device and width detection.
 
 This project installs [django-floppyforms](https://pypi.python.org/pypi/django-floppyforms) to take advantage of HTML5 form fields to greatly enhance the mobile user experience.
 
