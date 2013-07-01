@@ -273,17 +273,6 @@ Change permissions of the _id_rsa_ file.
 
     (vm) $ chmod 600 ~/.ssh/id_rsa
 
-#### Setup new Keys
-
-If you aren't using SSH keys on your host machine, you can setup a new key on your virtual box. These same instructions can be used on your host machine to generate SSH keys. Just execute them on host instead of the virtual box, skipping the step where you SSH into the virtual box.
-
-SSH into the box if you aren't already, from the project directory (the one you made in [using the new Vagrant Base Box](#using-the-new-vagrant-base-box)) on your host system run:
-
-    (host) $ vagrant up
-    (host) $ vagrant ssh
-    
-
-
 ### Personalize Git
 
 Label your commits with your name.
