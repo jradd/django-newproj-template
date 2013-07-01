@@ -304,31 +304,6 @@ Git saves your email address into the commits you make. GitHub uses the email ad
 
     (vm) $ git config --global user.email "your_email@youremail.com"
 
-### Update the newly created settings files
-
-This project utilizes separate settings files for development and production that both inherit from a common base file. The following is a list of things that need to be configured. If you're not ready to deploy the site you can just edit the development settings in the _development.py_ file for the time being and come back to the production settings in the _production.py_ file later.
-
-* Set `ADMINS` and `MANAGERS` for both local and production.
-* Set `EMAIL_HOST`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `DEFAULT_FROM_EMAIL` values for both local and production.
-* Set all `DATABASES` settings for production.
-* Set `MEDIA_ROOT`, `MEDIA_URL`, and `STATIC_ROOT` for production.
-* Set production `CACHES`.
-* Change your `TIME_ZONE` if desired.
-    
-### Update the newly created fabfile.py
-
-**This can be put off until you are ready to deploy the site to your production environment.**
-
-* Configure the environments and default call to Python as described in the Configuration notes within the file. Read the full configuration and usage notes to understand how the fabfile works with the production environment.
-
-### Update the [500 Error template](#500html)
-
-* Replace `[email address]` (2 occurrences) with an email address for the system administrator.
-
-### Update the [base template](#basehtml)
-
-* There are numerous things to update and customize here including the Google Analytics account number, default Facebook Graph API data, creating the favicon and Apple Touch icons and putting them in the locations referenced, TypeKit script files, the name of the site in the `<title>` tag and site meta data.
-
 ### From Here
 
 If you've been configuring your SSH Keys, you may need to move back to _/vagrant/_ before continuing.
@@ -370,7 +345,32 @@ That's a lot to remember so there's a shortcut for it:
 
     (vm) $ frs
 
-#### Share
+### Update the newly created settings files
+
+This project utilizes separate settings files for development and production that both inherit from a common base file. The following is a list of things that need to be configured. If you're not ready to deploy the site you can just edit the development settings in the _development.py_ file for the time being and come back to the production settings in the _production.py_ file later.
+
+* Set `ADMINS` and `MANAGERS` for both local and production.
+* Set `EMAIL_HOST`, `EMAIL_HOST_USER`, `EMAIL_HOST_PASSWORD`, `DEFAULT_FROM_EMAIL` values for both local and production.
+* Set all `DATABASES` settings for production.
+* Set `MEDIA_ROOT`, `MEDIA_URL`, and `STATIC_ROOT` for production.
+* Set production `CACHES`.
+* Change your `TIME_ZONE` if desired.
+    
+### Update the newly created fabfile.py
+
+**This can be put off until you are ready to deploy the site to your production environment.**
+
+* Configure the environments and default call to Python as described in the Configuration notes within the file. Read the full configuration and usage notes to understand how the fabfile works with the production environment.
+
+### Update the [500 Error template](#500html)
+
+* Replace `[email address]` (2 occurrences) with an email address for the system administrator.
+
+### Update the [base template](#basehtml)
+
+* There are numerous things to update and customize here including the Google Analytics account number, default Facebook Graph API data, creating the favicon and Apple Touch icons and putting them in the locations referenced, TypeKit script files, the name of the site in the `<title>` tag and site meta data.
+
+### Share
 
 Freeze the requirments
 
