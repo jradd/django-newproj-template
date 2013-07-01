@@ -6,10 +6,8 @@ Django project template for starting a new project.
 
 ### Introduction
 
-* [Stop](#stop)
-* [This Template](#this-template)
-* [Vagrant](#vagrant)
-* [Assumptions](#assumptions)
+* [Why Vagrant](#why-vagrant)
+* [This Project](#this-project)
 
 ### Directions
 
@@ -40,25 +38,13 @@ Django project template for starting a new project.
 
 # Introduction
 
-## Stop
-
-This project assumes at least a passing familiarity with Django and the Terminal window. If you haven't done so, it is highly recommended that those unfamiliar with the Terminal window begin with [The Designer's Guide to the OSX Command Prompt](http://wiseheartdesign.com/articles/2010/11/12/the-designers-guide-to-the-osx-command-prompt/) and those unfamiliar with Django [read through the tutorial](https://docs.djangoproject.com/en/1.4/intro/tutorial01/) to understand some of the concepts discussed below.
-
-## This Template
-
-To start a new project with this template, execute:
-
-    django-admin.py startproject --template=https://github.com/jbergantine/django-newproj-template/zipball/master --extension=py,rst <project_name>
-
-However, this template is intended to be used in conjunction with Vagrant as part of a broader project as documented in the [Usage](#initial-setup-of-vagrant-base) directions below.
-
-## Vagrant
+## Why Vagrant
 
 Vagrant offers the ability to create unique virtual machines on a per-project basis. Using Vagrant you can install system-level libraries without conflicting with other projects and share virtual machines with others on your team so you're all using the same thing. Because of the way Vagrant works you can continue to edit files in your editor of choice on your host machine (TextMate, Coda, Dreamweaver, Sublime, whatever) and view the site in a variety of browsers (Firefox, Chrome, the iPhone Emulator's Safari browser, etc.).
 
 These instructions go through the configuration of a new Ubuntu 64-bit operating system on a Vagrant Box hosted on an Apple Macintosh computer with Git and Curl as a minimum. These same set of instructions should work on a Linux box with a similar configuration.
 
-## Assumptions
+## This Project
 
 ### You will be using Django within a [Virtual Environemnt](https://pypi.python.org/pypi/virtualenv) managed by [PIP](https://pypi.python.org/pypi/pip), associated with a PostgreSQL database.
 
@@ -386,11 +372,6 @@ Add a Git remote per the instructions at BitBucket or GitHub or whatever remote 
 Your teammates will now be able to pull down the repo and setup their own Vagrant virtual environment. [Point them to the instructions for using it](#using-a-vagrant-virtual-environment-that-has-been-shared-with-you).
 
 ## Using a Vagrant Virtual Environment That Has Been Shared With You
-
-* [Before you do anything else, STOP](#stop).
-* [Read about Vagrant](#vagrant).
-* [Read the assumptions of use](#assumptions).
-* [See the Legend for the following directions](#legend).
 
 ### Clone the project from GitHub or Bitbucket or wherever it is hosted onto your host machine and change directory into the new directory.
 
