@@ -285,14 +285,6 @@ Git saves your email address into the commits you make. GitHub uses the email ad
 
 ### From Here
 
-If you've been configuring your SSH Keys, you may need to move back to _/vagrant/_ before continuing.
-
-    (vm) $ cd /vagrant/
-
-Additionally, make sure you're working on the _djangoproj_ virtual environment. To be doubly sure, run the following virtualenvwrapper command to instantiate it:
-
-    (vm) $ workon djangoproj
-
 #### Syndb and migrate, first you'll have to move into _/vagrant/myproject/_. Then `collectstatic` for Django Grappelli.
 
     (vm) $ cd /vagrant/myproject/
