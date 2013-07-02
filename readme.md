@@ -56,6 +56,8 @@ Using the Vagrant box requires you to interact with Django's management command 
 
 This project configures your Django project for use with a PostgreSQL database, _django\_db_, which it installs along with a user, _django\_login_, for said database and installs [South](https://pypi.python.org/pypi/South) for database migrations.
 
+This project also configures your Django project to use the [Django Admin](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) and [Django Sites Framework](https://docs.djangoproject.com/en/dev/ref/contrib/sites/).
+
 ### You will be using Git for Version Control.
 
 This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS when pulling changes in from others, as such, it is strongly recommended that you execute Git commands within the virtual environment using the command line rather than using applications installed on the host machine such as Tower or GitHub App. 
