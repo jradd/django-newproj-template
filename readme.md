@@ -42,7 +42,7 @@ Django project template for starting a new project.
 
 Vagrant offers the ability to create unique virtual machines on a per-project basis. Using Vagrant you can install system-level libraries without conflicting with other projects and share virtual machines with others on your team so you're all using the same thing. Because of the way Vagrant works you can continue to edit files in your editor of choice on your host machine (TextMate, Coda, Dreamweaver, Sublime, whatever) and view the site in a variety of browsers (Firefox, Chrome, the iPhone Emulator's Safari browser, etc.).
 
-These instructions go through the configuration of a new Ubuntu 64-bit operating system on a Vagrant Box virtual machine hosted on an Apple Macintosh computer (Git and curl must be available; these should be available by default, if not install Xcode from the Apple App Store). These same set of instructions should work to setup a Vagrant Virtual Machine on a Linux host with a similar configuration.
+These instructions go through the configuration of a new Ubuntu 64-bit operating system on a Vagrant Box virtual machine hosted on an Apple Macintosh computer.
 
 ## This Project
 
@@ -114,6 +114,8 @@ for commands to run inside the Vagrant virtual machine.
 ## Initial setup of Vagrant Base
 
 This step only ever needs to be done once. Once the precise64 box is installed on a system the remaining steps refer to that same box regardless of the project.
+
+Download and install [Xcode from the Apple App Store](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12).
 
 Download virtualbox from http://www.virtualbox.org/wiki/Downloads, install dmg.
 
