@@ -28,7 +28,7 @@
         <meta property="og:title" content="{% block fb_title %}{% endblock %}" />
         <meta property="og:type" content="{% block fb_type %}{% endblock %}" />
         <meta property="og:image" content="{% current_site_url %}{% block fb_image %}{% endblock %}" />
-        <meta property="og:url" content="{% current_site_url %}{% block fb_url %}{% url home %}{% endblock %}" />
+        <meta property="og:url" content="{% current_site_url %}{% block fb_url %}{% url 'home' %}{% endblock %}" />
         <meta property="og:description" content="{% block fb_description %}{% endblock %}" />
 
         <title>{% block pagetitle %}{% endblock %} | site name</title>
