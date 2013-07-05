@@ -92,7 +92,7 @@ This project installs Xapian with Python bindings. You will have to additionally
 
 ### Optionally, you will be using memcached for caching.
 
-This project installs memcached and Python bindings and configures the development environment (in _myproject/settings/development.py_) to use memcached. The production environment settings file includes the necessary config for memcached but commented out since the production environment will need to have memcached installed onto the server with Python bindings in order for that to work.
+This project installs memcached and Python bindings and configures the development environment (in _myproject/settings/development.py_) to use memcached (although it is commented out as enabling it requries restarting the server to see template changes). The production environment settings file includes the necessary config for memcached but commented out since the production environment will need to have memcached installed onto the server with Python bindings in order for that to work.
 
 ### Optionally, you will be using PIL and possibly SORL-Thumbnail.
 
