@@ -69,6 +69,10 @@ CACHES = {
 
 TEMPLATE_DEBUG = DEBUG
 
+# URLs allowed to run the site in production
+# Omit 'http://'
+ALLOWED_HOSTS = ['']
+
 # django_compress configuration
 COMPRESS_URL = STATIC_URL
 COMPRESS_ROOT = STATIC_ROOT
