@@ -107,8 +107,7 @@ Review _requirements/base.txt_ for other default Python application choices (and
 
 ## Legend
 
-`(host)` is for commands to run on the host machine, and `(vm)` is
-for commands to run inside the Vagrant virtual machine.
+`(host)` is for commands to run on the host machine, and `(vm)` is for commands to run inside the Vagrant virtual machine. To run commands in the virtual machine you must be SSH'd into it. Instructions for doing so the first time through are provided in context below or in the [Vagrant Command Tips](#vagrant-command-tips) section.
 
 ## Initial setup of Vagrant Base
 
@@ -563,10 +562,14 @@ For documentation on the other commands bundeled into the fabfile see the [Fabri
 
     (host) $ vagrant suspend
 
-### Once shutdown or suspended, a VM can be restarted:
+### Once shutdown or suspended, a VM can be restarted. To boot a VM:
 
     (host) $ vagrant up
 
+### SSH into a VM (VM must [first be booted](#once-shutdown-or-suspended-a-vm-can-be-restarted)):
+
+    (host) $ vagrant ssh
+    
 ### To destroy the VM:
 
     (host) $ vagrant destroy
