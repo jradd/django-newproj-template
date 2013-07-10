@@ -40,35 +40,36 @@ Django project template for starting a new project.
 
 ## Why Vagrant
 
-Vagrant offers the ability to create unique virtual machines on a per-project basis. Using Vagrant you can install system-level libraries without conflicting with other projects and share virtual machines with others on your team so you're all using the same thing. Because of the way Vagrant works you can continue to edit files in your editor of choice on your host machine (TextMate, Coda, Dreamweaver, Sublime, whatever) and view the site in a variety of browsers (Firefox, Chrome, the iPhone Emulator's Safari browser, etc.).
-
-These instructions go through the configuration of a new Ubuntu 64-bit operating system on a Vagrant Box virtual machine hosted on an Apple Macintosh computer.
+* Local development while isolating system-level libraries and executing code in an Ubuntu 64-bit virtual machine on a per-project basis. Continue to edit files in the editor of choice (TextMate, Coda, Dreamweaver, Sublime) on your host machine and view the site in a variety of browsers (Firefox, Chrome, the iPhone Emulator's Safari browser).
+* The environment is setup for you. Get team members, freelancers and designers up and running Django or SASS in minutes without changing their configuration. 
 
 ## This Project
 
-### You will be using Django within a [Virtual Environemnt](https://pypi.python.org/pypi/virtualenv) managed by [PIP](https://pypi.python.org/pypi/pip), associated with a PostgreSQL database.
+### Django, Virtualenv [Virtual Environemnt](https://pypi.python.org/pypi/virtualenv), [PIP](https://pypi.python.org/pypi/pip), PostgreSQL
 
-This template sets up a number of defaults for `django-admin.py startproject` by making a number of assumptions about your preferences, application choices, encouraging a particular development environment configuration and by loading in an initial set of templates, and if used as intended, CSS files and JavaScript libraries.
+This template sets up a number of defaults for `django-admin.py startproject` by encouraging a particular development environment and tool set. It loads an initial set of Django applications, Django templates, CSS files and JavaScript libraries.
 
 On the virtual machine, a new Django project called _myproject_ is created in a virtual environment named _djangoproj_.
 
-Using the Vagrant box requires you to interact with Django's management command (`$ python manage.py`) [from within the virtual machine](#django).
+This project configures a Django project for use with a PostgreSQL database, _django\_db_, which it installs along with a user, _django\_login_, for said database and installs [South](https://pypi.python.org/pypi/South) for database migrations.
 
-This project configures your Django project for use with a PostgreSQL database, _django\_db_, which it installs along with a user, _django\_login_, for said database and installs [South](https://pypi.python.org/pypi/South) for database migrations.
+This project also configures the Django project to use the [Django Admin](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) and [Django Sites Framework](https://docs.djangoproject.com/en/dev/ref/contrib/sites/).
 
-This project also configures your Django project to use the [Django Admin](https://docs.djangoproject.com/en/dev/ref/contrib/admin/) and [Django Sites Framework](https://docs.djangoproject.com/en/dev/ref/contrib/sites/).
-
-### You will be using Git for Version Control.
-
-This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS when pulling changes in from others, as such, it is strongly recommended that you execute Git commands within the virtual environment using the command line rather than using applications installed on the host machine such as Tower or GitHub App. 
-
-### You will be using separate settings files for development and production.
+#### Separate Settings Files for Development and Production
 
 This template sets up separate development (the Django project running only on your local computer) and production (the Django project running on the world wide web) settings files that inherit from a common base settings file.
 
 This project configures [postactivate](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/recipes/default.rb#L119) and [postdeactivate](https://github.com/jbergantine/chef-cookbook-djangonewproj/blob/master/recipes/default.rb#L120) virtualenv hooks for specifying the proper settings file when working in the virtual environment within Vagrant for development so the `--settings=` flag doesn't need to be explicitly used. Something similar will need to be done in production to [specify the settings file to use](https://docs.djangoproject.com/en/dev/topics/settings/#designating-the-settings).
 
-### You will be developing for use on multiple devices using HTML5 and SASS.
+### Fabric Deployment
+
+This project installs [Fabric](https://pypi.python.org/pypi/Fabric/) and includes a [fabfile](#fabfile) with a number of pre-configured methods for deployment and server management.
+
+### Git
+
+This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS when pulling changes in from others, as such, it is strongly recommended that you execute Git commands within the virtual environment using the command line rather than using applications installed on the host machine such as Tower or GitHub App. 
+
+### HTML5 and SASS
 
 This project configures the project for use with [django-mobile](https://pypi.python.org/pypi/django-mobile/) and [django-responsive](https://github.com/mlavin/django-responsive) for doing server-level device and width detection.
 
@@ -76,29 +77,25 @@ By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backw
 
 This project installs [SASS along with Compass and Susy responsive grids](#stylesheets-created) and begins sketching in styles with [Gesso](https://github.com/jbergantine/compass-gesso). 
 
-### Your site will be optimized for search engines.
+### SEO
 
 This template includes a sitemaps module, _sitemaps.py_, which is initially configured to create a sitemaps XML file referencing "static" pages of a site but which can be expanded to most any application. The sitemap module is imported into _urls.py_ which sets up routing. 
 
 This template also installs [Django-Robots](https://github.com/jbergantine/django-robots), a small app for creating a _robots.txt_ file.
 
-### You will be using Fabric for deployment.
-
-This project installs [Fabric](https://pypi.python.org/pypi/Fabric/) and includes a [fabfile](#fabfile) with a number of pre-configured methods for deployment and server management.
-
 ### Optionally, you will be using Xapian for plain text search.
 
 This project installs Xapian with Python bindings. You will have to additionally install the [_django-haystack_](https://pypi.python.org/pypi/django-haystack/) and [_xapian-haystack_](https://pypi.python.org/pypi/xapian-haystack) Python packages and [configure the project as appropriate](http://django-haystack.readthedocs.org/en/latest/tutorial.html#configuration).
 
-### Optionally, you will be using memcached for caching.
+### memcached Ready
 
 This project installs memcached and Python bindings and configures the development environment (in _myproject/settings/development.py_) to use memcached (although it is commented out as enabling it requries restarting the server to see template changes). The production environment settings file includes the necessary config for memcached but commented out since the production environment will need to have memcached installed onto the server with Python bindings in order for that to work.
 
-### Optionally, you will be using PIL and possibly SORL-Thumbnail.
+### PIL and SORL-Thumbnail Ready
 
 This project installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL (you will have to still install the [_pil_](https://pypi.python.org/pypi/PIL) Python package, however). To use SORL-Thumbnail you will have to install the [_pil_](https://pypi.python.org/pypi/PIL) and [_sorl-thumbnail_](https://pypi.python.org/pypi/sorl-thumbnail/) Python packages and [configure the project as appropriate](http://sorl-thumbnail.readthedocs.org/en/latest/installation.html#setup).
 
-### Other applications.
+### Documentation for Configuring Redis, Erlang or RabbitMQ
 
 Review _requirements/base.txt_ for other default Python application choices and [Additional Optional Installs](#additional-optional-installs) for how to install other Linux packages such as Redis, Erlang and RabbitMQ.
 
