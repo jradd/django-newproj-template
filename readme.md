@@ -71,11 +71,13 @@ This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the
 
 ### HTML5 and SASS
 
-This project configures the project for use with [django-mobile](https://pypi.python.org/pypi/django-mobile/) and [django-responsive](https://github.com/mlavin/django-responsive) for doing server-level device and width detection.
-
 By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backwards compatibility this project installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. 
 
+### Mobile First, Responsive Design
+
 This project installs [SASS along with Compass and Susy responsive grids](#stylesheets-created) and begins sketching in styles with [Gesso](https://github.com/jbergantine/compass-gesso). 
+
+This project configures the project for use with [django-mobile](https://pypi.python.org/pypi/django-mobile/) and [django-responsive](https://github.com/mlavin/django-responsive) for doing server-level device and width detection.
 
 ### SEO
 
