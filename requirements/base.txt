@@ -16,7 +16,7 @@ South
 # https://code.djangoproject.com/ticket/16250
 psycopg2
 
-# CSS/JS Compression (https://github.com/mintchaos/django_compressor)
+# CSS/JS Compression (https://pypi.python.org/pypi/django_compressor)
 # Also does pre-compilation of SASS, LESS, CoffeeScript if so-configured (http://django_compressor.readthedocs.org/en/1.1.2/settings/#compress-precompilers)
 BeautifulSoup
 django-compressor
