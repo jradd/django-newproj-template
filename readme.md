@@ -219,25 +219,27 @@ If you don't already have SSH keys setup on your Host machine, follow these dire
 
 Move into the _~/.ssh_ directory:
 
-    (vm) $ cd ~/.ssh
+    (host) $ cd ~/.ssh
 
 Create the key, replacing your_email@youremail.com with your email address:
 
-    (vm) $ ssh-keygen -t rsa -C “your_email@youremail.com”
+    (host) $ ssh-keygen -t rsa -C “your_email@youremail.com”
     
-When prompted with "Enter file in which to save the key (/home/vagrant/.ssh/id_rsa):" hit the return key to accept the default value.
+When prompted with "Enter file in which to save the key (...):" hit the return key to accept the default value.
 
 When prompted for a passphrase enter a strong passphrase and hit the return key or hit the return key to create a key without a passphrase. 
 
 Print the public key to the terminal window. The following will spit out about 5 lines of text beginning with "ssh-rsa" and ending with your email address. Once you've ran the following command, select all of its output with your mouse and copy it (Command + C should do it to copy it).
 
-    (vm) $ cat id_rsa.pub
+    (host) $ cat id_rsa.pub
     
-Now login to GitHub or Bitbucket or whatever service you're using for Git and add a new key for your account, pasting in the public key from your clipboard. You should now be able to push, pull and clone without having to enter a passphrase for the account (if you set a passphrase for the key you will have to enter that). 
+Login to GitHub or Bitbucket or whatever service you're using for Git and add a new key for your account, pasting in the public key from your clipboard. You should now be able to push, pull and clone without having to enter a passphrase for the account (if you set a passphrase for the key you will have to enter that). 
+
+Now you're ready to copy those keys into the Virtual Environment.
 
 #### Copying Your Keys Into the Virtual Environment
 
-SSH into the virtual box. From the project directory (the one you made in [using the new Vagrant Base Box](#using-the-new-vagrant-base-box)) on your host system run:
+SSH into the virtual box if you aren't already there. From the project directory (the one you made in [using the new Vagrant Base Box](#using-the-new-vagrant-base-box)) on your host system run:
 
     (host) $ vagrant up
     (host) $ vagrant ssh
@@ -253,7 +255,7 @@ Copy the public key in a new Terminal window:
 Return to vi on the Virtual Machine. Paste, save and quit vi. If you're unfamiliar with vi/vim commands type or press the following keys/combos one line at a time:
 
     i
-    cmd + v
+    command + v
     esc
     :wq
 
@@ -268,7 +270,7 @@ Copy the private key. In the Terminal window on your host machine run:
 Return to vi on the Virtual Machine. Paste, save and quit vi. If you're unfamiliar with vi/vim commands type or press the following keys/combos one line at a time:
 
     i
-    cmd + v
+    command + v
     esc
     :wq
 
