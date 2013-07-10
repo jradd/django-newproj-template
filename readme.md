@@ -45,7 +45,7 @@ Django project template for starting a new project.
 
 ## This Project
 
-### Django, Virtualenv [Virtual Environemnt](https://pypi.python.org/pypi/virtualenv), [PIP](https://pypi.python.org/pypi/pip), PostgreSQL
+### Django,  [Virtualenv](https://pypi.python.org/pypi/virtualenv), [PIP](https://pypi.python.org/pypi/pip), PostgreSQL
 
 This template sets up a number of defaults for `django-admin.py startproject` by encouraging a particular development environment and tool set. It loads an initial set of Django applications, Django templates, CSS files and JavaScript libraries.
 
