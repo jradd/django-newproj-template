@@ -65,15 +65,15 @@ This project configures [postactivate](https://github.com/jbergantine/chef-cookb
 
 This project installs [Fabric](https://pypi.python.org/pypi/Fabric/) and includes a [fabfile](#fabfile) with a number of pre-configured methods for deployment and server management.
 
-### Git
+### Version Control with Git
 
 This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS when pulling changes in from others, as such, it is strongly recommended that you execute Git commands within the virtual environment using the command line rather than using applications installed on the host machine such as Tower or GitHub App. 
 
-### HTML5
+### HTML5 Doctype
 
 By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backwards compatibility this project installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. 
 
-### Mobile First, Responsive Design, SASS
+### Mobile First Responsive Design with SASS Stylesheets, Susy Responsive Grids and Server-Level Device Detection
 
 This project installs [SASS along with Compass and Susy responsive grids](#stylesheets-created) and begins sketching in styles with [Gesso](https://github.com/jbergantine/compass-gesso). 
 
@@ -85,7 +85,7 @@ This template includes a sitemaps module, _sitemaps.py_, which is initially conf
 
 This template also installs [Django-Robots](https://github.com/jbergantine/django-robots), a small app for creating a _robots.txt_ file.
 
-### Optionally, you will be using Xapian for plain text search.
+### Xapian Plain Text Search Ready
 
 This project installs Xapian with Python bindings. You will have to additionally install the [_django-haystack_](https://pypi.python.org/pypi/django-haystack/) and [_xapian-haystack_](https://pypi.python.org/pypi/xapian-haystack) Python packages and [configure the project as appropriate](http://django-haystack.readthedocs.org/en/latest/tutorial.html#configuration).
 
@@ -97,9 +97,11 @@ This project installs memcached and Python bindings and configures the developme
 
 This project installs the necessary libraries (libjpeg, libfreetype, zlib) to use PIL (you will have to still install the [_pil_](https://pypi.python.org/pypi/PIL) Python package, however). To use SORL-Thumbnail you will have to install the [_pil_](https://pypi.python.org/pypi/PIL) and [_sorl-thumbnail_](https://pypi.python.org/pypi/sorl-thumbnail/) Python packages and [configure the project as appropriate](http://sorl-thumbnail.readthedocs.org/en/latest/installation.html#setup).
 
-### Documentation for Configuring Redis, Erlang or RabbitMQ
+### Redis, Erlang, RabbitMQ and More
 
-Review _requirements/base.txt_ for other default Python application choices and [Additional Optional Installs](#additional-optional-installs) for how to install other Linux packages such as Redis, Erlang and RabbitMQ.
+Review [Additional Optional Installs](#additional-optional-installs) for how to install other Linux packages such as Redis, Erlang and RabbitMQ.
+
+Review _requirements/base.txt_ for other default Python application choices (and the use cases for them) that you might want to enable out of the box. 
 
 # Directions
 
