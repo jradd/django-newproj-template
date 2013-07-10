@@ -41,7 +41,7 @@ Django project template for starting a new project.
 ## Why Vagrant
 
 * Local development while isolating system-level libraries and executing code in an Ubuntu 64-bit virtual machine on a per-project basis. Continue to edit files in the editor of choice (TextMate, Coda, Dreamweaver, Sublime) on your host machine and view the site in a variety of browsers (Firefox, Chrome, the iPhone Emulator's Safari browser).
-* The environment is setup for you. Get team members, freelancers and designers up and running Django or SASS in minutes without changing their configuration. 
+* The environment is setup for you. Get team members, freelancers and designers up and running Django with a PostgreSQL database and SASS stylesheets in minutes without changing their host machine's configuration. 
 
 ## This Project
 
@@ -69,11 +69,11 @@ This project installs [Fabric](https://pypi.python.org/pypi/Fabric/) and include
 
 This configuration uses a [post-merge Git hook](#post-merge) to sync/migrate the database and compile SASS when pulling changes in from others, as such, it is strongly recommended that you execute Git commands within the virtual environment using the command line rather than using applications installed on the host machine such as Tower or GitHub App. 
 
-### HTML5 and SASS
+### HTML5
 
 By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backwards compatibility this project installs [modernizr.js](http://modernizr.com) with an HTML5 shiv for older versions of Internet Explorer to keep them from puking. 
 
-### Mobile First, Responsive Design
+### Mobile First, Responsive Design, SASS
 
 This project installs [SASS along with Compass and Susy responsive grids](#stylesheets-created) and begins sketching in styles with [Gesso](https://github.com/jbergantine/compass-gesso). 
 
