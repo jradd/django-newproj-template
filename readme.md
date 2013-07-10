@@ -79,6 +79,14 @@ This project installs [SASS along with Compass and Susy responsive grids](#style
 
 This project configures the project for use with [django-mobile](https://pypi.python.org/pypi/django-mobile/) and [django-responsive](https://github.com/mlavin/django-responsive) for doing server-level device and width detection.
 
+### jQuery
+
+This project downloads the latest version of [jQuery](http://jquery.com) and includes it in the base template.
+
+### Minified JavaScript and CSS
+
+This project installs [django_compressor](https://pypi.python.org/pypi/django_compressor) for minifying JavaScript and CSS files.
+
 ### SEO
 
 This template includes a sitemaps module, _sitemaps.py_, which is initially configured to create a sitemaps XML file referencing "static" pages of a site but which can be expanded to most any application. The sitemap module is imported into _urls.py_ which sets up routing. 
@@ -479,7 +487,7 @@ When you run the script to create the project, the script downloads the latest v
 
 ### Stylesheets Created
 
-This project utilizes the [Compass](http://compass-style.org) [SASS](http://sass-lang.com) framework and [Susy respoonsive grid plugin](http://susy.oddbird.net/) and creates a stylesheet directory following the requirements of that application. CSS files will be created in the appropriate spots the first time you run either `$ compass watch static_media/stylesheets` or `$ compass compile static_media/stylesheets`. The [bash shortcut `cw`](#compass) is set up to reduce keyboard fatigue. 
+This project utilizes the [Compass](http://compass-style.org) [SASS](http://sass-lang.com) framework and [Susy responsive grid plugin](http://susy.oddbird.net/) and creates a stylesheet directory following the requirements of that application. CSS files will be created in the appropriate spots the first time you run either `$ compass watch static_media/stylesheets` or `$ compass compile static_media/stylesheets`. The [bash shortcut `cw`](#compass) is set up to reduce keyboard fatigue. 
 
 #### _base.sass, screen.sass, print.sass
 
