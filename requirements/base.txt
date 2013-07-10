@@ -136,6 +136,10 @@ docutils
 # Docs @ http://django-storages.readthedocs.org
 #django-storages
 
+# Field level user permissions
+# Docs @ http://pythonhosted.org/django-guardian/index.html
+#django-guardian
+
 ####################
 # jbergantine Apps #
 ####################
