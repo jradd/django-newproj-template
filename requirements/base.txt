@@ -3,7 +3,8 @@ django
 
 # Time Zone Support
 # https://docs.djangoproject.com/en/1.4/topics/i18n/timezones/#faq
-pytz
+# This is currently erring with "No distributions matching the version for pytz"
+#pytz
 
 # Caching via Python Memcached
 python-memcached
