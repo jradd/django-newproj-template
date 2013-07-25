@@ -55,9 +55,6 @@ fabric>=1.6.1 # fabric 1.5 has weird shell errors (can't import git, can't impor
 # Generic Templatetags
 -e git+git://github.com/jbergantine/django-templatetags.git#egg=django_templatetags
 
-# Grappelli backend
-django-grappelli
-
 # Docutils for Django Admin Docs
 docutils
 
@@ -140,6 +137,9 @@ docutils
 # Field level user permissions
 # Docs @ http://pythonhosted.org/django-guardian/index.html
 #django-guardian
+
+# Grappelli backend
+#django-grappelli
 
 ####################
 # jbergantine Apps #
