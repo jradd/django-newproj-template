@@ -75,7 +75,7 @@ By default the [_base.html_](#basehtml) template has an HTML5 doctype. For backw
 
 ### Mobile First Responsive Design with SASS Stylesheets, Susy Responsive Grids and Server-Level Device Detection
 
-This project installs [SASS along with Compass and Susy responsive grids](#stylesheets-created) and begins sketching in styles with [Gesso](https://github.com/jbergantine/compass-gesso). This project keeps the CSS files out of Git to avoid conflicts and compiles the stylesheets at deployment via Fabric.
+This project installs [SASS along with Compass and Susy responsive grids](#stylesheets-created) and begins sketching in styles with [Gesso](https://github.com/jbergantine/compass-gesso). This project keeps the CSS files out of Git to avoid conflicts and compiles the stylesheets at deployment via Fabric and in production by co-running `runserver` and `compass watch` with Foreman.
 
 This project configures the project for use with [django-mobile](https://pypi.python.org/pypi/django-mobile/) and [django-responsive](https://github.com/mlavin/django-responsive) for doing server-level device and width detection.
 
