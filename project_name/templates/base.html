@@ -71,28 +71,28 @@
         {% block additional_head_items %}{% endblock %}
     </head>
     <body id="{% block bodyid %}base{% endblock %}" class="{% block bodyclass %}base{% endblock %}">
-        <div id="site_wrapper">
+        <div id="site-wrapper">
 
             {% block nav %}
 
-                <header id="site_header">
+                <header id="site-header">
                     <nav>
                         <ol>
                             {% include "_nav.html" %}
                         </ol>
                     </nav>
-                    <a href="#site_footer" class="jump-to-nav">Nav</a>
+                    <a href="#site-footer" class="jump-to-nav">Nav</a>
                 </header>
         
                 <div id="content">
                     {% block content %}{% endblock %}
                 </div>
         
-                <footer id="site_footer">
+                <footer id="site-footer">
                     <nav>
                         <ol>
                             <li class="back-to-top">
-                                <a href="#site_header">Back to Top</a>
+                                <a href="#site-header">Back to Top</a>
                             </li>
                             {% include "_nav.html" %}
                         </ol>
