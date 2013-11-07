@@ -180,7 +180,7 @@ Init and update the submodules.
 
 Copy in the Vagrantfile.
     
-    (host) $ curl https://raw.github.com/gist/3875868/gistfile1.rb > Vagrantfile
+    (host) $ curl https://gist.github.com/jbergantine/3875868/raw/gistfile1.rb > Vagrantfile
 Startup Vagrant and install cookbooks (first time through), use `$ vagrant provision` instead if you mess something up and have to go through it again:
 
     (host) $ vagrant up
