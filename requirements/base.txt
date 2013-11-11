@@ -37,7 +37,7 @@ django-debug-toolbar
 django-slimmer
 
 # Django Robots (https://github.com/jbergantine/django-robots)
-#-e git+git://github.com/jbergantine/django-robots.git#egg=django_robots
+-e git+git://github.com/jbergantine/django-robots.git#egg=django_robots
 
 # Test Auto-Creation of Models via Django-Whatever (https://github.com/coagulant/django-whatever)
 # Docs @ http://django-whatever.readthedocs.org/en/latest/index.html
