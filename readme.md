@@ -298,11 +298,14 @@ Git saves your email address into the commits you make. GitHub uses the email ad
 
 ### From Here
 
-#### Syndb and migrate, first you'll have to move into _/vagrant/myproject/_. Then `collectstatic` for Django Grappelli.
+#### Syndb and migrate, first you'll have to move into _/vagrant/myproject/_. 
 
     (vm) $ cd /vagrant/myproject/
     (vm) $ dj syncdb
     (vm) $ dj migrate
+    
+If you've installed Django Grappelli you will also have to ``collectstatic``.
+    
     (vm) $ dj collectstatic
 
 #### Run server
