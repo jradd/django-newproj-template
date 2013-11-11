@@ -254,35 +254,25 @@ SSH into the virtual box if you aren't already there. From the project directory
 
 Open the _id_rsa.pub_ file on the virtual box for editing.
 
-    (vm) $ vi ~/.ssh/id_rsa.pub
+    (vm) $ nano ~/.ssh/id_rsa.pub
 
 Copy the public key in a new Terminal window:
 
     (host) $ cat ~/.ssh/id_rsa.pub|pbcopy
 
-Return to vi on the Virtual Machine. Paste, save and quit vi. If you're unfamiliar with vi/vim commands type or press the following keys/combos one line at a time:
-
-    i
-    command + v
-    esc
-    :wq
+Return to nano on the Virtual Machine. Paste, exit and save changes.
 
 Open the _id_rsa_ file on the virtual box for editing. In the Terminal window that is SSH'd into the virtual box run:
 
-    (vm) $ vi ~/.ssh/id_rsa
+    (vm) $ nano ~/.ssh/id_rsa
 
 Copy the private key. In the Terminal window on your host machine run:
 
     (host) $ cat ~/.ssh/id_rsa|pbcopy
-    
-Return to vi on the Virtual Machine. Paste, save and quit vi. If you're unfamiliar with vi/vim commands type or press the following keys/combos one line at a time:
 
-    i
-    command + v
-    esc
-    :wq
+Return to nano on the Virtual Machine. Paste, exit and save changes.
 
-Change permissions of the _id_rsa_ file.
+Change permissions of the `id_rsa` file.
 
     (vm) $ chmod 600 ~/.ssh/id_rsa
 
