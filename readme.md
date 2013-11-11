@@ -429,13 +429,13 @@ Dependencies not listed below include cookbooks as referenced in the [Vagrant fi
 
 ### Cookbooks
 
-Some of the recipes referred to in the [Vagrant file](https://gist.github.com/3875868) are tied together via the recipe in [chef-cookbook-djangonewproj](https://github.com/jbergantine/chef-cookbook-djangonewproj).
+Some of the recipes referred to in the [Vagrant file](https://gist.github.com/jbergantine/3875868) are tied together via the recipe in [chef-cookbook-djangonewproj](https://github.com/jbergantine/chef-cookbook-djangonewproj).
 
 ### Gists referenced in chef-cookbook-djangonewproj
 
-* [Bash Profile with Coloring and Git Knowledge](https://gist.github.com/4004242/)
-* [Custom Build of Modernizr.js](https://gist.github.com/3868451/)
-* [Git Post-Merge Hook](https://gist.github.com/3870080/)
+* [Bash Profile with Coloring and Git Knowledge](https://gist.github.com/jbergantine/7363927)
+* [Custom Build of Modernizr.js](https://gist.github.com/jbergantine/3868451/)
+* [Git Post-Merge Hook](https://gist.github.com/jbergantine/3870080/)
 
 ## Installed Files
 
