@@ -1,15 +1,54 @@
+"""
+Django settings for {{ project_name }} project.
+
+For more information on this file, see
+https://docs.djangoproject.com/en/1.6/topics/settings/
+
+For the full list of settings and their values, see
+https://docs.djangoproject.com/en/1.6/ref/settings/
+"""
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = '{{ secret_key }}'
+
+
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.admindocs',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.messages',
+    'django.contrib.sessions',
+    'django.contrib.sitemaps',
+    'django.contrib.staticfiles',
+    'compressor',
+    'debug_toolbar',
+    'django_any',
+    'django_extensions',
+    'django_robots',
+    'django_mobile',
+    'django_templatetags',
+    'south',
+)
 
 MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
     # cache middleware pt.1
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     # cache middleware pt.2
     'django.middleware.cache.FetchFromCacheMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # django debug toolbar
     # must come after any other middleware that encodes the response's content (like GZipMiddleware)
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -20,38 +59,31 @@ MIDDLEWARE_CLASSES = (
     'responsive.middleware.DeviceInfoMiddleware',
 )
 
-# Local time zone for this installation. Choices can be found here:
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# On Unix systems, a value of None will cause Django to use the same
-# timezone as the operating system.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
-TIME_ZONE = 'America/Denver'
+ROOT_URLCONF = '{{ project_name }}.urls'
 
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
+# Python dotted path to the WSGI application used by Django's runserver.
+WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
+
+# Internationalization
+# https://docs.djangoproject.com/en/1.6/topics/i18n/
+
 LANGUAGE_CODE = 'en-us'
 
-SITE_ID = 1
+TIME_ZONE = 'America/Denver'
 
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
 USE_I18N = True
 
-# If you set this to False, Django will not format dates, numbers and
-# calendars according to the current locale
 USE_L10N = True
 
-# If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
-# Additional locations of static files
+# Static Files
+
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(os.path.dirname(__file__), '../static_media'),
+    os.path.join(BASE_DIR, '../static_media'),
 )
 
 # List of finder classes that know how to find static files in
@@ -64,10 +96,8 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = '{{ secret_key }}'
+# Templates
 
-# List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django_mobile.loader.Loader',
     'django.template.loaders.filesystem.Loader',
@@ -75,36 +105,26 @@ TEMPLATE_LOADERS = (
     #'django.template.loaders.eggs.Loader',
 )
 
-ROOT_URLCONF = '{{ project_name }}.urls'
-
-# Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
-
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(os.path.dirname(__file__), '../templates'),
+    os.path.join(BASE_DIR, '../templates'),
 )
 
-INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.admin',
-    'django.contrib.admindocs',
-    'django.contrib.sitemaps',
-    'django_any',
-    'south',
-    'compressor',
-    'debug_toolbar',
-    'django_extensions',
-    'django_robots',
-    'django_templatetags',
-    'django_mobile',
+# explicit specification necessary to include request context processor
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.request',
+    'django.core.context_processors.static',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+    # django mobile
+    'django_mobile.context_processors.flavour',
+    # django responsive
+    'responsive.context_processors.device_info',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -112,6 +132,7 @@ INSTALLED_APPS = (
 # the site admins on every HTTP 500 error.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -135,29 +156,6 @@ LOGGING = {
         },
     }
 }
-
-# explicit specification necessary to include request context processor
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.request',
-    'django.core.context_processors.static',
-    'django.contrib.auth.context_processors.auth',
-    'django.contrib.messages.context_processors.messages',
-    # django mobile
-    'django_mobile.context_processors.flavour',
-    # django responsive
-    'responsive.context_processors.device_info',
-)
-
-PASSWORD_HASHERS = (
-    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-    'django.contrib.auth.hashers.SHA1PasswordHasher',
-    'django.contrib.auth.hashers.MD5PasswordHasher',
-    'django.contrib.auth.hashers.CryptPasswordHasher',
-)
 
 # django_coverage configuration
 TEST_RUNNER = 'django_coverage.coverage_runner.CoverageRunner'
