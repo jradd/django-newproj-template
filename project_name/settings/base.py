@@ -27,6 +27,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.messages',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'compressor',
@@ -76,6 +77,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Sites Framework
+# https://docs.djangoproject.com/en/1.6/ref/contrib/sites/
+SITE_ID = 1
 
 # Static Files
 
