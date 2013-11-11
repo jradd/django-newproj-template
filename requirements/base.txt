@@ -1,10 +1,10 @@
 # Latest (stable) Django release
-django==1.6
+django
 
 # Time Zone Support
 # https://docs.djangoproject.com/en/1.4/topics/i18n/timezones/#faq
 # Specifying specific version as this was temporarily erring with "No distributions matching the version for pytz"
-pytz==2013b
+pytz
 
 # Caching via Python Memcached
 python-memcached
@@ -37,7 +37,7 @@ django-debug-toolbar
 django-slimmer
 
 # Django Robots (https://github.com/jbergantine/django-robots)
--e git+git://github.com/jbergantine/django-robots.git#egg=django_robots
+#-e git+git://github.com/jbergantine/django-robots.git#egg=django_robots
 
 # Test Auto-Creation of Models via Django-Whatever (https://github.com/coagulant/django-whatever)
 # Docs @ http://django-whatever.readthedocs.org/en/latest/index.html
@@ -70,9 +70,10 @@ docutils
 #textile
 
 # Image manipulation
+# Pillow Documentation: https://pypi.python.org/pypi/Pillow/2.2.1
 # SORL Documentation: http://sorl-thumbnail.readthedocs.org/en/latest/requirements.html
 # Django Filebrowser Documentation: https://django-filebrowser.readthedocs.org/en/3.5.2/
-#PIL
+#pillow
 #sorl-thumbnail
 #django-filebrowser
 
@@ -161,10 +162,7 @@ docutils
 # Heroku #
 ##########
 
-# Automatic Django database configuration on Heroku (http://pypi.python.org/pypi/django-heroku-postgresify)
-#django-heroku-postgresify
-
-# Alternately use dj-database-url (https://devcenter.heroku.com/articles/django)
+# Automatic Django database configuration on Heroku (https://devcenter.heroku.com/articles/django)
 #dj-database-url
 
 # Automatic Django memcached configuration on Heroku. (http://pypi.python.org/pypi/django-heroku-memcacheify)
@@ -172,3 +170,6 @@ docutils
 
 # Gunicorn (https://devcenter.heroku.com/articles/django)
 #gunicon
+
+# dj-static (https://devcenter.heroku.com/articles/django-assets)
+#dj-static
