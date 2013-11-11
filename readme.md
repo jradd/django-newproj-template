@@ -252,7 +252,7 @@ SSH into the virtual box if you aren't already there. From the project directory
     (host) $ vagrant up
     (host) $ vagrant ssh
 
-Open the _id_rsa.pub_ file on the virtual box for editing.
+Open the `id_rsa.pub` file on the virtual box for editing.
 
     (vm) $ nano ~/.ssh/id_rsa.pub
 
@@ -262,7 +262,7 @@ Copy the public key in a new Terminal window:
 
 Return to nano on the Virtual Machine. Paste, exit and save changes.
 
-Open the _id_rsa_ file on the virtual box for editing. In the Terminal window that is SSH'd into the virtual box run:
+Open the `id_rsa` file on the virtual box for editing. In the Terminal window that is SSH'd into the virtual box run:
 
     (vm) $ nano ~/.ssh/id_rsa
 
