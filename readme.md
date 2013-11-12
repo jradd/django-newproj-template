@@ -407,6 +407,247 @@ Follow the directions [here](#personalize-git).
 * [Run Server](#run-server)
 * [Run Compass Watch](#watch-for-changes-to-sass-stylesheets)
 
+# Deployment
+
+## Setup databases (in the WebFaction control panel):
+
+Create a PostgreSQL database for the project. Copy the database name, user and password into the project's production settings file.
+
+## Setup the WSGI application (in the WebFaction control panel):
+
+Create a WSGI type app for each site/project using Python 2.7 along with the latest version of WSGI available.
+
+
+## Setup static media apps (in the WebFaction control panel):
+
+The static media app should be named 'static' and be a Static type app.
+
+_If the app isn't named static, a symlink app can serve as a go-between to still use `/static` as the URL for the app. This is kind of weird. An example would be the where the static app is named `awesomesite_static` and has a path on the server of `/home/awesomesiteuser/webapps/awesomesite_static/` and the `awesomesite_static_symlink` app serves as a symlink to `/home/awesomesiteuser/webapps/awesomesite_static/static/` in which case the symlink app gets the url of `/static` when setting up the Website in the WebFaction control panel (as opposed to the actual static app which doesn't get it's own URL)._
+
+Dynamic media app should be named 'media' and be a Static type app.
+
+## Point the URLs at the Websites, link the apps in to the Websites (in the WebFaction control panel):
+
+URLs should route as follows:
+
+* <wsgi_application_name> --> /
+* media --> /media
+* static --> /static
+
+## Add SSH key so we don't have to continuously input our password:
+
+### Copy the key to your WebFaction account. Enter:
+
+	(local) $ scp ~/.ssh/id_rsa.pub <accountname>@<accountname>.webfactional.com:temp_id_rsa_key.pub 
+
+When prompted, enter your password.
+
+### Open an SSH session to your account. Enter:
+
+	(local) $ ssh <accountname>@<accountname>.webfactional.com 
+
+When prompted, enter your password.
+
+### Create ~/.ssh, if it does not already exist. Enter:
+
+	(webfaction) $ mkdir -p $HOME/.ssh
+
+### Add your key to the authorized_keys file. Enter:
+
+	(webfaction) $ cat ~/temp_id_rsa_key.pub >> ~/.ssh/authorized_keys 
+
+### Remove the temporary key file. Enter: 
+
+	(webfaction) $ rm ~/temp_id_rsa_key.pub 
+
+### Secure the SSH keys. Enter:
+
+	(webfaction) $ chmod 600 ~/.ssh/authorized_keys 
+
+### Secure the SSH directory. Enter: 
+
+	(webfaction) $ chmod 700 ~/.ssh 
+
+### Close the SSH session.
+
+	(webfaction) $ exit
+
+
+### Verify that your key works properly. Open an SSH session to your account, you shouldn't be prompted for your password this time:
+
+	(local) $ ssh <accountname>@<accountname>.webfactional.com 
+
+#### Close the SSH session.
+
+	(webfaction) $ exit
+
+## Install necessary modules:
+
+**Note: use ``python2.7`` (or whatever version of Python you setup for your WSGI app) to run all commands instead of just `python` or `./`. 
+
+### SSH into your account
+
+	(local) $ ssh <accountname>@<accountname>.webfactional.com 
+
+Then run:
+
+	(webfaction) $ mkdir -p ~/lib/python2.7
+
+	(webfaction) $ easy_install-2.7 pip 
+
+Check whether `virtualenv` and `virtualenvwrapper` are installed, run the following and look for them in the output:
+
+	(webfaction) $ pip freeze
+
+If so, carry on, if not:
+
+	(webfaction) $ pip install virtualenv
+
+Virtualenvwrapper has to be installed from source ([ref](http://community.webfaction.com/questions/10316/pip-install-virtualenvwrapper-not-working)).
+
+	(webfaction) $ mkdir -p ~/bin ~/lib/python2.7 ~/src
+
+	(webfaction) $ cd ~/src
+
+	(webfaction) $ ln -s $HOME/lib/python2.7 $HOME/lib/python
+
+	(webfaction) $ wget http://pypi.python.org/packages/source/v/
+	virtualenvwrapper/virtualenvwrapper-4.0.tar.gz --no-check-certificate
+
+	(webfaction) $ tar zxf virtualenvwrapper-4.0.tar.gz
+
+	(webfaction) $ cd virtualenvwrapper-4.0
+
+	(webfaction) $ PYTHONPATH=$HOME/lib/python2.7 python2.7 setup.py 	install --home=$HOME
+
+	(webfaction) $ rm $HOME/lib/python
+
+### Edit the `~/.bashrc` file. 
+
+	(webfaction) $ nano ~/.bashrc
+
+Append at the end:
+
+	export WORKON_HOME=$HOME/.virtualenvs 
+	export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7 
+	source /home/<accountname>/bin/virtualenvwrapper.sh 
+	
+If you're on a CentOS 6 machine (your WebFaction server number is >300) also add the following ([ref](http://community.webfaction.com/questions/7714/installing-psycopg2-pg_config-missing)):
+
+	export PATH=/usr/pgsql-9.1/bin:$PATH
+
+Exit and save.
+ 
+### Source the `~/.bashrc` file. 
+
+	(webfaction) $ source ~/.bashrc
+
+Create the virtualenv.
+
+	(webfaction) $ mkdir -p ~/.virtualenvs/ 
+
+	(webfaction) $ mkvirtualenv <envname>
+
+	(webfaction) $ workon <envname> && cdvirtualenv
+
+	(webfaction) $ add2virtualenv .
+
+### Correct the permissions for the media app:
+
+	(webfaction) $ chmod 755 ~/webapps/media
+
+### Edit the .wsgi file:
+
+Create a wsgi file in the wsgi application:
+
+	$ vim ~/webapps/<wsgi_application_name>/<wsgi_application_name>.wsgi
+
+Edit it to include:
+
+	#!/usr/bin/python 
+	import os
+	import site
+	import sys  
+
+	# Tell wsgi to add the Python site-packages to it's path. 
+	site.addsitedir('/home/<accountname>/.virtualenvs/<envname>/lib/python2.7/site-packages')  
+
+	# Fix markdown.py (and potentially others) using stdout 
+	sys.stdout = sys.stderr  
+
+	# Append the Django project to the path. 
+	sys.path.append('/home/<accountname>/.virtualenvs/<envname>/<django_project_name>')  
+
+	# On Django 1.4 projects settings now lives in an application (generally named myproject) within the project (also named myproject) so this should be 'myproject.settings.production', on older Django installations (Django 1.3 say) this should just be 'settings'
+	os.environ['DJANGO_SETTINGS_MODULE'] = 'myproject.settings.production' 
+	from django.core.handlers.wsgi import WSGIHandler 
+	application = WSGIHandler()  
+
+### Edit the apache config file:
+
+	$ vim ~/webapps/<wsgi_application_name>/apache2/conf/httpd.conf
+
+Comment out the `DirectoryIndex` and `DocumentRoot` lines.
+
+Add, where port number is the port number assigned for the wsgi application:
+
+	NameVirtualHost *:<port_number>
+	<VirtualHost *:<port_number>>
+	    ServerName <domain_name.com>
+    	ServerAlias www.<domain_name.com> <alternate_domain_name.com>
+	    WSGIScriptAlias / /home/<accountname>/webapps/	<wsgi_application_name>/<wsgi_application_name>.wsgi
+	</VirtualHost>
+
+Verify that works by rebooting (site won't load yet, need to do a deploy, but restart should go without errors).
+
+	$ ~/webapps/<wsgi_application_name>/apache2/bin/restart
+
+### Close the SSH session.
+
+	(webfaction) $ exit
+
+## Edit the project's production settings (`settings/production.py`):
+
+In `settings/production.py` update the following configuration variables, replacing <accountname> with your WebFaction account name and <url> with your website's URL (including any variants such as _accountname.webfaction.com_):
+
+	MEDIA_ROOT = '/home/<accountname>/webapps/media/'
+	MEDIA_URL = '/media/'
+
+	STATIC_ROOT = '/home/<accountname>/webapps/static/'
+	STATIC_URL = '/static/'
+
+	ADMIN_MEDIA_PREFIX = '/static/admin/'
+	
+	ALLOWED_HOSTS = [<url>]
+
+## Edit the project's fab file (`fabfile.py`):
+
+Replace `<accountname>` with your WebFaction account name, `<envname>` with your virtualenv name, `<wsgi_application_name>` with the name of the WSGI application you created and adjust the name of the `env.remote_static_root` as necessary based on the name of the static app created. In the `production()` method update the following variables:
+
+	env.apache_restart_command = '/home/<accountname>/webapps/<wsgi_application_name>/apache2/bin/restart' # Command to use to restart Apache, this will vary between hosts
+	
+	env.hosts = ['<accountname>@<accountname>.webfactional.com'] # One or multiple server addresses
+	
+	env.password = '<password>' # Connection and sudo password (you can omit it and Fabric will prompt you when necessary)
+	
+	env.virtualenv_name = <virtualenv_name>
+	
+	env.path = '/home/<accountname>/.virtualenvs/<virtualenv_name>' # Absolute path to where your application will be deployed (directory immediately above project)
+	
+	env.remote_media_root = '/home/<accountname>/webapps/media'
+	
+	env.remote_static_root = '/home/<accountname>/webapps' # see how this doesn't actually include 'static' because rsync creates the 'static' dir, if the name of the app is not 'static' this WILL need to be set (see note regarding symlink in the directions for creating a static media app)
+
+## Setup the environment on the server and do an initial deployment:
+
+Setup the necessary directories and install the necessary packages via PIP:
+
+	$ fab production remote_setup
+
+	$ fab production deploy
+
+_Watch the output the first time deokitubg. If PIL installs without libjpeg support, follow these directions: [http://community.webfaction.com/questions/7340/how-to-install-pil-with-truetype-support]()._
+
 # Documentation
 
 ## Dependencies
