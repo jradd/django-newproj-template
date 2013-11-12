@@ -472,15 +472,15 @@ When prompted, enter your password.
 	(webfaction) $ exit
 
 
-### Verify that your key works properly. Open an SSH session to your account, you shouldn't be prompted for your password this time:
+### Verify that your key works properly. Open an SSH session to your account, you shouldn't be prompted for your password this time
 
 	(vm) $ ssh <accountname>@<accountname>.webfactional.com 
 
-#### Close the SSH session.
+#### Close the SSH session
 
 	(webfaction) $ exit
 
-## Install necessary modules:
+## Install necessary modules
 
 **Note: use ``python2.7`` to run all commands instead of just `python` or `./`.**
 
