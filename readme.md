@@ -15,6 +15,7 @@ Django project template for starting a new project.
 * [Initial setup of Vagrant Base](#initial-setup-of-vagrant-base)
 * [Starting a New Project](#starting-a-new-project)
 * [Using a Vagrant Virtual Environment That Has Been Shared With You](#using-a-vagrant-virtual-environment-that-has-been-shared-with-you)
+* [Deploying to a WebFaction Instance](#deploying-to-a-webfaction-instance)
 
 ### Documentation
 
