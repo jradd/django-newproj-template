@@ -407,7 +407,7 @@ Follow the directions [here](#personalize-git).
 * [Run Server](#run-server)
 * [Run Compass Watch](#watch-for-changes-to-sass-stylesheets)
 
-# Deployment
+# Deploying to a WebFaction Instance
 
 ## Setup databases (in the WebFaction control panel):
 
