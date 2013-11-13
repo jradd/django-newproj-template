@@ -32,7 +32,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'compressor',
     'debug_toolbar',
-    'django_any',
     'django_extensions',
     'django_robots',
     'django_mobile',
