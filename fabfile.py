@@ -197,7 +197,7 @@ def _freeze_packages():
             'requirements_filename': env.requirements_filename,
         })
     try:
-        local('git commit -am "freezing requiremnts for server environment"',
+        local('git commit -am "freezing requirements for server environment"',
             capture=False)
     except:
         # This will be thrown if the requirments doc hasn't changed during the
