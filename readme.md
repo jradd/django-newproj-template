@@ -491,7 +491,6 @@ When prompted, enter your password.
 Then run:
 
 	(webfaction) $ mkdir -p ~/lib/python2.7
-
 	(webfaction) $ easy_install-2.7 pip 
 
 Check whether `virtualenv` and `virtualenvwrapper` are installed, run the following and look for them in the output:
@@ -505,19 +504,12 @@ If so, carry on, if not:
 If you have to install Virtualenvwrapper, it has to be installed from source ([ref](http://community.webfaction.com/questions/10316/pip-install-virtualenvwrapper-not-working)). The latest version at the time of documentation is 4.1.1… check the list at [https://pypi.python.org/packages/source/v/virtualenvwrapper/]() to verify that before proceeding:
 
 	(webfaction) $ mkdir -p ~/bin ~/lib/python2.7 ~/src
-
 	(webfaction) $ cd ~/src
-
 	(webfaction) $ ln -s $HOME/lib/python2.7 $HOME/lib/python
-
 	(webfaction) $ wget http://pypi.python.org/packages/source/v/virtualenvwrapper/virtualenvwrapper-4.1.1.tar.gz --no-check-certificate
-
 	(webfaction) $ tar zxf virtualenvwrapper-4.1.1.tar.gz
-
 	(webfaction) $ cd virtualenvwrapper-4.1.1
-
 	(webfaction) $ PYTHONPATH=$HOME/lib/python2.7 python2.7 setup.py install --home=$HOME
-
 	(webfaction) $ rm $HOME/lib/python
 
 ### Edit the `~/.bashrc` file to reference the virtualenvs 
@@ -543,11 +535,8 @@ Exit and save.
 ### Create the virtualenv
 
 	(webfaction) $ mkdir -p ~/.virtualenvs/ 
-
 	(webfaction) $ mkvirtualenv <envname>
-
 	(webfaction) $ workon <envname> && cdvirtualenv
-
 	(webfaction) $ add2virtualenv .
 
 ### Correct the permissions for the media app
@@ -623,32 +612,26 @@ In `settings/production.py`, update the following configuration variables, repla
 In `fabfile.py`, replace `<accountname>` with your WebFaction account name, `<envname>` with your virtualenv name, `<wsgi_application_name>` with the name of the WSGI application you created and adjust the name of the `env.remote_static_root` as necessary based on the name of the static app created. In the `production()` method update the following variables:
 
 	env.apache_restart_command = '/home/<accountname>/webapps/<wsgi_application_name>/apache2/bin/restart'
-
 	env.hosts = ['<accountname>@<accountname>.webfactional.com']
-
 	env.password = '<password>'
-
-	env.virtualenv_name = '<virtualenv_name>'
-
+	env.virtualenv_name = '<envname>'
 	env.path = '/home/<accountname>/.virtualenvs/<virtualenv_name>'
-
 	env.remote_media_root = '/home/<accountname>/webapps/media'
-
 	env.remote_static_root = '/home/<accountname>/webapps'
 
 ## Setup the environment on the server and do an initial deployment
 
-	$ fab production remote_setup
+	(vm) $ fab production remote_setup
 	
 ### Freeze production requirements
 
-	$ sudo pip freeze > requirements/production.txt
-	$ git add requirements/production.txt
-	$ git commit requirements/production.txt -m "adding production requirements"
+	(vm) $ sudo pip freeze > requirements/production.txt
+	(vm) $ git add requirements/production.txt
+	(vm) $ git commit requirements/production.txt -m "adding production requirements"
 
 ### Deploy
 
-	$ fab production deploy
+	(vm) $ fab production deploy
 
 _Watch the output the first time deokitubg. If PIL installs without libjpeg support, follow these directions: [http://community.webfaction.com/questions/7340/how-to-install-pil-with-truetype-support]()._
 
