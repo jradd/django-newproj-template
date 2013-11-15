@@ -587,7 +587,7 @@ Edit it to include:
 
 Comment out the `DirectoryIndex` and `DocumentRoot` lines.
 
-Add, where port number is the port number assigned for the wsgi application:
+At the bottom of the file, add the following where port number is the port number assigned for the mod_wsgi application (which can be found by selecting the mod\_wsgi application from the list of Applications in the WebFaction Control Panel under Domains/Websites):
 
 	NameVirtualHost *:<port_number>
 	<VirtualHost *:<port_number>>
