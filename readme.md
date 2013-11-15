@@ -608,10 +608,10 @@ Verify that works by rebooting (site won't load yet, need to do a deploy, but re
 
 In `settings/production.py`, update the following configuration variables, replacing <accountname> with your WebFaction account name and <url> with your website's URL (including any variants such as _accountname.webfaction.com_):
 
-	MEDIA_ROOT = '/home/<accountname>/webapps/media/'
+	MEDIA_ROOT = '/home/<accountname>/webapps/<dynamic\_media\_app\_name>/'
 	MEDIA_URL = '/media/'
 
-	STATIC_ROOT = '/home/<accountname>/webapps/static/'
+	STATIC_ROOT = '/home/<accountname>/webapps/<static\_media\_app\_name>/'
 	STATIC_URL = '/static/'
 
 	ADMIN_MEDIA_PREFIX = '/static/admin/'
