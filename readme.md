@@ -622,23 +622,31 @@ In `settings/production.py`, update the following configuration variables, repla
 
 In `fabfile.py`, replace `<accountname>` with your WebFaction account name, `<envname>` with your virtualenv name, `<wsgi_application_name>` with the name of the WSGI application you created and adjust the name of the `env.remote_static_root` as necessary based on the name of the static app created. In the `production()` method update the following variables:
 
-	env.apache_restart_command = '/home/<accountname>/webapps/<wsgi_application_name>/apache2/bin/restart' # Command to use to restart Apache, this will vary between hosts
-	
-	env.hosts = ['<accountname>@<accountname>.webfactional.com'] # One or multiple server addresses
-	
-	env.password = '<password>' # Connection and sudo password (you can omit it and Fabric will prompt you when necessary)
-	
-	env.virtualenv_name = <virtualenv_name>
-	
-	env.path = '/home/<accountname>/.virtualenvs/<virtualenv_name>' # Absolute path to where your application will be deployed (directory immediately above project)
-	
+	env.apache_restart_command = '/home/<accountname>/webapps/<wsgi_application_name>/apache2/bin/restart'
+
+	env.hosts = ['<accountname>@<accountname>.webfactional.com']
+
+	env.password = '<password>'
+
+	env.virtualenv_name = '<virtualenv_name>'
+
+	env.path = '/home/<accountname>/.virtualenvs/<virtualenv_name>'
+
 	env.remote_media_root = '/home/<accountname>/webapps/media'
-	
-	env.remote_static_root = '/home/<accountname>/webapps' # see how this doesn't actually include 'static' because rsync creates the 'static' dir, if the name of the app is not 'static' this WILL need to be set (see note regarding symlink in the directions for creating a static media app)
+
+	env.remote_static_root = '/home/<accountname>/webapps'
 
 ## Setup the environment on the server and do an initial deployment
 
 	$ fab production remote_setup
+	
+### Freeze production requirements
+
+	$ sudo pip freeze > requirements/production.txt
+	$ git add requirements/production.txt
+	$ git commit requirements/production.txt -m "adding production requirements"
+
+### Deploy
 
 	$ fab production deploy
 
