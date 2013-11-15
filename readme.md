@@ -633,7 +633,7 @@ In `fabfile.py`, replace `<accountname>` with your WebFaction account name, `<en
 
 	(vm) $ fab production deploy
 
-_Watch the output the first time deokitubg. If PIL installs without libjpeg support, follow these directions: [http://community.webfaction.com/questions/7340/how-to-install-pil-with-truetype-support]()._
+_Watch the output the first time debugging. If PIL installs without libjpeg support, follow these directions: [http://community.webfaction.com/questions/7340/how-to-install-pil-with-truetype-support]()._
 
 # Documentation
 
