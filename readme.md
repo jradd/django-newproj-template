@@ -516,7 +516,7 @@ If you have to install Virtualenvwrapper, it has to be installed from source ([r
 
 	(webfaction) $ cd virtualenvwrapper-4.1.1
 
-	(webfaction) $ PYTHONPATH=$HOME/lib/python2.7 python2.7 setup.py 	install --home=$HOME
+	(webfaction) $ PYTHONPATH=$HOME/lib/python2.7 python2.7 setup.py install --home=$HOME
 
 	(webfaction) $ rm $HOME/lib/python
 
@@ -552,7 +552,7 @@ Exit and save.
 
 ### Correct the permissions for the media app
 
-	(webfaction) $ chmod 755 ~/webapps/media
+	(webfaction) $ chmod 755 ~/webapps/<dynamic_media_application_name>
 
 ### Edit the .wsgi file
 
