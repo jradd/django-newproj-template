@@ -592,8 +592,8 @@ At the bottom of the file, add the following where port number is the port numbe
 	NameVirtualHost *:<port_number>
 	<VirtualHost *:<port_number>>
 	    ServerName <domain_name.com>
-    	ServerAlias www.<domain_name.com> <alternate_domain_name.com>
-	    WSGIScriptAlias / /home/<accountname>/webapps/	<wsgi_application_name>/<wsgi_application_name>.wsgi
+	    ServerAlias www.<domain_name.com> <alternate_domain_name.com>
+	    WSGIScriptAlias / /home/<accountname>/webapps/<wsgi_application_name>/<wsgi_application_name>.wsgi
 	</VirtualHost>
 
 Verify that works by rebooting (site won't load yet, need to do a deploy, but restart should go without errors).
