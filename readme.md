@@ -558,7 +558,7 @@ Exit and save.
 
 Create a wsgi file in the mod_wsgi application:
 
-	$ vim ~/webapps/<wsgi_application_name>/<wsgi_application_name>.wsgi
+	$ nano ~/webapps/<wsgi_application_name>/<wsgi_application_name>.wsgi
 
 Edit it to include:
 
@@ -583,7 +583,7 @@ Edit it to include:
 
 ### Edit the apache config file
 
-	$ vim ~/webapps/<wsgi_application_name>/apache2/conf/httpd.conf
+	$ nano ~/webapps/<wsgi_application_name>/apache2/conf/httpd.conf
 
 Comment out the `DirectoryIndex` and `DocumentRoot` lines.
 
