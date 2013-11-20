@@ -9,7 +9,8 @@ from fabric.contrib.project import rsync_project
 THIS FILE MUST BE CONFIGURED BEFORE USE
 """
 
-# !Global Settings
+# Global Settings
+
 # Django Project Name
 env.project_name = 'myproject'
 
@@ -17,46 +18,56 @@ env.local_static_root = os.path.join(os.path.dirname(__file__),
     '%(project)s/static' % {'project': env.project_name})
 
 
-# !Environments
+# Environments
+
 def production():
     # Command to use to restart Apache, this will vary between hosts
     # On WebFaction it is:
     #   /home/<username>/webapps/<application name>/apache2/bin/restart,
     # In a Ubuntu server it is: apache2ctl graceful
     env.apache_restart_command = ''
+
     # One or multiple username@server/IP address combos
     env.hosts = ['']
+
     # Connection and sudo password (this can be left as an empty string
     #   and Fabric will prompt as necessary)
     env.password = ''
+
     # Name of the virtual environment
     env.virtualenv_name = ''
+
     # Absolute path to where the application will be deployed
     #   (directory immediately above project in virtual environemt).
     # Don't end with a trailing slash.
     # On Webfaction this will be:
     #   '/home/<accountname>/.virtualenvs/<virtualenv_name>'
     env.path = ''
+
     # Absolute path to where media files will be served from.
     # This is the same as settings.MEDIA_ROOT.
     # Don't end with a trailing slash.
     env.remote_media_root = ''
+
     # Absolute path to the directory above where static files.
     #   will be served from. This is the same as settings.STATIC_ROOT.
     # Don't end with a trailing slash.
     env.remote_static_root = ''
     
+
     # The following settings are environment specific and generally 
     #   should be named after the name of this environment.
     
     # Default branch of Git repository to be used to deploy to 
     #   this environment. 
     env.default_branch = 'master'
+
     # Requirements file to be used for this environment.
     # Should match the name of this environment followed by '.txt'
     # Dynamically created by the script at: 
     #   <project_name>/requirements/<requirements_filename>
     env.requirements_filename = 'production.txt'
+
     # Settings module to be used for this environment.
     # Should extend <project_name>/settings/base.py.
     # Lives at:
@@ -64,15 +75,18 @@ def production():
     # Filename should match the name of this environment followed by '.py'
     env.settings_module = 'production'
 
+
     # The following settings are for the grab_data method ONLY
     #   and are otherwise OPTIONAL.
 
     # Name of remote database (must be a PostgreSQL-type database).
     # This is the same as settings.DATABASES['default']['NAME'].
     env.database_name = ''
+
     # User of remote database.
     # This is the same as settings.DATABASES['default']['USER'].
     env.database_user = ''
+
     # Path to tmp or other remote directory for temporary storage.
     # Don't end with a trailing slash
     env.temp_path = ''
