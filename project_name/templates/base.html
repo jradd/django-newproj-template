@@ -57,16 +57,54 @@
         <![endif]-->
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
         {% comment %}
         
-            Reference iOS Human Interface Guidelines for Sizes
-            http://developer.apple.com/library/IOs/#documentation/UserExperience/Conceptual/MobileHIG/IconsImages/IconsImages.html
+            For theory, reference: 
+            
+            _Understand the Favicon_ by Jonathan T. Neal_
+            http://www.jonathantneal.com/blog/understand-the-favicon/
+            
+            _The State of Favicons_ by Chris Coyier_
+            http://css-tricks.com/video-screencasts/122-the-state-of-favicons/
+            
+            _Everything you always wanted to know about touch icons._
+            Mathias Bynens
+        
+            ---
+            
+            For Apple:
+            
+            * apple-touch-icon-152x152-precomposed.png should be a 152x152 PNG for the iPad with high-resolution Retina display running iOS ≥ 7
+            * apple-touch-icon-120x120-precomposed.png should be a 120x120 PNG for the iPhone with high-resolution Retina display running iOS ≥ 7
+            * apple-touch-icon-76x76-precomposed.png should be a 76x76 PNG for the iPad mini and the first- and second-generation iPad on iOS ≥ 7
+            * apple-touch-icon-precomposed.png should be a 57x57 PNG for non-Retina iPhone, iPod Touch, and Android 2.1+ devices
+            
+            Favicons:
+            
+            * favicon.png should be a 32x32 PNG on a solid color or transparent background
+              (FYI, the article references 96x96 but this seems to be a typo)
+            * favicon.ico should be a combination of 16x16 and 32x32 PNGs compiled into a .ico file 
+              (use http://www.kodlian.com/apps/icon-slate to compile that .ico file)
+
+            For Microsoft:
+            
+            * tileicon.png should be 144x144 PNG on a transparent background
+            * a background tile color can be specified using a hex RGB color (e.g. #RRGGBB)
             
         {% endcomment %}
-        <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}images/apple-touch-icon-57x57.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ STATIC_URL }}images/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ STATIC_URL }}images/apple-touch-icon-114x114.png" />
+        
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ STATIC_URL }}apple-touch-icon-152x152-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ STATIC_URL }}apple-touch-icon-120x120-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ STATIC_URL }}apple-touch-icon-76x76-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="{{ STATIC_URL }}apple-touch-icon-precomposed.png">
+        
+        <link rel="icon" href="{{ STATIC_URL }}favicon.png">
+        
+        <!--[if IE]><link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico"><![endif]-->
+        {# or, set /favicon.ico for IE10 win #}
+        
+        <meta name="msapplication-TileColor" content="#2b2b2b">
+        <meta name="msapplication-TileImage" content="{{ STATIC_URL }}tileicon.png">
 
         {% block additional_head_items %}{% endblock %}
     </head>
