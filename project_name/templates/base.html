@@ -148,6 +148,19 @@
         {% endblock %}
 
         <!-- Google Analytics -->
+        {% comment %}
+        
+            This code contains the method call for Enhanced Link Attribution which is the ability to:
+            
+                * See separate information for multiple links on a page that all have the same destination. For example, if there are two links on the same page that both lead to the Contact Us page, then you see separate click information for each link.
+                * See when one page element has multiple destinations. For example, a Search button on your page is likely to lead to multiple destinations.
+                * Track buttons, menus, and actions driven by javascript.
+                
+            To remove this functionality, remove `ga('require', 'linkid', 'linkid.js');`
+            
+            Documentation at https://support.google.com/analytics/answer/2558867?hl=en&utm_id=ad.
+            
+        {% endcomment %}
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -155,6 +168,7 @@
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
             ga('create', 'UA-XXXXXXXX-X', 'domain.tld');
+            ga('require', 'linkid', 'linkid.js');
             ga('send', 'pageview');
             
         </script>
