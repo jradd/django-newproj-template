@@ -493,6 +493,9 @@ Then run:
 	(webfaction) $ mkdir -p ~/lib/python2.7
 	(webfaction) $ easy_install-2.7 pip 
 
+
+### Install VirtualEnv and VirtualEnvWrapper
+
 Check whether `virtualenv` and `virtualenvwrapper` are installed, run the following and look for them in the output:
 
 	(webfaction) $ pip freeze
@@ -528,9 +531,73 @@ If you're on a CentOS 6 machine (your WebFaction server number is >Web300) also 
 
 Exit and save.
  
-### Source the `~/.bashrc` file to load it
+#### Source the `~/.bashrc` file to load it
 
 	(webfaction) $ source ~/.bashrc
+
+
+### Configure PIL 
+
+PIP installation of PIL doesn't work so well on WebFaction. (From [http://community.webfaction.com/questions/7340/how-to-install-pil-with-truetype-support]().)
+
+	(webfaction) $ mkdir -p ~/src ~/lib/python2.7
+	(webfaction) $ cd ~/src
+	(webfaction) $ wget http://effbot.org/media/downloads/PIL-1.1.7.tar.gz
+	(webfaction) $ tar zxf PIL-1.1.7.tar.gz
+	(webfaction) $ cd PIL-1.1.7
+
+edit PIL's setup.py to set the library pointers as follows:
+
+	# --------------------------------------------------------------------
+	# Library pointers.
+	#
+	# Use None to look for the libraries in well-known library locations.
+	# Use a string to specify a single directory, for both the library and
+	# the include files.  Use a tuple to specify separate directories:
+	# (libpath, includepath).  Examples:
+	#
+	# JPEG_ROOT = "/home/libraries/jpeg-6b"
+	# TIFF_ROOT = "/opt/tiff/lib", "/opt/tiff/include"
+	#
+	# If you have "lib" and "include" directories under a common parent,
+	# you can use the "libinclude" helper:
+	#
+	# TIFF_ROOT = libinclude("/opt/tiff")
+
+	TCL_ROOT = None
+	JPEG_ROOT = '/usr/lib64','/usr/include'
+	ZLIB_ROOT = '/lib64','/usr/include'
+	TIFF_ROOT = None
+	FREETYPE_ROOT = '/usr/lib64','/usr/include/freetype2/freetype'
+	LCMS_ROOT = None
+
+build PIL with the following command:
+
+	(webfaction) $ python2.7 setup.py build_ext -i
+	
+run the test to confirm that the build was successful:
+
+	(webfaction) $ python2.7 selftest.py
+	
+should return:
+
+	--------------------------------------------------------------------
+	PIL 1.1.7 TEST SUMMARY 
+	--------------------------------------------------------------------
+	Python modules loaded from ./PIL
+	Binary modules loaded from ./PIL
+	--------------------------------------------------------------------
+	--- PIL CORE support ok
+	--- TKINTER support ok
+	--- JPEG support ok
+	--- ZLIB (PNG/ZIP) support ok
+	--- FREETYPE2 support ok
+	--- LITTLECMS support ok
+	--------------------------------------------------------------------
+
+install the library:
+
+	(webfaction) $ python2.7 setup.py install
 
 ### Create the virtualenv
 
@@ -585,9 +652,127 @@ At the bottom of the file, add the following where port number is the port numbe
 	    WSGIScriptAlias / /home/<accountname>/webapps/<wsgi_application_name>/<wsgi_application_name>.wsgi
 	</VirtualHost>
 
+#### (Optional) Configure Domain Aliases
+
+Make sure that the Apache rewrite_module is being loaded, there should be a line at the top that looks like:
+
+	LoadModule rewrite_module modules/mod_rewrite.so
+
+In the `VirtualHost`, before the closing tag (`</VirtualHost>`), add the following:
+
+Turn on the RewriteEngine:
+
+	RewriteEngine On
+
+Send access attempts to 'www' to the domain without that subdomain (make sure that 'www.domainname.tld' is setup under the domains tab of the WebFaction Domains control panel and is pointed at the app). Replace `domainname.tld` with the real domain name and top level domain:
+
+	RewriteCond %{HTTP_HOST} ^www.domainname.tld$ [NC]
+	RewriteRule ^(.*)$ http://domainname.tld$1 [R=301,L]
+
+Point an alternate domain at our domain (make sure that 'www.otherdomainname.tld' and 'otherdomainname.tld' are setup under the domains tab of the WebFaction Domains control panel and are pointed at the app). Replace `otherdomainname.tld` with the other domain name and top level domain and replace `domainname.tld` with the primary domain name and top level domain:
+
+	RewriteCond %{HTTP_HOST} ^otherdomainname.tld$ [NC]
+	RewriteRule ^(.*)$ http://domainname.tld$1 [R=301,L]
+
+	RewriteCond %{HTTP_HOST} ^www.otherdomainname.tld$ [NC]
+	RewriteRule ^(.*)$ http://domainname.tld$1 [R=301,L]
+
+#### Reboot Apache
+
 Verify that works by rebooting (site won't load yet, need to do a deploy, but restart should go without errors).
 
-	$ ~/webapps/<wsgi_application_name>/apache2/bin/restart
+	(webfaction) $ ~/webapps/<wsgi_application_name>/apache2/bin/restart
+
+### (Optional) .htpasswd protect site
+
+From [http://httpd.apache.org/docs/2.0/howto/auth.html]() AND [http://community.webfaction.com/questions/256/apache-basic-authentication-for-mod_wsgi-inc-django-applications]():
+
+Make a directory to store the .htapasswd files:
+
+	(webfaction) $ mkdir -p /home/<username>/webapps/<webapp name>/apache2/passwd
+
+Create the .htpasswd file (which in this case is a file called 'passwords' using the htpasswd command:
+
+	(webfaction) $ htpasswd -c /home/<username>/webapps/<webapp name>/apache2/passwd/passwords <htpasswd user's username>
+
+Edit the httpd.conf file to include the necessary lines:
+
+	(webfaction) $ nano /home/<username>/webapps/<webapp name>/apache2/conf/httpd.conf
+
+And append:
+
+	LoadModule auth_basic_module modules/mod_auth_basic.so
+	LoadModule authn_file_module modules/mod_authn_file.so
+	LoadModule authz_user_module modules/mod_authz_user.so
+	<Location />
+		AuthType Basic
+		AuthName "Authentication Required"
+		AuthUserFile /home/<username>/webapps/<webapp name>/apache2/passwd/passwords
+		Require valid-user
+	</Location>
+
+Restart the server:
+
+	$ /home/<username>/webapps/<webapp name>/apache2/bin/restart
+
+### Schedule a Regular Database Backup
+
+From [http://docs.webfaction.com/user-guide/databases.html]().
+
+	(webfaction) $ nano ~/.pgpass
+
+Add a new line containing the following, where `database_name` is the name of the database as it appears on the control panel, `database_user` is the user you created for the database and `password` is the database password:
+
+	*:*:database_name:database_user:password
+
+Secure the ~/.pgpass file. 
+
+	(webfaction) $ chmod 600 ~/.pgpass
+
+Create a directory to store the database backups. 
+
+	(webfaction) $ mkdir -p ~/db_backups
+
+Edit your crontab:
+
+	(webfaction) $ crontab -e
+
+To include, replacing `databaseUser` with the user you created for the database and `databaseName` with the name of the database (occurs multiple times). Adjust the frequency as desired. This will backup the database once a day at 0800 UTC (or whatever the system clock is set to).:
+
+	0 8 * * * /usr/local/pgsql/bin/pg_dump -Ft -b -U databaseUser databaseName | gzip -9 > $HOME/db_backups/databaseName-`date +\%Y\%m\%d`.sql.gz 2>> $HOME/db_backups/backups.log && echo "Database backup completed successfully on `date`" >> $HOME/db_backups/backups.log
+
+**NOTE:** If the above line executes when run directly in the Bash shell but not when executed via crontab, the leading cause is the escaping of the timestamp. So, if it is not working, try unescaping the timestamp by removing the backslashes.
+
+### Configure memcached
+
+Based on: [http://docs.webfaction.com/software/memcached.html](), [http://docs.webfaction.com/software/django/config.html#django-memcached](), [http://forum.webfaction.com/viewtopic.php?pid=2311](), and [http://docs.webfaction.com/software/python.html#installing-packages-with-setup-py]().
+
+_A supposedly much faster alternative to python-memcached is pylibmc. I have yet to figure out how to install it though._
+
+Make sure not to be in a virtual environment:
+
+	(webfaction) $ deactivate
+
+Create `~/src` if it doesn't exist yet:
+
+	(webfaction) $ mkdir -p ~/src
+
+Install and configure:
+
+	(webfaction) $ cd ~/src
+	(webfaction) $ wget ftp://ftp.tummy.com//pub/python-memcached/python-memcached-1.48.tar.gz
+	(webfaction) $ tar -xzvf python-memcached-1.48.tar.gz
+	(webfaction) $ cd python-memcached-1.48
+	(webfaction) $ python2.7 setup.py build
+	(webfaction) $ python2.7 setup.py install --home=$HOME
+
+Enable memcached as a daemon (defaults to using 64mb of memory; run `memcached -h` for optional configuration parameters including the amount of memory to use)
+
+	(webfaction) $ memcached -d -s ~/memcached.sock
+
+Establish that memcached is running (where `username` is your WebFaction account username):
+
+	(webfaction) $ ps -u username -o pid,command | grep memcached
 
 ### Close the SSH session
 
@@ -606,6 +791,13 @@ In `settings/production.py`, update the following configuration variables, repla
 	ADMIN_MEDIA_PREFIX = '/static/admin/'
 	
 	ALLOWED_HOSTS = [<url>]
+
+	CACHES = {
+    	'default': {
+        	'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+	        'LOCATION': 'unix://unix:/home/<username>/memcached.sock',
+    	}
+	}
 
 ## Edit the project's fab file
 
@@ -634,178 +826,6 @@ In `fabfile.py`, replace `<accountname>` with your WebFaction account name, `<en
 	(vm) $ fab production deploy
 
 _Watch the output the first time debugging. If PIL installs without libjpeg support, follow these directions: [http://community.webfaction.com/questions/7340/how-to-install-pil-with-truetype-support]()._
-
-# Backup the Database Regularly
-
-Backup the database regularly:
-
-From [http://docs.webfaction.com/user-guide/databases.html]().
-
-SSH to the server. Then:
-
-```$ vim ~/.pgpass```
-
-Add a new line containing the following, where database_name is the name of the database as it appears on the control panel (for example, username_db) and password is the database password:
-
-```*:*:database_name:database_user:password ```
-
-Secure the ~/.pgpass file. 
-
-```$ chmod 600 ~/.pgpass```
-
-Create a directory to store the database backups. 
-
-```$ mkdir ~/db_backups```
-
-Edit your crontab:
-
-```$ crontab -e```
-
-To include:
-
-```0 8 * * * /usr/local/pgsql/bin/pg_dump -Ft -b -U databaseUser databaseName | gzip -9 > $HOME/db_backups/databaseName-`date +\%Y\%m\%d`.sql.gz 2>> $HOME/db_backups/backups.log && echo "Database backup completed successfully on `date`" >> $HOME/db_backups/backups.log```
-
-NOTE: The leading cause of the problem with the error where this will execute when ran outside of a crontab (as in directly in the bash shell) but not when scheduled in the crontab has to do with the escaping of the timestamp. If it is not working try unescaping the timestamp by removing the backslashes.
-
-# Run memcached on WebFaction
-
-Optional. Running memcached.
-
-Based on: http://docs.webfaction.com/software/memcached.html, http://docs.webfaction.com/software/django/config.html#django-memcached, http://forum.webfaction.com/viewtopic.php?pid=2311, http://docs.webfaction.com/software/python.html#installing-packages-with-setup-py
-
-A supposedly much faster alternative to python-memcached is pylibmc. I have yet to figure out how to install it though.
-
-Make sure not to be in a virtual environment:
-$ deactivate
-
-Create ~/src if it doesn't exist yet:
-$ mkdir ~/src
-
-Install and configure:
-$ cd ~/src
-$ wget ftp://ftp.tummy.com//pub/python-memcached/python-memcached-1.48.tar.gz
-$ tar -xzvf python-memcached-1.48.tar.gz
-$ cd python-memcached-1.48
-$ python2.7 setup.py build
-$ python2.7 setup.py install --home=$HOME
-
-Enable memcached as a daemon (defaults to using 64mb of memory; run memcached -h for optional configuration parameters including the amount of memory to use)
-$ memcached -d -s ~/memcached.sock
-
-Edit the settings file to read:
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': 'unix://unix:/home/<username>/memcached.sock',
-    }
-}
-
-And restart the application. (application_name will be 'django' by default)
-$ /home/username/webapps/application_name/apache2/bin/restart
-
-To establish if memcached is running:
-$ ps -u username -o pid,command | grep memcached
-
-# Xapian on WebFaction
-
-Optional. Installing and configuring xapian (updated to work with new Centos6? servers).
-
-Make sure not to be in a virtual environment:
-$ deactivate
-
-Create ~/src if it doesn't exist yet:
-$ mkdir ~/src
-
-Install and configure:
-$ cd ~/src
-$ wget http://oligarchy.co.uk/xapian/1.2.6/xapian-core-1.2.6.tar.gz
-$ wget http://oligarchy.co.uk/xapian/1.2.6/xapian-bindings-1.2.6.tar.gz
-$ tar -xzvf xapian-core-1.2.6.tar.gz
-$ tar -xzvf xapian-bindings-1.2.6.tar.gz
-
-$ cd xapian-core-1.2.6
-$ mkdir -p $HOME/bin/xapian
-$ ./configure --prefix=$HOME/bin/xapian
-$ make
-$ make install
-
-$ cd ../xapian-bindings-1.2.6
-$ ./configure --prefix=$HOME/bin/xapian-bindings XAPIAN_CONFIG=$HOME/bin/xapian/bin/xapian-config  PYTHON=/usr/local/bin/python2.7 PYTHON_LIB=$HOME/lib/python2.7 --with-python --without-ruby --without-php --without-tcl 
-$ make
-$ make install
-
-Test that:
-$ python2.7 -c "import xapian"
-
-Configure the Django project to point at the correct spot:
-in settings.py point HAYSTACK_XAPIAN_PATH at '/home/<username>/bin/xapian'
-
-Setup a crontab to rebuild and update the index:
-# rebuild search index once a day
-3 3 * * * (echo `date` && /home/<webfaction_username>/.virtualenvs/<virtualenv_name>/bin/python2.7 /home/<webfaction_username>/.virtualenvs/<virtualenv_name>/myproject/manage.py rebuild_index --settings=myproject.settings --noinput) 2>&1 >> /home/<webfaction_username>/mycron.log
-
-# update search index every 5 minutes except during the 3 o'clock hour
-*/5 * * * * (echo `date` && /home/<webfaction_username>/.virtualenvs/<virtualenv_name>/bin/python2.7 /home/<webfaction_username>/.virtualenvs/<virtualenv_name>/myproject/manage.py update_index --settings=myproject.settings) 2>&1 >> /home/<webfaction_username>/mycron.log
-
-# Configure Domain Aliases
-
-Edit httpd.conf
-$ vim ~/webapps/<webfaction application name, usually 'django'>/apache2/conf/httpd.conf
-
-Make sure that the rewrite_module is being loaded, there should be a line at the top that looks like:
-LoadModule rewrite_module    modules/mod_rewrite.so
-
-In the VirtualHost, before the closing tag, add the following:
-
-Turn on the RewriteEngine, at the bottom append:
-RewriteEngine On
-
-Send access attempts to 'www' to the domain without that subdomain (make sure that 'www.domainname.tld' is setup under the domains tab of the WebFaction Domains control panel and is pointed at the app):
-RewriteCond %{HTTP_HOST} ^www.domainname.tld$ [NC]
-RewriteRule ^(.*)$ http://domainname.tld$1 [R=301,L]
-
-Point an alternate domain at our domain (make sure that 'www.otherdomainname.tld' and 'otherdomainname.tld' are setup under the domains tab of the WebFaction Domains control panel and are pointed at the app):
-RewriteCond %{HTTP_HOST} ^otherdomainname.tld$ [NC]
-RewriteRule ^(.*)$ http://domainname.tld$1 [R=301,L]
-
-RewriteCond %{HTTP_HOST} ^www.otherdomainname.tld$ [NC]
-RewriteRule ^(.*)$ http://domainname.tld$1 [R=301,L]
-
-Save and quit, then restart the server and test it out.
-~/webapps/webapps/<webfaction application name, usually 'django'>/apache2/bin/restart
-
-# .htpasswd protect site
-
-From http://httpd.apache.org/docs/2.0/howto/auth.html AND http://community.webfaction.com/questions/256/apache-basic-authentication-for-mod_wsgi-inc-django-applications:
-
-Make a directory to store the .htapasswd files:
-$ mkdir /home/<username>/webapps/<webapp name>/apache2/passwd
-
-Create the .htpasswd file (which in this case is a file called 'passwords' using the htpasswd command:
-$ htpasswd -c /home/<username>/webapps/<webapp name>/apache2/passwd/passwords <htpasswd user's username>
-
-Edit the httpd.conf file to include the necessary lines:
-$ vim /home/<username>/webapps/<webapp name>/apache2/conf/httpd.conf
-
-And append:
-LoadModule auth_basic_module modules/mod_auth_basic.so
-LoadModule authn_file_module modules/mod_authn_file.so
-LoadModule authz_user_module modules/mod_authz_user.so
-<Location />
-	AuthType Basic
-	AuthName "Authentication Required"
-	AuthUserFile /home/<username>/webapps/<webapp name>/apache2/passwd/passwords
-	Require valid-user
-</Location>
-
-Restart the server:
-$ /home/<username>/webapps/<webapp name>/apache2/bin/restart
-
-# Optional. PIL Installation. Required for SORL. 
-
-PIP installation of PIL doesn't work so well on WebFaction with VMs. So, instead...
-
-http://community.webfaction.com/questions/7340/how-to-install-pil-with-truetype-support
 
 # Documentation
 
