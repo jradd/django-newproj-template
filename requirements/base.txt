@@ -156,19 +156,3 @@ docutils
 
 # Django Image Gallery (https://github.com/jbergantine/django-image-gallery)
 #-e git://github.com/jbergantine/django-image-gallery.git#egg=gallery
-
-##########
-# Heroku #
-##########
-
-# Automatic Django database configuration on Heroku (https://devcenter.heroku.com/articles/django)
-#dj-database-url
-
-# Automatic Django memcached configuration on Heroku. (http://pypi.python.org/pypi/django-heroku-memcacheify)
-#django-heroku-memcacheify
-
-# Gunicorn (https://devcenter.heroku.com/articles/django)
-#gunicon
-
-# dj-static (https://devcenter.heroku.com/articles/django-assets)
-#dj-static
