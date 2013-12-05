@@ -778,9 +778,9 @@ Establish that memcached is running (where `username` is your WebFaction account
 
 	(webfaction) $ exit
 
-## Edit the project's production settings file
+## Edit the project's environmental settings file
 
-In `settings/production.py`, update the following configuration variables, replacing <accountname> with your WebFaction account name and <url> with your website's URL (including any variants such as _accountname.webfaction.com_):
+In `settings/<environment name>.py`, update the following configuration variables, replacing <accountname> with your WebFaction account name and <url> with your website's URL (including any variants such as _accountname.webfaction.com_):
 
 	MEDIA_ROOT = '/home/<accountname>/webapps/<dynamic_media_app_name>/'
 	MEDIA_URL = '/media/'
@@ -801,7 +801,7 @@ In `settings/production.py`, update the following configuration variables, repla
 
 ## Edit the project's fab file
 
-In `fabfile.py`, replace `<accountname>` with your WebFaction account name, `<envname>` with your virtualenv name, `<wsgi_application_name>` with the name of the WSGI application you created and adjust the name of the `env.remote_static_root` as necessary based on the name of the static app created. In the `production()` method update the following variables:
+In `fabfile.py`, in the environment you are configuring (probably `production` but possibly `staging` or something else) replace `<accountname>` with your WebFaction account name, `<envname>` with your virtualenv name, `<wsgi_application_name>` with the name of the WSGI application you created and adjust the name of the `env.remote_static_root` as necessary based on the name of the static app created. In the `production()` method update the following variables:
 
 	env.apache_restart_command = '/home/<accountname>/webapps/<wsgi_application_name>/apache2/bin/restart'
 	env.hosts = ['<accountname>@<accountname>.webfactional.com']
@@ -813,17 +813,19 @@ In `fabfile.py`, replace `<accountname>` with your WebFaction account name, `<en
 
 ## Setup the environment on the server and do an initial deployment
 
-	(vm) $ fab production remote_setup
+Replace `<environemnt name>` with the name of the environment as configured in `fabfile.py`, probably `production`.
+
+	(vm) $ fab <environment name> remote_setup
 	
 ### Freeze production requirements
 
-	(vm) $ sudo pip freeze > requirements/production.txt
-	(vm) $ git add requirements/production.txt
-	(vm) $ git commit requirements/production.txt -m "adding production requirements"
+	(vm) $ sudo pip freeze > requirements/<environment name>.txt
+	(vm) $ git add requirements/<environment name>.txt
+	(vm) $ git commit requirements/<environment name>.txt -m "adding <environment name> requirements"
 
 ### Deploy
 
-	(vm) $ fab production deploy
+	(vm) $ fab <environment name> deploy
 
 _Watch the output the first time debugging. If PIL installs without libjpeg support, follow these directions: [http://community.webfaction.com/questions/7340/how-to-install-pil-with-truetype-support]()._
 
