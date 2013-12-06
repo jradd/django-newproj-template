@@ -110,9 +110,6 @@ docutils
 # http://community.webfaction.com/questions/4183/solr-in-webfaction
 #xapian-haystack
 
-# Pagination (https://github.com/ericflo/django-pagination)
-#django-pagination
-
 # Background processing with Celery (https://github.com/ask/django-celery)
 # Process daemonizing with Supervisor (https://github.com/rfk/django-supervisor)
 #django-celery
