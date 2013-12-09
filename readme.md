@@ -1139,7 +1139,7 @@ The following bash aliases are added to the shell.
 
 <table>
     <tr>
-        <th>cw</th>
+        <th>$ cw</th>
         <td><pre>compass watch myproject/static_media/stylesheets</pre></td>
     </tr>
 </table>
@@ -1148,7 +1148,7 @@ The following bash aliases are added to the shell.
 
 <table>
     <tr>
-        <th>dj</th>
+        <th>$ dj</th>
         <td>
             <pre>python manage.py</pre>
             <p>Example usage, interact with the Django shell:</p>
@@ -1158,25 +1158,25 @@ The following bash aliases are added to the shell.
 </table>
 <table>
     <tr>
-        <th>rs</th>
+        <th>$ rs</th>
         <td>
             <pre>python manage.py runserver [::]:8000</pre>
             <p>This is necessary to enable port forwarding from the virtual machine to the host. In a host the site will now be available at http://127.0.0.1:8001.</p>
         </td>
     </tr>
     <tr>
-        <th>rsp</th>
+        <th>$ rsp</th>
         <td>
             <pre>python manage.py runserver_plus [::]:8000</pre>
             <p>Instigates django-extension's <a href="http://packages.python.org/django-extensions/runserver_plus.html">RunServerPlus</a> command with proper port forwarding. In a host the site will now be available at http://127.0.0.1:8001.</p>
         </td>
     </tr>
     <tr>
-        <th>sh</th>
+        <th>$ sh</th>
         <td><pre>python manage.py shell</pre></td>
     </tr>
     <tr>
-        <th>frs</th>
+        <th>$ frs</th>
         <td>
             <pre>foreman start -f Procfile.dev</pre>
             <p>Simutaniously starts <code>compass watch myproject/static_media/stylesheets</code> and <code>python manage.py runserver [::]:8000</code> so stylesheets can be compiled and the server run from the same SSH session without manually managing processes.</p>
@@ -1188,49 +1188,57 @@ The following bash aliases are added to the shell.
 
 <table>
     <tr>
-        <th>br</th>
-        <td><pre>branch</pre></td>
+        <th>$ git br</th>
+        <td><pre>git branch</pre></td>
     </tr>
     <tr>
-        <th>ci</th>
-        <td><pre>commit</pre></td>
+        <th>$ git ci</th>
+        <td><pre>git commit</pre></td>
     </tr>
     <tr>
-        <th>co</th>
-        <td><pre>checkout</pre></td>
+        <th>$ git co</th>
+        <td><pre>git checkout</pre></td>
     </tr>
     <tr>
-        <th>st</th>
-        <td><pre>status</pre></td>
+        <th>$ git last</th>
+        <td><pre>git log -1 HEAD</pre></td>
+    </tr>
+    <tr>
+        <th>$ git st</th>
+        <td><pre>git status</pre></td>
+    </tr>
+    <tr>
+        <th>$ git unstage</th>
+        <td><pre>git reset HEAD --</pre></td>
     </tr>
 </table>
 <table>
     <tr>
-        <th>ga</th>
+        <th>$ ga</th>
         <td><pre>git add</pre></td>
     </tr>
     <tr>
-        <th>gb</th>
+        <th>$ gb</th>
         <td><pre>git branch</pre></td>
     </tr>
     <tr>
-        <th>gco</th>
+        <th>$ gco</th>
         <td><pre>git checkout</pre></td>
     </tr>
     <tr>
-        <th>gl</th>
+        <th>$ gl</th>
         <td><pre>git pull</pre></td>
     </tr>
     <tr>
-        <th>gp</th>
+        <th>$ gp</th>
         <td><pre>git push</pre></td>
     </tr>
     <tr>
-        <th>gst</th>
+        <th>$ gst</th>
         <td><pre>git status</pre></td>
     </tr>
     <tr>
-        <th>gss</th>
+        <th>$ gss</th>
         <td><pre>git status -s</pre></td>
     </tr>
 </table>
@@ -1239,14 +1247,14 @@ The following bash aliases are added to the shell.
 
 <table>
     <tr>
-        <th>py</th>
+        <th>$ py</th>
         <td>
             <pre>python</pre>
             <p>Launches a Python interactive shell.</p>
         </td>
     </tr>
     <tr>
-        <th>pyclean</th>
+        <th>$ pyclean</th>
         <td>
             <pre>find . -name "*.pyc" -delete</pre>
             <p>Removes all files ending in ".pyc".</p>
