@@ -915,7 +915,7 @@ A stylesheet specifically for dealing with modifications necessary for Internet 
 
 ### Template Tags Installed
 
-#### fetch_content, nav, widont
+#### fetch_content, nav, widont, dumbquotes, dumbpunct
 
 [Documentation for these template tags is contained in a seperate repo](https://github.com/jbergantine/django-templatetags/blob/master/README.rst#usage).
 
