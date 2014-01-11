@@ -74,12 +74,12 @@ COMPRESS_ROOT = STATIC_ROOT
 COMPRESS_ENABLED = True
 
 # django-debug-toolbar configuration
-# force it to show thorugh vagrant port forwarding
+# force it to show through vagrant port forwarding
 # https://github.com/django-debug-toolbar/django-debug-toolbar/issues/210
 def custom_show_toolbar(self):
     return True
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
-    'SHOW_TOOLBAR_CALLBACK': custom_show_toolbar
+    'SHOW_TOOLBAR_CALLBACK': 'myproject.settings.development.custom_show_toolbar'
 }
