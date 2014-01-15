@@ -157,22 +157,7 @@ So, extending our example, this would be run from within _~/website/_.
 
 Clone the Chef cookbooks repositories as needed (we will use the following cookbooks in this guide). 
 
-    (host) $ git submodule add git://github.com/opscode-cookbooks/apt.git cookbooks/apt;\
-    git submodule add git://github.com/opscode-cookbooks/build-essential.git cookbooks/build-essential;\ 
-    git submodule add git://github.com/opscode-cookbooks/sudo.git cookbooks/sudo;\ 
-    git submodule add git://github.com/opscode-cookbooks/git.git cookbooks/git;\ 
-    git submodule add git://github.com/opscode-cookbooks/openssl.git cookbooks/openssl;\ 
-    git submodule add git://github.com/opscode-cookbooks/postgresql.git cookbooks/postgresql;\ 
-    git submodule add git://github.com/comandrei/python.git cookbooks/python;\ 
-    git submodule add git://github.com/opscode-cookbooks/zlib.git cookbooks/zlib;\ 
-    git submodule add git://github.com/opscode-cookbooks/memcached.git cookbooks/memcached;\ 
-    git submodule add git://github.com/jbergantine/chef-cookbook-python-psycopg2.git cookbooks/chef-cookbook-python-psycopg2;\ 
-    git submodule add git://github.com/jbergantine/chef-cookbook-libjpeg.git cookbooks/chef-cookbook-libjpeg;\ 
-    git submodule add git://github.com/jbergantine/chef-cookbook-libfreetype.git cookbooks/chef-cookbook-libfreetype;\ 
-    git submodule add git://github.com/jbergantine/chef-cookbook-xapian.git cookbooks/chef-cookbook-xapian;\ 
-    git submodule add git://github.com/jbergantine/chef-cookbook-djangonewproj.git cookbooks/chef-cookbook-djangonewproj
-
-
+    (host) $ git submodule add git://github.com/opscode-cookbooks/apt.git cookbooks/apt; git submodule add git://github.com/opscode-cookbooks/build-essential.git cookbooks/build-essential; git submodule add git://github.com/opscode-cookbooks/sudo.git cookbooks/sudo; git submodule add git://github.com/opscode-cookbooks/git.git cookbooks/git; git submodule add git://github.com/opscode-cookbooks/openssl.git cookbooks/openssl; git submodule add git://github.com/opscode-cookbooks/postgresql.git cookbooks/postgresql; git submodule add git://github.com/comandrei/python.git cookbooks/python; git submodule add git://github.com/opscode-cookbooks/zlib.git cookbooks/zlib; git submodule add git://github.com/opscode-cookbooks/memcached.git cookbooks/memcached; git submodule add git://github.com/jbergantine/chef-cookbook-python-psycopg2.git cookbooks/chef-cookbook-python-psycopg2; git submodule add git://github.com/jbergantine/chef-cookbook-libjpeg.git cookbooks/chef-cookbook-libjpeg; git submodule add git://github.com/jbergantine/chef-cookbook-libfreetype.git cookbooks/chef-cookbook-libfreetype; git submodule add git://github.com/jbergantine/chef-cookbook-xapian.git cookbooks/chef-cookbook-xapian; git submodule add git://github.com/jbergantine/chef-cookbook-djangonewproj.git cookbooks/chef-cookbook-djangonewproj
 
 Init and update the submodules.
 
